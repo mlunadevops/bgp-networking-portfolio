@@ -61,4 +61,15 @@ Router 3 (R3) CONFIG:
  no auto-summary
 !
 ```
+Router C (RTC) CONFIG:
+
+```text
+!
+router bgp 200
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 8.0.0.2 remote-as 200
+ neighbor 11.0.0.1 remote-as 300
+ no auto-summary
+!
 ```
