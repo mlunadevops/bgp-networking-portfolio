@@ -71,8 +71,6 @@ To verify the BGP session status, the `show ip bgp summary` command is essential
 
 ```
 
-🔍 **Verification and Troubleshooting**
-
 To verify the BGP session status and perform effective troubleshooting, the `show ip bgp summary` (or `show ip bgp su`) command is essential.
 
 ### BGP State Analysis
