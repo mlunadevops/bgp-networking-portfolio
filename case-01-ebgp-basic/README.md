@@ -6,7 +6,7 @@ This laboratory focuses on establishing BGP neighbor relationships (peers) acros
 ## 🗺️ Topology Diagram
 ![Topología High Availability pfSense](images/topology.png)
 
- **01** | [procedure](./procedure.md/) | ACTIVITY: Establishing a basic eBGP peering between two AS. |
+ **01** | [PROCEDURE](./procedure.md/) | ACTIVITY: Establishing a basic eBGP peering between two AS. |
 
 ## 📋 Addressing & AS Table
 
