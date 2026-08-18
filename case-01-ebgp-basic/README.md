@@ -77,3 +77,27 @@ To verify the BGP session status, the `show ip bgp summary` command is essential
 | **Idle** | Initial state; searching for route to neighbor | Missing IP route, interface down |
 | **Active** | TCP connection failed or retrying | Incorrect AS, Firewall/ACL blocking port 179 |
 | **Established** | Normal operation; routing updates exchanged | None |
+
+🔍 **Verification and Troubleshooting**
+
+To verify the BGP session status and perform effective troubleshooting, the `show ip bgp summary` (or `show ip bgp su`) command is essential.
+
+### BGP State Analysis
+
+| State | Technical Description | Common Causes for Stagnation |
+| :--- | :--- | :--- |
+| **Idle** | Initial state; searching for route to neighbor | Missing IP route, interface down |
+| **Active** | TCP connection failed or retrying | Incorrect AS, Firewall/ACL blocking port 179 |
+| **Established** | Normal operation; routing updates exchanged | None |
+
+### Troubleshooting Output Example (RTB)
+The following output from **RTB** confirms successful adjacencies with both its iBGP and eBGP peers (showing active connection times and `0` queue states):
+
+```text
+RTB#show ip bgp su
+BGP router identifier 10.0.0.2, local AS number 200
+BGP table version is 1, main routing table version 1
+
+Neighbor    V    AS  MsgRcvd MsgSent TblVer  InQ OutQ Up/Down    State/PfxRcd
+9.0.0.2     4   200       57      63      1    0    0 00:53:29        0
+10.0.0.1    4   100       64      64      1    0    0 01:01:36        0
