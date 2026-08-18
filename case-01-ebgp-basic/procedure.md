@@ -20,7 +20,7 @@ neighbor <ip-address> remote-as <as-number>
 ## 🗺️ IP Addressing Table
 ![IP Addressing Table](images/01Ipaddressing.png)
 
-ACTIVITY
+## ACTIVITY
 
 
 1. Configure all link connections according to the IP Addressing Table.
