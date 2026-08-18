@@ -4,7 +4,7 @@
 This laboratory focuses on establishing BGP neighbor relationships (peers) across diverse Autonomous Systems (AS). The goal is to successfully achieve an "Established" state, which signifies that the TCP connection is active and BGP control packets (OPEN, KEEPALIVE) have been successfully exchanged.
 
 ## 🗺️ Topology Diagram
-![Topología High Availability pfSense](images/topology.png)
+![Topology EBGP and IBGP Neighbor Adjacency and Basic Peering](images/topology.png)
 
  **01** | [PROCEDURE](./procedure.md/) | ACTIVITY: Establishing a basic eBGP peering between two AS. |
 
