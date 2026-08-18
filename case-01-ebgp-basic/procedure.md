@@ -104,4 +104,6 @@ The status of the `SHOW IP BGP NEIGHBORS` and `SHOW IP BGP SU` commands from rou
 
 ![SHOW IP BGP NEIGHBORS RTC](images/04showipbgsuRTC.png)
 
+7. Once we configure router RTD, we get the following output when executing the `SHOW IP BGP NEIGHBORS` and `SHOW IP BGP SU` commands[cite: 1]:
+
 
