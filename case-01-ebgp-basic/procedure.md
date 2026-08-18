@@ -26,9 +26,9 @@ neighbor <ip-address> remote-as <as-number>
 1. Configure all link connections according to the IP Addressing Table.
 2. Verify that the interfaces between the devices have connectivity.
 3. Load the BGP configuration on routers RTA, RTB, and RTC. Router RTD will be configured in the next step.
-   Router A (RTA) CONFIG
-
-   ```
+   Router A (RTA) CONFIG:
+   
+```text
 !
 router bgp 100
  no synchronization
@@ -38,6 +38,6 @@ router bgp 100
 !
 
 
-   ```
+
 
   
