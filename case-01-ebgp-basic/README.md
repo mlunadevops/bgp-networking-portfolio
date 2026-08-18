@@ -4,7 +4,7 @@
 This laboratory focuses on establishing BGP neighbor relationships (peers) across diverse Autonomous Systems (AS). The goal is to successfully achieve an "Established" state, which signifies that the TCP connection is active and BGP control packets (OPEN, KEEPALIVE) have been successfully exchanged.
 
 ## 🗺️ Topology Diagram
-*(Ensure your GNS3 topology image is located in the `/images` folder)*
+![Topología High Availability pfSense](images/topology.png)
 
 ## 📋 Addressing & AS Table
 
