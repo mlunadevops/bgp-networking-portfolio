@@ -15,3 +15,8 @@ neighbor <ip-address> remote-as <as-number>
 ```
 ## 🗺️ Topology Diagram
 ![Topology EBGP and IBGP Neighbor Adjacency and Basic Peering](images/topology.png)
+
+## 🗺️ Topology Diagram
+![IP Addressing Table](images/01Ipaddressing.png)
+
+
