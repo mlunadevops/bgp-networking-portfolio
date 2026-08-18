@@ -12,3 +12,4 @@ In this laboratory, we will learn how to configure BGP neighbor relationships us
 
 ```text
 neighbor <ip-address> remote-as <as-number>
+```
