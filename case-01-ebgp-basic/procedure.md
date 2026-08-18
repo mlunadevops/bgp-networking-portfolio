@@ -82,7 +82,7 @@ ROUTER 3 `SHOW IP BGP NEIGHBORS` BGP state equals **Established**.
 
 5. Verify the connection establishment status using the `SHOW IP BGP SU` command from **RTB**. A value of `0` in the state/prefix column means that the neighbor relationship has been successfully established with both neighbors.
 
-ROUTER 3 `SHOW IP BGP SUMMARY` A value of `0` BGP state equals  **Established**.
+ROUTER RTB `SHOW IP BGP SUMMARY` A value of `0` BGP state equals  **Established**.
 
 ![SHOwY](images/03showipbgsuRTB.png)
    
