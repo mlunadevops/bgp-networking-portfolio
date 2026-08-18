@@ -73,3 +73,5 @@ router bgp 200
  no auto-summary
 !
 ```
+
+4. View the BGP neighbors using the `SHOW IP BGP NEIGHBORS` command on **ROUTER 3**. Verify that the BGP state equals **Established**.
