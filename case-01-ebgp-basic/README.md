@@ -39,3 +39,4 @@ router bgp 100
  bgp log-neighbor-changes
  neighbor 10.0.0.2 remote-as 200
  no auto-summary
+```
