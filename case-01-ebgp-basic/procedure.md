@@ -92,7 +92,6 @@ Router D (RTD) CONFIG:
 
 ```text
 !
-!
 router bgp 300
  no synchronization
  bgp log-neighbor-changes
