@@ -62,6 +62,7 @@ BGP table version is 1, main routing table version 1
 Neighbor    V    AS  MsgRcvd MsgSent TblVer  InQ OutQ Up/Down    State/PfxRcd
 9.0.0.2     4   200       57      63      1    0    0 00:53:29        0
 10.0.0.1    4   100       64      64      1    0    0 01:01:36        0
+```
 
 ## ⚙️ Operational Notes
 If a configuration change is applied to a BGP peer, the session must be reset to force the renegotiation of parameters.
