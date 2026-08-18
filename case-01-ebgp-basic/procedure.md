@@ -36,8 +36,15 @@ router bgp 100
  neighbor 10.0.0.2 remote-as 200
  no auto-summary
 !
-
-
-
-
-  
+```
+  Router B (RTB) CONFIG:
+  ```text
+!
+router bgp 200
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 9.0.0.2 remote-as 200
+ neighbor 10.0.0.1 remote-as 100
+ no auto-summary
+!
+```
