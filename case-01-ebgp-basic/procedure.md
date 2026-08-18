@@ -86,7 +86,7 @@ ROUTER RTB `SHOW IP BGP SUMMARY` A value of `0` BGP state equals  **Established*
 
 ![SHOwY](images/03showipbgsuRTB.png)
 
-6. We have not yet loaded the BGP configuration on router RTD. Let's check the connection status on router RTC, where the BGP state should be "Established." This is in the absence of the following configuration on RTD, let's load it:
+6. We have not yet loaded the BGP configuration on router RTD. Let's check the connection status on router RTC, where the BGP state should be "Established." This is in the absence of the following configuration on RTD, don't load it yet:
 
 Router D (RTD) CONFIG:
 
@@ -100,4 +100,4 @@ router bgp 300
 !
 ```
    
-   
+The status of the `SHOW IP BGP NEIGHBORS` and `SHOW IP BGP SU` commands from router RTC shows the connection with peer 11.0.0.1 as "Active." This is because it does not receive a response from router RTD (since BGP is not yet configured on it).
