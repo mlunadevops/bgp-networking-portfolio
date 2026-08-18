@@ -101,3 +101,5 @@ router bgp 300
 ```
    
 The status of the `SHOW IP BGP NEIGHBORS` and `SHOW IP BGP SU` commands from router RTC shows the connection with peer 11.0.0.1 as "Active." This is because it does not receive a response from router RTD (since BGP is not yet configured on it).
+
+
