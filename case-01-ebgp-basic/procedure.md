@@ -19,4 +19,5 @@ neighbor <ip-address> remote-as <as-number>
 ## 🗺️ IP Addressing Table
 ![IP Addressing Table](images/01Ipaddressing.png)
 
-
+1. Configure all link connections according to the IP Addressing Table.
+2. Verify that the interfaces between the devices have connectivity.
