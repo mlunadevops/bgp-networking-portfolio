@@ -25,3 +25,9 @@ neighbor <ip-address> remote-as <as-number>
 
 1. Configure all link connections according to the IP Addressing Table.
 2. Verify that the interfaces between the devices have connectivity.
+3. Load the BGP configuration on routers RTA, RTB, and RTC. Router RTD will be configured in the next step.
+
+   | ROUTER A (RTA) | ROUTER B (RTB) | ROUTER 3 (R3) | ROUTER C (RTC) |
+| :--- | :--- | :--- | :--- |
+| ```text<br>!<br>router bgp 100<br> no synchronization<br> bgp log-neighbor-changes<br> neighbor 10.0.0.2 remote-as 200<br> no auto-summary<br>!<br>``` | ```text<br>!<br>router bgp 200<br> no synchronization<br> bgp log-neighbor-changes<br> neighbor 9.0.0.2 remote-as 200<br> neighbor 10.0.0.1 remote-as 100<br> no auto-summary<br>!<br>``` | ```text<br>!<br>router bgp 200<br> no synchronization<br> bgp log-neighbor-changes<br> neighbor 8.0.0.1 remote-as 200<br> neighbor 9.0.0.1 remote-as 200<br> no auto-summary<br>!<br>``` | ```text<br>!<br>router bgp 200<br> no synchronization<br> bgp log-neighbor-changes<br> neighbor 8.0.0.2 remote-as 200<br> neighbor 11.0.0.1 remote-as 300<br> no auto-summary<br>!<br>``` |
+  
