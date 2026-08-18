@@ -52,3 +52,15 @@ BGP router identifier 11.0.0.2, local AS number 200
 Neighbor    V    AS  MsgRcvd MsgSent TblVer  InQ OutQ Up/Down    State/PfxRcd
 8.0.0.2     4    200 85      84      1       0   0    01:21:29   0
 11.0.0.1    4    300 8       8       1       0   0    00:04:07   0
+```
+🔍 **Verification and Troubleshooting**
+
+To verify the BGP session status, the `show ip bgp summary` command is essential.
+
+### BGP State Analysis
+
+| State | Technical Description | Common Causes for Stagnation |
+| :--- | :--- | :--- |
+| **Idle** | Initial state; searching for route to neighbor | Missing IP route, interface down |
+| **Active** | TCP connection failed or retrying | Incorrect AS, Firewall/ACL blocking port 179 |
+| **Established** | Normal operation; routing updates exchanged | None |
