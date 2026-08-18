@@ -76,11 +76,11 @@ router bgp 200
 
 4. View the BGP neighbors using the `SHOW IP BGP NEIGHBORS` command on **ROUTER 3**. Verify that the BGP state equals **Established**.
 
-# 🗺️ ROUTER 3 `SHOW IP BGP NEIGHBORS` BGP state equals **Established**.
+ROUTER 3 `SHOW IP BGP NEIGHBORS` BGP state equals **Established**.
 ![SHOW IP BGP NEIGHBORS](images/02showipbgpneihborsR3.png)
 
 5. Verify the connection establishment status using the `SHOW IP BGP SU` command from **RTB**. A value of `0` in the state/prefix column means that the neighbor relationship has been successfully established with both neighbors.
 
-# 🗺️ ROUTER 3 `SHOW IP BGP SUMMARY` A value of `0` BGP state equals  **Established**.
+ROUTER 3 `SHOW IP BGP SUMMARY` A value of `0` BGP state equals  **Established**.
 ![SHOwY](images/03showipbgsuRTB.png)
    
