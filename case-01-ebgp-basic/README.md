@@ -56,7 +56,20 @@ Neighbor    V    AS  MsgRcvd MsgSent TblVer  InQ OutQ Up/Down    State/PfxRcd
 🔍 **Verification and Troubleshooting**
 
 To verify the BGP session status, the `show ip bgp summary` command is essential.
+```text
+🔍 **Verification and Troubleshooting**
 
+To verify the BGP session status, the `show ip bgp summary` command is essential.
+
+### BGP State Analysis
+
+| State | Technical Description | Common Causes for Stagnation |
+| :--- | :--- | :--- |
+| **Idle** | Initial state; searching for route to neighbor | Missing IP route, interface down |
+| **Active** | TCP connection failed or retrying | Incorrect AS, Firewall/ACL blocking port 179 |
+| **Established** | Normal operation; routing updates exchanged | None |
+
+```
 ### BGP State Analysis
 
 | State | Technical Description | Common Causes for Stagnation |
