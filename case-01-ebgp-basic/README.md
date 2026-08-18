@@ -51,14 +51,6 @@ show ip bgp summary
 
 To verify the BGP session status and perform effective troubleshooting, the `show ip bgp summary` (or `show ip bgp su`) command is essential.
 
-### BGP State Analysis
-
-| State | Technical Description | Common Causes for Stagnation |
-| :--- | :--- | :--- |
-| **Idle** | Initial state; searching for route to neighbor | Missing IP route, interface down |
-| **Active** | TCP connection failed or retrying | Incorrect AS, Firewall/ACL blocking port 179 |
-| **Established** | Normal operation; routing updates exchanged | None |
-
 ### Troubleshooting Output Example (RTB)
 The following output from **RTB** confirms successful adjacencies with both its iBGP and eBGP peers (showing active connection times and `0` queue states):
 
