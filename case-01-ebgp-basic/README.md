@@ -40,4 +40,7 @@ router bgp 100
  neighbor 10.0.0.2 remote-as 200
  no auto-summary
 ```
+## ⚙️ Operational Notes
+If a configuration change is applied to a BGP peer, the session must be reset to force the renegotiation of parameters.
 
+Verification Example (RTC after RTD configuration):
