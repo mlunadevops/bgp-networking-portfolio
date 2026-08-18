@@ -27,7 +27,7 @@ neighbor <ip-address> remote-as <as-number>
 2. Verify that the interfaces between the devices have connectivity.
 3. Load the BGP configuration on routers RTA, RTB, and RTC. Router RTD will be configured in the next step.
 
-   Router A (RTA) CONFIG:
+Router A (RTA) CONFIG:
    
 ```text
 !
@@ -38,7 +38,7 @@ router bgp 100
  no auto-summary
 !
 ```
-  Router B (RTB) CONFIG:
+Router B (RTB) CONFIG:
   ```text
 !
 router bgp 200
@@ -48,4 +48,17 @@ router bgp 200
  neighbor 10.0.0.1 remote-as 100
  no auto-summary
 !
+```
+Router 3 (R3) CONFIG:
+   
+```text
+!
+ router bgp 200
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 8.0.0.1 remote-as 200
+ neighbor 9.0.0.1 remote-as 200
+ no auto-summary
+!
+```
 ```
