@@ -13,13 +13,15 @@ In this laboratory, we will learn how to configure BGP neighbor relationships us
 ```text
 neighbor <ip-address> remote-as <as-number>
 ```
-                            ACTIVITY
-
+                      
 ## 🗺️ Topology Diagram
 ![Topology EBGP and IBGP Neighbor Adjacency and Basic Peering](images/topology.png)
 
 ## 🗺️ IP Addressing Table
 ![IP Addressing Table](images/01Ipaddressing.png)
+
+ACTIVITY
+
 
 1. Configure all link connections according to the IP Addressing Table.
 2. Verify that the interfaces between the devices have connectivity.
