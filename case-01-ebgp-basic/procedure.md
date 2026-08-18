@@ -85,4 +85,20 @@ ROUTER 3 `SHOW IP BGP NEIGHBORS` BGP state equals **Established**.
 ROUTER RTB `SHOW IP BGP SUMMARY` A value of `0` BGP state equals  **Established**.
 
 ![SHOwY](images/03showipbgsuRTB.png)
+
+6. We have not yet loaded the BGP configuration on router RTD. Let's check the connection status on router RTC, where the BGP state should be "Established." This is in the absence of the following configuration on RTD, let's load it:
+
+Router D (RTD) CONFIG:
+
+```text
+!
+!
+router bgp 300
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 11.0.0.2 remote-as 200
+ no auto-summary
+!
+```
+   
    
