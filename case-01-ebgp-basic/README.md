@@ -18,18 +18,6 @@ This laboratory focuses on establishing BGP neighbor relationships (peers) acros
 | **RTC** | e0/1 | 8.0.0.1 | 255.0.0.0 | AS 200 |
 | **RTD** | s1/0 | 11.0.0.1 | 255.0.0.0 | AS 300 |
 
-🔍 **Verification and Troubleshooting**
-
-To verify the BGP session status, the `show ip bgp summary` command is essential.
-
-### BGP State Analysis
-
-| State | Technical Description | Common Causes for Stagnation |
-| :--- | :--- | :--- |
-| **Idle** | Initial state; searching for route to neighbor | Missing IP route, interface down |
-| **Active** | TCP connection failed or retrying | Incorrect AS, Firewall/ACL blocking port 179 |
-| **Established** | Normal operation; routing updates exchanged | None |
-
 ## ⚙️ Configuration Snippets
 The routing configurations enable BGP processes across the infrastructure. Note the neighbor definitions for both eBGP and iBGP sessions.
 
@@ -42,6 +30,20 @@ router bgp 100
  neighbor 10.0.0.2 remote-as 200
  no auto-summary
 ```
+
+🔍 **Verification and Troubleshooting**
+
+To verify the BGP session status, the `show ip bgp summary` command is essential.
+
+### BGP State Analysis
+
+| State | Technical Description | Common Causes for Stagnation |
+| :--- | :--- | :--- |
+| **Idle** | Initial state; searching for route to neighbor | Missing IP route, interface down |
+| **Active** | TCP connection failed or retrying | Incorrect AS, Firewall/ACL blocking port 179 |
+| **Established** | Normal operation; routing updates exchanged | None |
+
+
 ## ⚙️ Operational Notes
 If a configuration change is applied to a BGP peer, the session must be reset to force the renegotiation of parameters.
 
