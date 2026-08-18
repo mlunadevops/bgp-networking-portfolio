@@ -48,9 +48,6 @@ To verify the BGP session status, the `show ip bgp summary` command is essential
 ```text
 show ip bgp summary
 ```
-
-To verify the BGP session status and perform effective troubleshooting, the `show ip bgp summary` (or `show ip bgp su`) command is essential.
-
 ### Troubleshooting Output Example (RTB)
 The following output from **RTB** confirms successful adjacencies with both its iBGP and eBGP peers (showing active connection times and `0` queue states):
 
