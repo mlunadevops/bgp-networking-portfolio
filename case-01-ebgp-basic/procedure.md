@@ -111,3 +111,13 @@ The status of the `SHOW IP BGP NEIGHBORS` and `SHOW IP BGP SU` commands from rou
 
 ### Final Configuration Note
 8. Whenever a configuration change is made, the connection with the neighbor must be reset. This is done using the following command:
+
+   * `clear ip bgp address`
+  * **Note:** The *address* is the neighbor address.
+* `clear ip bgp *`
+
+```text
+R3#clear ip bgp 8.0.0.1
+R3#
+*Mar  1 01:14:05.507: %BGP-5-ADJCHANGE: neighbor 8.0.0.1 Down User reset
+*Mar  1 01:14:05.635: %BGP-5-ADJCHANGE: neighbor 8.0.0.1 Up
