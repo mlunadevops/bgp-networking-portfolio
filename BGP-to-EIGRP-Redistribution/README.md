@@ -27,9 +27,16 @@ It will be achieve using the following configuration on RTA Router.
   !
 router bgp 100
  network 129.213.1.0 mask 255.255.255.0
-  ```
+```text
 
-
+```text
+! 
+router eigrp 100
+ redistribute bgp 200
+ network 3.3.3.0 0.0.0.255
+ default-metric 1000 100 250 100 1500
+ auto-summary
+```
 ## Implementation Steps
 
 ### 1. BGP Configuration
