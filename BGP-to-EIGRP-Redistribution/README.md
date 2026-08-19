@@ -38,8 +38,7 @@ router eigrp 100
  redistribute bgp 200
  network 3.3.3.0 0.0.0.255
  default-metric 1000 100 250 100 1500
- auto-summary
-```
+ ```
 ## Implementation Steps
 
 ### 1. BGP Configuration
