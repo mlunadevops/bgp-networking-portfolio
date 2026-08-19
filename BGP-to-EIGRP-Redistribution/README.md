@@ -47,3 +47,6 @@ router bgp 200
  no auto-summary
 !
 ```
+
+EIGRP Configuration
+EIGRP is enabled on internal routers (RTB and RTC) to facilitate internal routing and redistribution.
