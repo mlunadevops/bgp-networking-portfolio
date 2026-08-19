@@ -44,7 +44,7 @@ To put it into the broader picture:
 | Case | Title | Description |
 | :--- | :--- | :--- |
 | **01** | [eBGP Basic Configuration](./case-01-ebgp-basic/) | Establishing a basic eBGP peering between two AS. |
-| **02** | [BGP to EIGRP Redistribution](./case-02-ibgp-rr/) | BGP Routes into EIGRP. |
+| **02** | [BGP to EIGRP Redistribution](./cBGP-to-EIGRP-Redistribution/) | BGP Routes into EIGRP. |
 | ... | ... | ... |
 
 
