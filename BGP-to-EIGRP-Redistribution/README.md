@@ -50,12 +50,16 @@ router bgp 200
 
 EIGRP Configuration
 EIGRP is enabled on internal routers (RTB and RTC) to facilitate internal routing and redistribution.
+
+**RTB Configuration:**
 ```text
 ! RTB EIGRP Configuration
 router eigrp 100
  network 3.3.3.0 0.0.0.255
  network 175.220.0.0 0.0.0.255
-
+```
+**RTC Configuration:**
+```text
 ! RTC EIGRP Configuration
 router eigrp 100
  redistribute bgp 200
