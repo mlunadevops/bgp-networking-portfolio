@@ -12,6 +12,8 @@ This repository serves as a professional portfolio documenting 15 real-world BGP
 
 BGP is the industry-standard protocol used by Internet Service Providers (ISPs) and large enterprises precisely for that: to interconnect their edge routers with one another and move traffic on a global scale across the Internet.
 
+```text
+
 +---------------------------------------------------+
        |                    INTERNET                       |
        |            (Global BGP Routing Table)             |
@@ -34,6 +36,7 @@ BGP is the industry-standard protocol used by Internet Service Providers (ISPs) 
        |              (EIGRP / OSPF Domain)                |
        |         [ R3 ] <-----> [ RTC ]                    |
        +---------------------------------------------------+
+```
 
 To put it into the broader picture:
 
