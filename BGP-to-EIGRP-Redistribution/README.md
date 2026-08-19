@@ -3,8 +3,17 @@
 ## Introduction
 This document details the configuration process for redistributing BGP routes into an Interior Gateway Protocol (IGP), specifically EIGRP. The ability to exchange routing information between BGP and IGP protocols is crucial for managing traffic flow in complex, multi-protocol network environments.
 
-## Objective
-The primary goal is to successfully redistribute a BGP-learned route (`129.213.1.0/24`) into an EIGRP domain, ensuring reachability across different autonomous systems and protocols.
+### Main Objective: BGP to IGP Redistribution Summary
+The primary goal is to successfully redistribute a BGP-learned route (`129.213.1.0/24`) into an EIGRP domain, ensuring reachability across different autonomous systems and protocols.Learn how to configure the redistribution of routes learned via BGP into an Interior Gateway Protocol (IGP).
+
+#### Case Study Details
+To achieve this objective, the lab guides the student through the following technical steps:
+
+* **Network to be inserted**: The focus is on the `129.213.1.0/24` network.
+* **Origin**: This network is originally published in **AS 100** (via Router RTA) using the `network` command within the BGP configuration.
+* **Destination (Redistribution)**: The final goal is to redistribute this specific route (`129.213.1.0/24`), which is learned via BGP, into an EIGRP domain (configured in **AS 200** via Router RTC).
+
+In summary, this lab demonstrates how to make a network that exists in the BGP environment known and accessible within an internal infrastructure using EIGRP.
 
 ## Technical Context
 The BGP `network` command is used to advertise specific routes from an IGP into BGP. Conversely, redistribution allows an IGP to learn routes that originated in BGP, facilitating end-to-end connectivity.
