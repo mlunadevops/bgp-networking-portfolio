@@ -67,3 +67,10 @@ router eigrp 100
  default-metric 1000 100 250 100 1500
  auto-summary
 ```
+## 2. Analysis of Routing Table Entry
+
+The routing table entry in Router B (RTB) appears as follows:
+
+```text
+D EX 129.213.1.0 [170/2611200] via 3.3.3.1, 00:34:06, Ethernet0/0
+```
