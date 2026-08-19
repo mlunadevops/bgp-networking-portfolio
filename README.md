@@ -36,7 +36,7 @@ To put it into the broader picture:
 * **The "Glue" of the Internet:** Since every ISP and large enterprise manages its own Autonomous System (AS) with completely independent and different internal addressing schemes, BGP acts as the universal common language that allows them to negotiate which IP address blocks are reachable through which paths.
 
 ---
-*Created by [Tu Nombre]* | *Networking Engineer*
+
 
 
 ## Portfolio Overview
@@ -47,3 +47,5 @@ To put it into the broader picture:
 | **02** | [BGP to EIGRP Redistribution](./case-02-ibgp-rr/) | BGP Routes into EIGRP. |
 | ... | ... | ... |
 
+
+*Created by [Miguelangel Luna]* | *Networking Engineer*
