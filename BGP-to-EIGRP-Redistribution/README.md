@@ -17,28 +17,31 @@ The routers are configured to establish BGP neighbor relationships across differ
 **RTA Configuration:**
 
 ```text
-! RTA Configuration
+! 
 router bgp 100
  no synchronization
  bgp log-neighbor-changes
  network 129.213.1.0 mask 255.255.255.0
  neighbor 2.2.2.1 remote-as 300
  no auto-summary
+!
 ```
 ```text
-! RTD Configuration
+! 
 router bgp 300
  no synchronization
  bgp log-neighbor-changes
  neighbor 1.1.1.2 remote-as 200
  neighbor 2.2.2.2 remote-as 100
  no auto-summary
+!
 ```
 ```text
-! RTC Configuration
+! 
 router bgp 200
  no synchronization
  bgp log-neighbor-changes
  neighbor 1.1.1.1 remote-as 300
  no auto-summary
+!
 ```
