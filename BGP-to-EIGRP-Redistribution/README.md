@@ -13,7 +13,13 @@ The primary goal is to successfully redistribute a BGP-learned route (`129.213.1
 #### Case Study Details
 To achieve this objective, the lab guides the student through the following technical steps:
 
-* **Network to be inserted**: The focus is on the `129.213.1.0/24` network.
+* **Network to be inserted**: The focus is on the `129.213.1.0/24` network using the following command:
+  ```text
+  ! 
+router bgp 100
+  network 129.213.1.0 mask 255.255.255.0
+  ```
+  
 * **Origin**: This network is originally published in **AS 100** (via Router RTA) using the `network` command within the BGP configuration.
 * **Destination (Redistribution)**: The final goal is to redistribute this specific route (`129.213.1.0/24`), which is learned via BGP, into an EIGRP domain (configured in **AS 200** via Router RTC).
 
