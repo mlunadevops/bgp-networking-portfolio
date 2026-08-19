@@ -7,7 +7,7 @@ This repository serves as a professional portfolio documenting 15 real-world BGP
 | Case | Title | Description |
 | :--- | :--- | :--- |
 | **01** | [eBGP Basic Configuration](./case-01-ebgp-basic/) | Establishing a basic eBGP peering between two AS. |
-| **02** | [iBGP and Route Reflector](./case-02-ibgp-rr/) | Scaling iBGP using Route Reflectors. |
+| **02** | [BGP to EIGRP Redistribution](./case-02-ibgp-rr/) | Scaling iBGP using Route Reflectors. |
 | ... | ... | ... |
 
 ---
