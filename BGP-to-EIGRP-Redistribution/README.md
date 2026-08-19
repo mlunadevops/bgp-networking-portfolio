@@ -74,3 +74,8 @@ The routing table entry in Router B (RTB) appears as follows:
 ```text
 D EX 129.213.1.0 [170/2611200] via 3.3.3.1, 00:34:06, Ethernet0/0
 ```
+D EX: Indicates that the route was learned via EIGRP External (redistributed into EIGRP).
+
+170: The Administrative Distance (AD) for EIGRP External routes.
+
+2611200: The composite metric calculated by EIGRP.
