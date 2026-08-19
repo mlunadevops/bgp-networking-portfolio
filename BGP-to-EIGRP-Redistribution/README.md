@@ -14,7 +14,7 @@ The primary goal is to successfully redistribute a BGP-learned route (`129.213.1
 To achieve this objective, the lab guides the student through the following technical steps:
 
 * **Network to be inserted**: The focus is on the `129.213.1.0/24` network using the following command:
-  ```text
+
   ! 
 router bgp 100
   network 129.213.1.0 mask 255.255.255.0
