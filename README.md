@@ -12,6 +12,29 @@ This repository serves as a professional portfolio documenting 15 real-world BGP
 
 BGP is the industry-standard protocol used by Internet Service Providers (ISPs) and large enterprises precisely for that: to interconnect their edge routers with one another and move traffic on a global scale across the Internet.
 
++---------------------------------------------------+
+       |                    INTERNET                       |
+       |            (Global BGP Routing Table)             |
+       +-------------------------+-------------------------+
+                                 |
+                                 | eBGP (External BGP)
+                                 | AS 100 <---> AS 200
+                                 v
+       +---------------------------------------------------+
+       |                 EDGE ROUTER                       |
+       |       [ Router B (RTB) / Edge Router ]            |
+       |  - Runs BGP to talk to ISPs                       |
+       |  - Runs IGP (EIGRP/OSPF) inside the enterprise    |
+       +-------------------------+-------------------------+
+                                 |
+                                 | Redistribution / iBGP
+                                 v
+       +---------------------------------------------------+
+       |              ENTERPRISE INTERNAL NETWORK          |
+       |              (EIGRP / OSPF Domain)                |
+       |         [ R3 ] <-----> [ RTC ]                    |
+       +---------------------------------------------------+
+
 To put it into the broader picture:
 
 * **The Edge:** This is the boundary where an enterprise's internal network (running OSPF or EIGRP) ends, and the network of the operator or another organization begins. This is where edge routers running BGP are deployed.
