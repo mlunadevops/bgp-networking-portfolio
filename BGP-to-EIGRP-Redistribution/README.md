@@ -26,6 +26,7 @@ router bgp 100
  no auto-summary
 !
 ```
+**RTD Configuration:**
 ```text
 ! 
 router bgp 300
@@ -36,6 +37,7 @@ router bgp 300
  no auto-summary
 !
 ```
+**RTC Configuration:**
 ```text
 ! 
 router bgp 200
