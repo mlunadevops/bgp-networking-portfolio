@@ -102,7 +102,7 @@ router eigrp 100
    
 ![BGP to IGP Redistribution](images/02Showipbgpsummary.png)
 
-1. Verify the routing table of Router C (RTC).
+2. Verify the routing table of Router C (RTC).
 
 ![Routing Table RTC](images/03Showipro.png)
    
