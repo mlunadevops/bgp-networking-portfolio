@@ -1,4 +1,4 @@
-# Case Study 02: BGP to EIGRP Redistribution
+# Case Study 02: EIGRP to BGP Redistribution
 
 ## Introduction
 This document details the configuration process for redistributing BGP routes into an Interior Gateway Protocol (IGP), specifically EIGRP. The ability to exchange routing information between BGP and IGP protocols is crucial for managing traffic flow in complex, multi-protocol network environments.
