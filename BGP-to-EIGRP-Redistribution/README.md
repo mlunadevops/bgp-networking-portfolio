@@ -99,11 +99,10 @@ router eigrp 100
 ```
 ## 2. Analysis of Routing Table Entry
 1. Verify the connection establishment state from Router D (RTD). A state value of 0 means that the neighbor relationship has been established, in this case between neighbors 1.1.1.1 and 2.2.2.2 from the perspective of router RTD.
+   
 ![BGP to IGP Redistribution](images/02Showipbgpsummary.png)
   
-3. 
-
-The routing table entry in Router B (RTB) appears as follows:
+3. The routing table entry in Router B (RTB) appears as follows:
 
 ```text
 D EX 129.213.1.0 [170/2611200] via 3.3.3.1, 00:34:06, Ethernet0/0
