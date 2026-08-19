@@ -14,6 +14,8 @@ The BGP `network` command is used to advertise specific routes from an IGP into 
 ### 1. BGP Configuration
 The routers are configured to establish BGP neighbor relationships across different autonomous systems.
 
+**RTA Configuration:**
+
 ```text
 ! RTA Configuration
 router bgp 100
