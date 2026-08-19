@@ -22,7 +22,7 @@ In summary, this lab demonstrates how to make a network that exists in the BGP e
 
 ## Technical Context
 The BGP `network` command is used to advertise specific routes from an IGP into BGP. Conversely, redistribution allows an IGP to learn routes that originated in BGP, facilitating end-to-end connectivity.
-It will be achieve using the following configuracion on RTA Configuration
+It will be achieve using the following configuraTion on RTA Router.
  ```text
   !
 router bgp 100
