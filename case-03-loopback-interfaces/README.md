@@ -57,7 +57,8 @@ router bgp 200
 router bgp 200
  no synchronization
  bgp log-neighbor-changes
- neighbor 3.3.3.3 remote-as 200
+ neighbor 1.1.1.1 remote-as 200
+ neighbor 2.2.2.2 remote-as 200
  no auto-summary
 !
  ```
