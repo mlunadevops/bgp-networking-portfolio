@@ -72,8 +72,24 @@ router bgp 200
 neighbor 1.1.1.1 update-source Loopback0
 neighbor 2.2.2.2 update-source Loopback0
 !
- ```
+```
 
+RTA Configuration:
 
+ ```text
+!
+router bgp 200
+neighbor 3.3.3.3 update-source loopback 0
+!
+```
+
+RTB Configuration:
+
+ ```text
+!
+router bgp 200
+neighbor 3.3.3.3 update-source l0
+!
+```
 
 
