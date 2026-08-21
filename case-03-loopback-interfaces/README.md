@@ -77,11 +77,25 @@ network 1.1.1.1 0.0.0.0 area 0
 **RTB OSPF Configuration:**
 
  ```text
+!
 router ospf 1
 router-id 2.2.2.2
 network 11.0.0.0 0.0.0.255 area 0
 network 2.2.2.2 0.0.0.0 area 0
+!
  ```
+**RT2 OSPF Configuration:**
+
+ ```text
+!
+router ospf 1
+router-id 3.3.3.3
+network 10.0.0.0 0.0.0.255 area 0
+network 11.0.0.0 0.0.0.255 area 0
+network 3.3.3.3 0.0.0.0 area 0
+!
+ ```
+
 
 ### 2. Loopback Source Updates
 To resolve the connection mismatch, the update source must be explicitly declared on all participating routers.
