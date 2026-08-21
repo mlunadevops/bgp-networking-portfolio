@@ -141,16 +141,6 @@ Verify the routing table on the routers and ping between the loopback interfaces
 ### 3. Loopback Source Updates
 To resolve the connection mismatch, the update source must be explicitly declared on all participating routers.
 
-Router 2 (R2) Configuration:
-
- ```text
-!
-router bgp 200
-neighbor 1.1.1.1 update-source Loopback0
-neighbor 2.2.2.2 update-source Loopback0
-!
-```
-
 RTA Configuration:
 
  ```text
@@ -168,6 +158,17 @@ router bgp 200
 neighbor 3.3.3.3 update-source l0
 !
 ```
+
+Router 2 (R2) Configuration:
+
+ ```text
+!
+router bgp 200
+neighbor 1.1.1.1 update-source Loopback0
+neighbor 2.2.2.2 update-source Loopback0
+!
+```
+
 
 * **Verification via CLI**: After applying the `update-source` command and clearing the session (`clear ip bgp *`), verify the establishment using Router 2:
 * **State/PfxRcd (`0`)**: A numeric value indicates that the session has successfully transitioned from `Active`/`Connect` to the **Established** state.
