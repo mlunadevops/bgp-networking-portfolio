@@ -5,7 +5,7 @@ This document details the configuration process for establishing BGP neighbor re
 
 ### TOPOLOGY: BGP Loopback Peering
 
-![BGP Loopback Topologia](images/01topologia.png)
+![BGP Loopback Topologia](images/01lotopology.png)
 
 ### Main Objective: BGP Loopback Peering Summary
 The primary goal is to successfully configure BGP peering using loopback interfaces across an Autonomous System (AS 200). This lab demonstrates how to overcome default BGP source-IP behaviors by implementing the `update-source` command to stabilize neighbor establishment.
