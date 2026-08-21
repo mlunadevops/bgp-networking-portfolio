@@ -62,6 +62,7 @@ router bgp 200
  no auto-summary
 !
  ```
+### 2. Enable OSPF on all routers in the topology.
 
 
 
