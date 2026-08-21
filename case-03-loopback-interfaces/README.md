@@ -30,3 +30,14 @@ If the remote peer expects the BGP session to originate from a loopback address,
 The routers are configured within AS 200 to establish neighbor relationships pointing to loopback addresses.
 
 **RTA Configuration:**
+ 
+ ```text
+!
+router bgp 200
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 3.3.3.3 remote-as 200
+ no auto-summary
+!
+ ```
+
