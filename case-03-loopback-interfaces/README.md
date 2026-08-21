@@ -110,8 +110,18 @@ network 3.3.3.3 0.0.0.0 area 0
 !
  ```
 
+### 2. Analysis of Troubleshooting and Verification
 
-### 2. Loopback Source Updates
+* **The "Active" State Mismatch**: When configuring BGP to peer with loopback addresses without `update-source`, pings to the loopback succeed (via OSPF), but BGP remains stuck in the **Active** state. This happens because the source IP of the TCP SYN packet matches a physical interface instead of the expected loopback identity, causing the remote peer to drop or ignore the connection request.
+* **Verification via CLI**: After applying the `update-source` command and clearing the session (`clear ip bgp *`), verify the establishment using Router 2:
+
+![Show IP BGP Summary](images/02Showipbgpsummary.png)
+
+* **State/PfxRcd (`0`)**: A numeric value indicates that the session has successfully transitioned from `Active`/`Connect` to the **Established** state.
+* **Up/Down Time**: Displays the active duration of the stable peering session.
+
+
+### 3. Loopback Source Updates
 To resolve the connection mismatch, the update source must be explicitly declared on all participating routers.
 
 Router 2 (R2) Configuration:
@@ -142,14 +152,6 @@ neighbor 3.3.3.3 update-source l0
 !
 ```
 
-### 3. Analysis of Troubleshooting and Verification
 
-* **The "Active" State Mismatch**: When configuring BGP to peer with loopback addresses without `update-source`, pings to the loopback succeed (via OSPF), but BGP remains stuck in the **Active** state. This happens because the source IP of the TCP SYN packet matches a physical interface instead of the expected loopback identity, causing the remote peer to drop or ignore the connection request.
-* **Verification via CLI**: After applying the `update-source` command and clearing the session (`clear ip bgp *`), verify the establishment using Router 2:
-
-![Show IP BGP Summary](images/02Showipbgpsummary.png)
-
-* **State/PfxRcd (`0`)**: A numeric value indicates that the session has successfully transitioned from `Active`/`Connect` to the **Established** state.
-* **Up/Down Time**: Displays the active duration of the stable peering session.
 
 
