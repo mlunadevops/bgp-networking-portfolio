@@ -64,8 +64,16 @@ router bgp 200
  ```
 ### 2. Enable OSPF on all routers in the topology.
 
+**RTA OSPF Configuration:**
 
-
+ ```text
+!
+RTA(config)# router ospf 1
+RTA(config-router)# router-id 1.1.1.1
+RTA(config-router)# network 10.0.0.0 0.0.0.255 area 0
+RTA(config-router)# network 1.1.1.1 0.0.0.0 area 0
+!
+ ```
 
 
 ### 2. Loopback Source Updates
