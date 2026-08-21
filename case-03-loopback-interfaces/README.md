@@ -70,6 +70,12 @@ router bgp 200
 
 **The number 1 (Process ID):** It is the local process identifier. Unlike other protocols, this number only has local significance on the router (it does not need to match neighboring routers to communicate, although keeping it consistent is a good practice for organization). The same router can run multiple independent OSPF processes if necessary.
 
+### 2. `router-id 1.1.1.1`
+
+**Defines the Router ID:** OSPF requires a unique 32-bit IP address to unambiguously identify each router within an area or autonomous system.
+
+**Stability and Election:** If you do not configure this command manually, the router will automatically choose its Router ID based on the highest IP address of its active Loopback interfaces, or, failing that, the highest IP address of its active physical interfaces. Defining it manually with an IP (in this case 1.1.1.1) prevents the Router ID from changing if a physical interface goes down, which could otherwise cause unnecessary network topology resets (OSPF re-convergence).
+
 **RTA OSPF Configuration:**
 
  ```text
