@@ -18,3 +18,15 @@ To achieve this objective, the lab guides the student through the following tech
 * **Source Modification**: Forcing BGP to use the loopback address as the source for TCP and BGP connection packets using `update-source`.
 
 In summary, this lab demonstrates how to build a fault-tolerant BGP peering architecture independent of physical link fluctuations.
+
+## Technical Context
+By design, when a BGP neighbor is configured with a specific IP address, the local router originates the TCP connection (port 179) using the primary IP address of the outgoing physical interface.
+
+If the remote peer expects the BGP session to originate from a loopback address, a mismatch occurs, leaving the session stuck in the **Active** state. The `neighbor [ip-address] update-source [interface]` command overrides this behavior, instructing the BGP process to source packets from the specified loopback interface. Additionally, a session reset (`clear ip bgp *`) is required to re-establish the connection using the new parameters.
+
+## Implementation Steps
+
+### 1. BGP Base Configuration
+The routers are configured within AS 200 to establish neighbor relationships pointing to loopback addresses.
+
+**RTA Configuration:**
