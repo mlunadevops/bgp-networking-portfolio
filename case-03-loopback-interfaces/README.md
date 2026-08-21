@@ -154,6 +154,8 @@ neighbor 3.3.3.3 update-source l0
 ```
 
 * **Verification via CLI**: After applying the `update-source` command and clearing the session (`clear ip bgp *`), verify the establishment using Router 2:
+* **State/PfxRcd (`0`)**: A numeric value indicates that the session has successfully transitioned from `Active`/`Connect` to the **Established** state.
+* **Up/Down Time**: Displays the active duration of the stable peering session.
 
 
 
