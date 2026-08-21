@@ -168,12 +168,29 @@ neighbor 1.1.1.1 update-source Loopback0
 neighbor 2.2.2.2 update-source Loopback0
 !
 ```
+RTA VERIFICATION:
 
 * **Verification via CLI**: After applying the `update-source` command and clearing the session (`clear ip bgp *`), verify the establishment using Router RTA:
 * **State/PfxRcd (`0`)**: A numeric value indicates that the session has successfully transitioned from `Active`/`Connect` to the **Established** state.
 * **Up/Down Time**: Displays the active duration of the stable peering session.
 
 ![Show IP BGP Summary](images/03rtastablished.png)
+
+RTB VERIFICATION:
+
+* **Verification via CLI**: After applying the `update-source` command and clearing the session (`clear ip bgp *`), verify the establishment using Router RTB:
+* **State/PfxRcd (`0`)**: A numeric value indicates that the session has successfully transitioned from `Active`/`Connect` to the **Established** state.
+* **Up/Down Time**: Displays the active duration of the stable peering session.
+
+![Show IP BGP Summary](images/03rtbstablished.png)
+
+RT2 VERIFICATION:
+
+* **Verification via CLI**: After applying the `update-source` command and clearing the session (`clear ip bgp *`), verify the establishment using Router RTB:
+* **State/PfxRcd (`0`)**: A numeric value indicates that the session has successfully transitioned from `Active`/`Connect` to the **Established** state.
+* **Up/Down Time**: Displays the active duration of the stable peering session.
+
+![Show IP BGP Summary](images/03rt2stablished.png)
 
 
   ### Key Takeaways for Loopback BGP Peering:
