@@ -112,6 +112,12 @@ network 3.3.3.3 0.0.0.0 area 0
 
 ### 2. Analysis of Troubleshooting and Verification
 
+Verify the routing table on the routers and ping between the loopback interfaces of each router:
+
+**RTA Routing Table and Ping test:**
+
+
+
 * **The "Active" State Mismatch**: When configuring BGP to peer with loopback addresses without `update-source`, pings to the loopback succeed (via OSPF), but BGP remains stuck in the **Active** state. This happens because the source IP of the TCP SYN packet matches a physical interface instead of the expected loopback identity, causing the remote peer to drop or ignore the connection request.
 * **Verification via CLI**: After applying the `update-source` command and clearing the session (`clear ip bgp *`), verify the establishment using Router 2:
 
