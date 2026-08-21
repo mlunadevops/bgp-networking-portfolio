@@ -46,7 +46,7 @@ To put it into the broader picture:
 | **01** | [eBGP Basic Configuration](./case-01-ebgp-basic/) | Establishing a basic eBGP peering between two AS. |
 | **02** | [BGP to EIGRP Redistribution](./BGP-to-EIGRP-Redistribution/) | BGP Routes into EIGRP. |
 | **03** | [BGP Loopback Interface & OSPF](./case-03-loopback-interfaces/) | Why Loopbacks break your BGP? (And how to fix it) . |
-| **02** | [BGP to EIGRP Redistribution](./BGP-to-EIGRP-Redistribution/) | BGP Routes into EIGRP. |
+| **02** | [Route aggregation in BGP](./BGP-to-EIGRP-Redistribution/) | BGP Routes into EIGRP. |
 | **02** | [BGP to EIGRP Redistribution](./BGP-to-EIGRP-Redistribution/) | BGP Routes into EIGRP. |
 | ... | ... | ... |
 
