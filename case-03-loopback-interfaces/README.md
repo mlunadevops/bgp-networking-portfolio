@@ -64,13 +64,15 @@ router bgp 200
  ```
 ### 2. Enable OSPF on all routers in the topology.
 
-### 1. `router ospf 1`
+COMMAND DESCRIPTION:
+
+### 2.1 `router ospf 1`
 
 **Enables the OSPF routing process:** This command starts the OSPF engine on the router and enters the configuration mode for that protocol.
 
 **The number 1 (Process ID):** It is the local process identifier. Unlike other protocols, this number only has local significance on the router (it does not need to match neighboring routers to communicate, although keeping it consistent is a good practice for organization). The same router can run multiple independent OSPF processes if necessary.
 
-### 2. `router-id 1.1.1.1`
+### 2.2 `router-id 1.1.1.1`
 
 **Defines the Router ID:** OSPF requires a unique 32-bit IP address to unambiguously identify each router within an area or autonomous system.
 
