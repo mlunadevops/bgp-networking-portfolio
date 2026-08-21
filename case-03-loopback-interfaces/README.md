@@ -122,9 +122,6 @@ Verify the routing table on the routers and ping between the loopback interfaces
 
 ![Show IP BGP Summary](images/02rtactive.png)
 
-* **State/PfxRcd (`0`)**: A numeric value indicates that the session has successfully transitioned from `Active`/`Connect` to the **Established** state.
-* **Up/Down Time**: Displays the active duration of the stable peering session.
-
 ### 3. Loopback Source Updates
 To resolve the connection mismatch, the update source must be explicitly declared on all participating routers.
 
