@@ -40,4 +40,31 @@ router bgp 200
  no auto-summary
 !
  ```
+**RTB Configuration:**
+
+ ```text
+!
+router bgp 200
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 3.3.3.3 remote-as 200
+ no auto-summary
+!
+ ```
+**R2 (Router 2) Configuration:**
+ ```text
+!
+router bgp 200
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 3.3.3.3 remote-as 200
+ no auto-summary
+!
+ ```
+2. Loopback Source Updates
+To resolve the connection mismatch, the update source must be explicitly declared on all participating routers.
+
+Router 2 (R2) Configuration:
+
+
 
