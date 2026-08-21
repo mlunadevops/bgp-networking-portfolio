@@ -47,7 +47,7 @@ To put it into the broader picture:
 | **02** | [BGP to EIGRP Redistribution](./BGP-to-EIGRP-Redistribution/) | BGP Routes into EIGRP. |
 | **03** | [BGP Loopback Interface & OSPF](./case-03-loopback-interfaces/) | Why Loopbacks break your BGP? (And how to fix it) . |
 | **04** | [Route aggregation in BGP](./BGP-to-EIGRP-Redistribution/) | Route aggregation in BGP. |
-| **02** | [BGP to EIGRP Redistribution](./BGP-to-EIGRP-Redistribution/) | BGP Routes into EIGRP. |
+| **05** | [BGP to EIGRP Redistribution](./BGP-to-EIGRP-Redistribution/) | Next |
 | ... | ... | ... |
 
 
