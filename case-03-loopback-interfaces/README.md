@@ -173,6 +173,11 @@ neighbor 3.3.3.3 update-source l0
 * **State/PfxRcd (`0`)**: A numeric value indicates that the session has successfully transitioned from `Active`/`Connect` to the **Established** state.
 * **Up/Down Time**: Displays the active duration of the stable peering session.
 
+  ### Key Takeaways for Loopback BGP Peering:
+
+* **`update-source` Command**: This is mandatory when peering via loopbacks. It tells the router to use the loopback IP as the source address for TCP/BGP packets instead of the outgoing physical interface.
+* **TTL Security (for iBGP)**: iBGP packets naturally have a Time to Live (TTL) of 255, so multihoping over loopbacks works natively without extra TTL adjustments. (If this were eBGP across different AS numbers, you would also need `neighbor <ip> ebgp-multihop 2`).
+
 
 
 
