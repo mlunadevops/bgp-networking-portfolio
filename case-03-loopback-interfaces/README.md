@@ -66,5 +66,14 @@ To resolve the connection mismatch, the update source must be explicitly declare
 
 Router 2 (R2) Configuration:
 
+ ```text
+!
+router bgp 200
+neighbor 1.1.1.1 update-source Loopback0
+neighbor 2.2.2.2 update-source Loopback0
+!
+ ```
+
+
 
 
