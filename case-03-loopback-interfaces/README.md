@@ -61,7 +61,7 @@ router bgp 200
  no auto-summary
 !
  ```
-2. Loopback Source Updates
+### 2. Loopback Source Updates
 To resolve the connection mismatch, the update source must be explicitly declared on all participating routers.
 
 Router 2 (R2) Configuration:
