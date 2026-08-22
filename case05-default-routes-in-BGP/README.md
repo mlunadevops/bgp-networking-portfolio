@@ -21,7 +21,7 @@ no neighbor {ip-address | peer-group-name} default-originate [route-map map-name
 ## Step 1: Configure Connections
 * Configure all physical and logical connections between the links as illustrated in the network topology.
 
-  ```text
+```text
 !
 interface Loopback0
  ip address 10.3.3.3 255.255.255.255
