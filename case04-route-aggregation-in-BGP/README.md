@@ -10,3 +10,20 @@ You can use aggregates in order to minimize the size of routing tables. Aggregat
 
 ![Route Aggregation in BCP](images/01topology.jpg)
 
+## 2. Lab Practice: Physical Connectivity & Initial BGP Setup
+
+1. Configure all physical connections between the router links.
+2. Verify that interfaces between devices have end-to-end IP connectivity.
+3. Configure the routers to establish EBGP neighbor relationships using the parameters below:
+
+### Router A (RTA)
+```text
+!
+router bgp 100
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 2.2.2.1 remote-as 300
+ no auto-summary
+!
+```
+
