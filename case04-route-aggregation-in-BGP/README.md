@@ -38,3 +38,13 @@ router bgp 300
  no auto-summary
 !
 ```
+### Router B (RTB)
+```text
+!
+router bgp 200
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 3.3.3.2 remote-as 300
+ no auto-summary
+!
+```
