@@ -31,6 +31,8 @@ interface Serial1/0
  ip unnumbered Loopback0
  serial restart-delay 0
 !
+ip route 10.1.1.1 255.255.255.255 Serial1/0
+!
 ```
 ### Router 1 (R1)
 ```text
