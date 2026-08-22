@@ -101,12 +101,12 @@ Configure the network to be advertised by RTC:
 ```text
 !
 interface Ethernet0/0
- ip address 150.10.0.1 255.255.0.0
+ ip address 170.10.0.1 255.255.0.0
  half-duplex
 !
 !
-router bgp 100
- network 150.10.0.0 mask 255.255.0.0
+router bgp 300
+ network 170.10.0.0 mask 255.255.0.0
 !
 ```
 
