@@ -48,6 +48,21 @@ interface Serial1/1
  serial restart-delay 0
 !
 ```
+### Router 2 (R2)
+```text
+!
+interface Loopback0
+ ip address 10.2.2.2 255.255.255.0
+!
+interface Ethernet0/0
+ ip address 192.168.1.1 255.255.255.0
+ half-duplex
+!
+interface Ethernet0/1
+ ip address 192.168.2.1 255.255.255.0
+ half-duplex
+!
+```
 
 ## Step 2: Verify Connectivity
 * Verify that the interfaces between all devices have proper physical and logical connectivity.
