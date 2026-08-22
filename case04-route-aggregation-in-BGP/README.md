@@ -192,3 +192,14 @@ router bgp 300
  aggregate-address 160.0.0.0 255.0.0.0
  !
 ```
+## Analysis and Review Questions
+
+### 5.1
+* What effect does it have to place the `160.10.0.0/8` (or `160.0.0.0 255.0.0.0`) network instead of the `160.10.0.0/16` network and permit any other, according to the previous ACL/aggregation?
+
+* Inspect the routing table on Router A (RTA). Why does the `160.0.0.0/8` network now appear via BGP?
+
+---
+
+### 6.1
+* What is the purpose of the `aggregate-address address-mask` command?
