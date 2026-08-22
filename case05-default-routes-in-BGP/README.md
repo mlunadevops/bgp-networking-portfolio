@@ -20,7 +20,8 @@ no neighbor {ip-address | peer-group-name} default-originate [route-map map-name
 
 ## Step 1: Configure Connections
 * Configure all physical and logical connections between the links as illustrated in the network topology.
-
+  
+### Router 3 (R3)
 ```text
 !
 interface Loopback0
@@ -28,6 +29,22 @@ interface Loopback0
 !
 interface Serial1/0
  ip unnumbered Loopback0
+ serial restart-delay 0
+!
+```
+### Router 1 (R1)
+```text
+!
+!
+interface Loopback0
+ ip address 10.1.1.1 255.255.255.255
+!
+interface Serial1/0
+ ip unnumbered Loopback0
+ serial restart-delay 0
+!
+interface Serial1/1
+ ip address 10.0.0.1 255.255.255.252
  serial restart-delay 0
 !
 ```
