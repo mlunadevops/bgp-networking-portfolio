@@ -7,3 +7,8 @@ A local Internet Service Provider (ISP-R1, represented by CANTV) provides one of
 The ISP router (R1) configures a static route for `192.168.0.0/16` pointing toward the client's router (R2). The ISP CANTV connects to an ISP backbone represented by router BB-R3. Router R3 sends a default route to ISP-R1 (CANTV) and receives the `192.168.0.0/16` network via BGP from ISP-R1.
 
 Accessibility is now guaranteed through the Internet (ISP Backbone router R3) to the client router (R2) because R2 has a default route configured to point to ISP-R1 (CANTV). However, if packets are destined for network blocks not in use outside the `192.168.0.0/16` range, the client router R2 uses the default route to ISP-R1, which forwards the packets.
+
+```text
+neighbor {ip-address | peer-group-name} default-originate [route-map map-name]
+no neighbor {ip-address | peer-group-name} default-originate [route-map map-name]
+```
