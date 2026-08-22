@@ -10,7 +10,23 @@ You can use aggregates in order to minimize the size of routing tables. Aggregat
 
 ![Route Aggregation in BCP](images/01topology.jpg)
 
-## 2. Lab Practice: Physical Connectivity & Initial BGP Setup
+# Case Study 04: Route Aggregation in BGP IMPORTANT NOTE:
+
+For BGP to advertise a network using the `network` command, that network (or a more specific subnet covering it, depending on the aggregation configuration and IOS version behavior) must already exist in the router's main routing table (RIB), learned through any protocol (connected, static, OSPF, EIGRP, etc.).
+
+This requirement is sometimes referred to as the "origin condition" in Cisco.
+
+### What happens if the route is not in the routing table?
+
+If you configure the `network 170.10.0.0 mask 255.255.0.0` command, but the router does not have any route to `170.10.0.0/16` in its IP table:
+
+* The command will be accepted and saved in the configuration (`running-config`).
+* But BGP will ignore it: It will not install it in its BGP table and, therefore, will not advertise it to your peers.
+* If you check with the `show ip bgp` command, you will not see that network (or it will appear without the `>` best path symbol).
+
+As soon as you create that route on the router (for example, with a static route pointing to `Null0` to ensure it always exists: `ip route 170.10.0.0 255.255.0.0 Null0`), BGP will automatically detect it, put it into its table, and advertise it without you having to run any `clear ip bgp`.
+
+## 2. Case Study: Physical Connectivity & Initial BGP Setup
 
 1. Configure all physical connections between the router links.
 2. Verify that interfaces between devices have end-to-end IP connectivity.
