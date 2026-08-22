@@ -8,6 +8,10 @@ The ISP router (R1) configures a static route for `192.168.0.0/16` pointing towa
 
 Accessibility is now guaranteed through the Internet (ISP Backbone router R3) to the client router (R2) because R2 has a default route configured to point to ISP-R1 (CANTV). However, if packets are destined for network blocks not in use outside the `192.168.0.0/16` range, the client router R2 uses the default route to ISP-R1, which forwards the packets.
 
+### TOPOLOGY:  Route Aggregation in BGP.
+
+![Static Route in BCP](images/01topology.jpg)
+
 ```text
 neighbor {ip-address | peer-group-name} default-originate [route-map map-name]
 no neighbor {ip-address | peer-group-name} default-originate [route-map map-name]
