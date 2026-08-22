@@ -143,3 +143,12 @@ Verification: Inspect the routing tables on Router A, Router B, and Router C
 
 ![BGP output Topologia](images/04rtboutput.png)
 
+### 4. Applying Route Aggregation
+
+To apply route aggregation on Router C, use the following syntax:
+
+`aggregate-address address-mask`
+
+#### Configuration on Router C (RTC)
+
+Update Router C configuration to include the aggregated supernet:
