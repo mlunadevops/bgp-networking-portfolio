@@ -208,10 +208,3 @@ Verification: Inspect the routing tables on Router A, Router B, and Router C
 ### Router B (RTB)
 
 ![BGP output Topologia](images/06rtboutput.png)
-
-
-
----
-
-### 6.1
-* What is the purpose of the `aggregate-address address-mask` command?
