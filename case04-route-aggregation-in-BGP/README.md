@@ -182,3 +182,13 @@ To apply route aggregation on Router C, use the following syntax:
 #### Configuration on Router C (RTC)
 
 Update Router C configuration to include the aggregated supernet:
+
+```text
+!
+router bgp 300 
+ neighbor 3.3.3.3 remote-as 200 
+ neighbor 2.2.2.2 remote-as 100 
+ network 170.10.0.0 
+ aggregate-address 160.0.0.0 255.0.0.0
+ !
+```
