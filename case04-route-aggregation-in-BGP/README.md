@@ -94,3 +94,6 @@ Verification: Inspect the routing tables on Router A, Router B, and Router C
 ### Router B (RTB)
 
 ![BGP output Topologia](images/03rtboutput.png)
+
+### 3.2. Configure Router C (RTC)
+Configure the network to be advertised by RTC:
