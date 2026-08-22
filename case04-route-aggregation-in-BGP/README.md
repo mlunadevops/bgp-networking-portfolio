@@ -27,7 +27,7 @@ router bgp 100
 !
 ```
 
-### Router A (RTC)
+### Router C (RTC)
 ```text
 !
 router bgp 300
@@ -44,7 +44,7 @@ router bgp 300
 router bgp 200
  no synchronization
  bgp log-neighbor-changes
- neighbor 3.3.3.2 remote-as 300
+ neighbor 3.3.3.1 remote-as 300
  no auto-summary
 !
 ```
