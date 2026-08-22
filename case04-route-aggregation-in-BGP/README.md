@@ -67,3 +67,9 @@ Run the show ip bgp summary command on each router.
 3.1. Configure Router A (RTA)
 
 Configure the network to be advertised by RTA:
+
+```text
+!
+router bgp 100
+ network 150.10.0.0 mask 255.255.0.0
+```
