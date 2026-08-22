@@ -8,7 +8,7 @@ You can use aggregates in order to minimize the size of routing tables. Aggregat
 
 ### TOPOLOGY:  Route Aggregation in BGP.
 
-![Route Aggregation in BCP](images/01topology.jpg)
+![Route Aggregation in BCP](images/01Topology.jpg)
 
 # Case Study 04: Route Aggregation in BGP IMPORTANT NOTE:
 
