@@ -49,3 +49,11 @@ router bgp 200
 !
 ```
 Run the show ip bgp summary command on each router.
+
+### Router A (RTA)
+
+
+
+### Router C (RTC)
+
+### Router B (RTB)
