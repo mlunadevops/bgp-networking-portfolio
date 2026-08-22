@@ -49,6 +49,9 @@ interface Serial1/1
  ip address 10.0.0.1 255.255.255.252
  serial restart-delay 0
 !
+ip route 10.3.3.3 255.255.255.255 Serial1/0
+ip route 192.168.0.0 255.255.0.0 Serial1/1
+!
 ```
 ### Router 2 (R2)
 ```text
