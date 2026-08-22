@@ -143,6 +143,36 @@ Verification: Inspect the routing tables on Router A, Router B, and Router C
 
 ![BGP output Topologia](images/04rtboutput.png)
 
+2.3 Configure Router B (RTB)
+Configure the network to be advertised by RTC:
+
+```text
+!
+interface Ethernet0/0
+ ip address 160.10.0.1 255.255.0.0
+ half-duplex
+!
+router bgp 200
+ network 160.10.0.0 mask 255.255.0.0
+```
+
+
+
+Verification: Inspect the routing tables on Router A, Router B, and Router C
+
+### Router A (RTA)
+
+![BGP output Topologia](images/05rtaoutput.png)
+
+
+### Router C (RTC)
+
+![BGP output Topologia](images/05rtcoutput.png)
+
+### Router B (RTB)
+
+![BGP output Topologia](images/05rtboutput.png)
+
 ### 4. Applying Route Aggregation
 
 To apply route aggregation on Router C, use the following syntax:
