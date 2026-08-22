@@ -21,6 +21,17 @@ no neighbor {ip-address | peer-group-name} default-originate [route-map map-name
 ## Step 1: Configure Connections
 * Configure all physical and logical connections between the links as illustrated in the network topology.
 
+  ```text
+!
+interface Loopback0
+ ip address 10.3.3.3 255.255.255.255
+!
+interface Serial1/0
+ ip unnumbered Loopback0
+ serial restart-delay 0
+!
+```
+
 ## Step 2: Verify Connectivity
 * Verify that the interfaces between all devices have proper physical and logical connectivity.
 
