@@ -52,8 +52,13 @@ Run the show ip bgp summary command on each router.
 
 ### Router A (RTA)
 
+![BGP output Topologia](images/02rtaoutput.jpg)
 
 
 ### Router C (RTC)
 
+![BGP output Topologia](images/02rtcoutput.jpg)
+
 ### Router B (RTB)
+
+![BGP output Topologia](images/02rtboutput.jpg)
