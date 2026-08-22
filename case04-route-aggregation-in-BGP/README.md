@@ -64,7 +64,7 @@ Run the show ip bgp summary command on each router.
 ![BGP output Topologia](images/02rtboutput.png)
 
 ## 2. Advertising Individual Routes
-3.1. Configure Router A (RTA)
+2.1. Configure Router A (RTA)
 
 Configure the network to be advertised by RTA:
 
@@ -97,3 +97,33 @@ Verification: Inspect the routing tables on Router A, Router B, and Router C
 
 ### 3.2. Configure Router C (RTC)
 Configure the network to be advertised by RTC:
+
+```text
+!
+interface Ethernet0/0
+ ip address 150.10.0.1 255.255.0.0
+ half-duplex
+!
+!
+router bgp 100
+ network 150.10.0.0 mask 255.255.0.0
+!
+```
+
+
+
+Verification: Inspect the routing tables on Router A, Router B, and Router C
+
+### Router A (RTA)
+
+![BGP output Topologia](images/03rtaoutput.png)
+
+
+### Router C (RTC)
+
+![BGP output Topologia](images/03rtcoutput.png)
+
+### Router B (RTB)
+
+![BGP output Topologia](images/03rtboutput.png)
+
