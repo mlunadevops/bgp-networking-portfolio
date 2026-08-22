@@ -132,14 +132,14 @@ Verification: Inspect the routing tables on Router A, Router B, and Router C
 
 ### Router A (RTA)
 
-![BGP output Topologia](images/03rtaoutput.png)
+![BGP output Topologia](images/04rtaoutput.png)
 
 
 ### Router C (RTC)
 
-![BGP output Topologia](images/03rtcoutput.png)
+![BGP output Topologia](images/04rtcoutput.png)
 
 ### Router B (RTB)
 
-![BGP output Topologia](images/03rtboutput.png)
+![BGP output Topologia](images/04rtboutput.png)
 
