@@ -10,7 +10,7 @@ Accessibility is now guaranteed through the Internet (ISP Backbone router R3) to
 
 ### TOPOLOGY:  Route Aggregation in BGP.
 
-![Static Route in BCP](images/01topology.jpg)
+![Static Route in BCP](images/01Topology.jpg)
 
 ```text
 neighbor {ip-address | peer-group-name} default-originate [route-map map-name]
