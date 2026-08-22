@@ -48,3 +48,4 @@ router bgp 200
  no auto-summary
 !
 ```
+Run the show ip bgp summary command on each router.
