@@ -62,3 +62,7 @@ Run the show ip bgp summary command on each router.
 ### Router B (RTB)
 
 ![BGP output Topologia](images/02rtboutput.png)
+
+3. Advertising Individual Routes
+3.1. Configure Router A (RTA)
+Configure the network to be advertised by RTA:
