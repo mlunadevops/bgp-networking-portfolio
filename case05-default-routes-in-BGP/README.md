@@ -67,6 +67,10 @@ interface Ethernet0/1
  ip address 192.168.2.1 255.255.255.0
  half-duplex
 !
+interface Serial1/1
+ ip address 10.0.0.2 255.255.255.252
+ serial restart-delay 0
+!
 ip route 0.0.0.0 0.0.0.0 10.0.0.1
 !
 ```
