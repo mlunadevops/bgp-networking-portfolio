@@ -63,6 +63,8 @@ In a network architecture, although the local ISP (`ISP-R1`) could manually crea
 * **Flexibility in Routing Policies:**
   By using BGP to originate the default route, `BB-R3` can conditionally control whether or not to deliver internet connectivity to `ISP-R1` based on policies, service-level agreements (SLAs), payment status, or route filters, without needing to modify static configurations on the customer or local provider equipment.
 
+  
+
 # Practical Exercise
 
 ## Step 1: Configure Connections
