@@ -53,6 +53,26 @@ Analysis Questions:
 Step 2: Network Advertisement
 Each router advertises its respective networks into BGP.
 
+```text
+! ROUTER A
+router bgp 11
+ network 1.1.1.1 mask 255.255.255.255
+!
+```
+
+```text
+! ROUTER B
+router bgp 10
+ network 2.2.2.0 mask 255.255.255.0
+!
+```
+
+```text
+! ROUTER C
+router bgp 10
+ network 2.2.2.0 mask 255.255.255.0
+```
+
 * **Router A:** Advertises its Loopback interface (1.1.1.1/32).
 * **Router B and C:** Advertise the shared destination network (2.2.2.0/24).
 
