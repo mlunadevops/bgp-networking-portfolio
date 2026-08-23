@@ -95,6 +95,8 @@ router bgp 11
 !
 ```
 
+![LOAD BALANCE](images/01RAroutingtablemaximupath.png)
+
 **
 
 * **Router A:** Advertises its Loopback interface (1.1.1.1/32).
