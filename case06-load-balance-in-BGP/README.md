@@ -121,7 +121,4 @@ Here is a detailed explanation of what happens:
 
 In summary, this is not a failure of your local link or of BGP on Router A, but rather an issue with how the remote AS manages return traffic for each of the connected point-to-point subnets.
 
-* **Router A:** Advertises its Loopback interface (1.1.1.1/32).
-* **Router B and C:** Advertise the shared destination network (2.2.2.0/24).
-
 ### Advertisement Configuration
