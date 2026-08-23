@@ -99,6 +99,11 @@ router bgp 11
 
 Now, network `2.2.2.0` clearly shows two active entries across both next-hops (`160.20.20.2` and `150.10.10.2`).
 
+### Steps 4 & 5: Connectivity Verification
+Perform extended pings from Router A to IP `2.2.2.2` specifying the source outgoing interface.
+
+* **Test 1:** Exiting through interface Serial0/1 (`150.10.10.1`)
+
 **
 
 * **Router A:** Advertises its Loopback interface (1.1.1.1/32).
