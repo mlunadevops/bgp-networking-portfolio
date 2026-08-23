@@ -28,6 +28,12 @@ In network scenarios where a service provider (ISP) or an edge router advertises
   * **Loop Detection:** Identify traffic bouncing between `ISP-R1` and `cust-R2` using tracing/debugging (`debug ip packet`) when attempting to reach an unassigned IP (e.g., `192.168.20.1`)[cite: 1].
   * **Application of Primary Static Route to Null0:**
 
+  ```text
+!
+ip route 192.168.1.0 255.255.255.0 Null0 200
+!
+```
+
 ## Interactive Discovery
 
 * **Analyzed Topology:**
@@ -35,12 +41,6 @@ In network scenarios where a service provider (ISP) or an edge router advertises
   * **ISP-R1:** Local provider router that originates/injects the summary block `192.168.0.0/16` toward the customer and has a static route toward the customer router (`cust-R2`).
   * **`cust-R2`:** Customer router that handles specific subnets (`192.168.1.0/24`, `192.168.2.0/24`) and has a default route pointing to `ISP-R1`.
 * **Root Problem:** Lack of a discard route for unused addresses within the summarized range, causing traffic destined for unused or malicious IPs (DoS attacks, scans) to bounce indefinitely.
-
-```text
-!
-ip route 192.168.1.0 255.255.255.0 Null0 200
-!
-```
 
 # Practical Exercise
 
