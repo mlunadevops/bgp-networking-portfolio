@@ -112,6 +112,15 @@ Perform extended pings from Router A to IP `2.2.2.2` specifying the source outgo
 
 ![LOAD BALANCE](images/02RAextendedping160.png)
 
+In the proposed scenario, one ping responds successfully while the other fails due to a classic problem of asymmetric routing and a lack of return routing in the remote AS (AS 10).  
+Here is a detailed explanation of what happens:
+
+* **Forward path:** When you configure the `maximum-paths 2` command on Router A (RA), it knows it can send traffic toward the `2.2.2.0/24` network using both the `160.20.20.2` (Serial0/0) and `150.10.10.2` (Serial0/1) next-hops. Therefore, data packets physically leave your router through both interfaces.  
+* **The issue with the Serial0/0 interface (`160.20.20.1`):** When performing the extended ping by forcing traffic out of this interface, the packets reach Router B (RB) in the remote AS. However, if the remote router does not have a properly configured return route (or an adequate BGP advertisement) specifically directed toward that interface's source subnet (`160.20.20.0/24`), the reply packets from the destination (`2.2.2.2`) will not know how to return through that link or will be dropped.  
+* **Success through Serial0/1 (`150.10.10.1`):** In contrast, through the Serial0/1 interface, the reverse path is fully operational, propagated, and accepted in the routing tables of AS 10, allowing round-trip traffic to flow without packet loss (100% success rate).  
+
+In summary, this is not a failure of your local link or of BGP on Router A, but rather an issue with how the remote AS manages return traffic for each of the connected point-to-point subnets.
+
 * **Router A:** Advertises its Loopback interface (1.1.1.1/32).
 * **Router B and C:** Advertise the shared destination network (2.2.2.0/24).
 
