@@ -52,7 +52,29 @@ In the context of the technical document and BGP (Border Gateway Protocol) routi
 * **`neighbor 10.1.1.1 default-originate`**:
   * This command configures a router (in this case, typically a provider or backbone router like `BB-R3`) to **originate and advertise a default route (`0.0.0.0/0`)** toward its BGP neighbor (`ISP-R1`). This allows the receiving router to learn a default route to forward all external traffic toward the Internet or the network core without needing to learn all the routes from the backbone.
 
-## IMPORTANT NOTE ABOUT (`default-originate`) COMMAND:
+## IMPORTANT NOTE ABOUT (`neighbor ip-address ebgp-multihop value`) COMMAND (`neighbor 10.1.1.1 ebgp-multihop 2`):
+
+Router 3 (R3) without the neighbor 10.1.1.1 ebgp-multihop 2 command:
+
+![R3 sin ebgp-multihop 2](images/02R3sinebgp-multihop.png)
+
+Router 3 neighbor state output without the neighbor 10.1.1.1 ebgp-multihop 2 command configured in R3:
+
+![R3 sh ip bgp su sin ebgp-multihop 2](images/02R3sinebgp-multihopidle.png)
+
+Router 1 neighbor state output without the neighbor 10.1.1.1 ebgp-multihop 2 command configured in R3:
+
+![R1 sh ip bgp su sin ebgp-multihop 2](images/02R1sinebgp-multihopactive.png)
+
+Router 3 (R3) with the neighbor 10.1.1.1 default-originate command:
+
+![R3 con default-originate](images/03R3conndefaultorignate.png)
+
+Router 1 routing table output with the neighbor 10.1.1.1 default-originate command configured in R3:
+
+![R1 table con default-originate](images/03R1condefaultorignate.png)
+
+## IMPORTANT NOTE ABOUT (`default-originate`) COMMAND (`neighbor 10.1.1.1 default-originate`):
 
 In a network architecture, although the local ISP (`ISP-R1`) could manually create a static default route toward the backbone, using `default-originate` from the upstream provider's edge router (`BB-R3`) responds to a strategy of dynamism, scalability, and ISP operations for the following reasons:
 
