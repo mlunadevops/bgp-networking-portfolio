@@ -73,6 +73,10 @@ router bgp 10
  network 2.2.2.0 mask 255.255.255.0
 ```
 
+2.1) Routing Table on Router A (RA sh ip ro)
+
+![LOAD BALANCE](images/01RAroutingtable.png)
+
 * **Router A:** Advertises its Loopback interface (1.1.1.1/32).
 * **Router B and C:** Advertise the shared destination network (2.2.2.0/24).
 
