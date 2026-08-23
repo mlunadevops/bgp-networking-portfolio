@@ -132,4 +132,7 @@ This typically happens due to asymmetric routing or missing return routes on the
 
 In summary, this is not a failure of your local link or of BGP on Router A, but rather an issue with how the remote AS manages return traffic for each of the connected point-to-point subnets.
 
+#### 7.1) Load Balancing Verification via Traceroute
+Once the return path routing issue is resolved in the remote ISP/AS, running multiple `traceroute` commands toward destination `2.2.2.2` will demonstrate load balancing by alternating next-hop exits:
+
 ### Advertisement Configuration
