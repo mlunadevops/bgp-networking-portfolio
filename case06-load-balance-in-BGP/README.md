@@ -121,7 +121,14 @@ Here is a detailed explanation of what happens:
 
 * **Forward path:** When you configure the `maximum-paths 2` command on Router A (RA), it knows it can send traffic toward the `2.2.2.0/24` network using both the `160.20.20.2` (Serial0/0) and `150.10.10.2` (Serial0/1) next-hops. Therefore, data packets physically leave your router through both interfaces.  
 * **The issue with the Serial0/0 interface (`160.20.20.1`):** When performing the extended ping by forcing traffic out of this interface, the packets reach Router B (RB) in the remote AS. However, if the remote router does not have a properly configured return route (or an adequate BGP advertisement) specifically directed toward that interface's source subnet (`160.20.20.0/24`), the reply packets from the destination (`2.2.2.2`) will not know how to return through that link or will be dropped.  
-* **Success through Serial0/1 (`150.10.10.1`):** In contrast, through the Serial0/1 interface, the reverse path is fully operational, propagated, and accepted in the routing tables of AS 10, allowing round-trip traffic to flow without packet loss (100% success rate).  
+* **Success through Serial0/1 (`150.10.10.1`):** In contrast, through the Serial0/1 interface, the reverse path is fully operational, propagated, and accepted in the routing tables of AS 10, allowing round-trip traffic to flow without packet loss (100% success rate).
+
+  ### Steps 6 & 7: Troubleshooting & Final Verification
+
+#### 6.1) Problem Analysis
+**Why does the ping succeed through one interface and fail through the other when reaching IP `2.2.2.2`?**
+
+This typically happens due to asymmetric routing or missing return routes on the remote AS (AS 10) for that specific source IP subnet, or because of filtering / missing interface advertisements in the reverse direction.
 
 In summary, this is not a failure of your local link or of BGP on Router A, but rather an issue with how the remote AS manages return traffic for each of the connected point-to-point subnets.
 
