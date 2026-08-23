@@ -6,5 +6,4 @@ To achieve load sharing with equal-cost paths, you can use the BGP configuration
 
  ```text
 maximum-paths [1-6]
-
  ```
