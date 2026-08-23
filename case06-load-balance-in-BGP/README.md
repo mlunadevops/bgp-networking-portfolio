@@ -105,21 +105,9 @@ Perform extended pings from Router A to IP `2.2.2.2` specifying the source outgo
 * **Test 1:** Exiting through interface Serial0/1 (`150.10.10.1`)
 
 **
+![LOAD BALANCE](images/02RAextendedping150.png)
 
-```text
-RA# ping
-Protocol [ip]: 
-Target IP address: 2.2.2.2
-Repeat count [5]: 
-Datagram size [100]: 
-Timeout in seconds [2]: 
-Extended commands [n]: y
-Source address or interface: 150.10.10.1
-...
-Sending 5, 100-byte ICMP Echos to 2.2.2.2, timeout is 2 seconds:
-Packet sent with a source address of 150.10.10.1
-Success rate is 100 percent (5/5), round-trip min/avg/max 68/84/128 ms
-```
+
 
 
 * **Router A:** Advertises its Loopback interface (1.1.1.1/32).
