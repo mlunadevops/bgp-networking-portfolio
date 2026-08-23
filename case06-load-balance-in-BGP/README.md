@@ -106,13 +106,13 @@ Now, network `2.2.2.0` clearly shows two active entries across both next-hops (`
 ### Steps 4 & 5: Connectivity Verification
 Perform extended pings from Router A to IP `2.2.2.2` specifying the source outgoing interface.
 
-* **Test 1:** Exiting through interface Serial0/1 (`150.10.10.1`)
+* **Test 1:** Exiting through interface Serial0/1 (`150.10.10.1`) NO SUCCESSFULL
 
 **
 ![LOAD BALANCE](images/02RAextendedping150.png)
 
 
-* **Test 2:** Exiting through interface Serial0/1 (`160.20.20.1`)
+* **Test 2:** Exiting through interface Serial0/1 (`160.20.20.1`) SUCCESSFULL
 
 ![LOAD BALANCE](images/02RAextendedping160.png)
 
