@@ -97,6 +97,8 @@ router bgp 11
 
 ![LOAD BALANCE](images/01RAroutingtablemaximupath.png)
 
+Now, network `2.2.2.0` clearly shows two active entries across both next-hops (`160.20.20.2` and `150.10.10.2`).
+
 **
 
 * **Router A:** Advertises its Loopback interface (1.1.1.1/32).
