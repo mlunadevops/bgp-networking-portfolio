@@ -163,4 +163,6 @@ Once the return path routing issue is resolved in the remote ISP/AS, running mul
 
 ![LOAD BALANCE](images/02RAextendedping160.png)
 
+![LOAD BALANCE](images/03RAtracert150.png)
+
 ### Advertisement Configuration
