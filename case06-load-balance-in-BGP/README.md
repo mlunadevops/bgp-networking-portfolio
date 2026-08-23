@@ -134,6 +134,31 @@ This typically happens due to asymmetric routing or missing return routes on the
 In summary, this is not a failure of your local link or of BGP on Router A, but rather an issue with how the remote AS manages return traffic for each of the connected point-to-point subnets.
 
 #### 7.1) Load Balancing Verification via Traceroute
+
+In order to resolve the issue commented in steps Steps 4 & 5, let`s configure eigrp routing protocol in routers RB and RC:
+
+RB configuration:
+
+```text
+!
+router eigrp 1
+ network 2.2.2.0 0.0.0.255
+ network 160.20.20.0 0.0.0.255
+ no auto-summary
+!
+```
+
+RC configuration:
+
+```text
+!
+router eigrp 1
+ network 2.2.2.0 0.0.0.255
+ network 150.10.10.0 0.0.0.255
+ no auto-summary
+!
+```
+
 Once the return path routing issue is resolved in the remote ISP/AS, running multiple `traceroute` commands toward destination `2.2.2.2` will demonstrate load balancing by alternating next-hop exits:
 
 ![LOAD BALANCE](images/02RAextendedping160.png)
