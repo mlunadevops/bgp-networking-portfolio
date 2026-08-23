@@ -62,6 +62,8 @@ Router 3 neighbor state output without the neighbor 10.1.1.1 ebgp-multihop 2 com
 
 ![R3 sh ip bgp su sin ebgp-multihop 2](images/02R3sinebgp-multihopidle.png)
 
+On R3 (Idle): You are completely right about the TTL. Since R3 is trying to establish an eBGP session with an IP that is not on a directly connected network (for example, a Loopback interface), BGP defaults to sending those packets with a TTL of 1. Even though R3 has the IP route to reach R1, the IPv4 packet is dropped at the first hop because the TTL reaches 0 (or R3 drops the eBGP security validation for not being directly connected neighbors). Because of this, R3 cannot progress and remains in Idle.
+
 Router 1 neighbor state output without the neighbor 10.1.1.1 ebgp-multihop 2 command configured in R3:
 
 ![R1 sh ip bgp su sin ebgp-multihop 2](images/02R1sinebgp-multihopactive.png)
