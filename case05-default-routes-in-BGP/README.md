@@ -17,11 +17,16 @@ neighbor {ip-address | peer-group-name} default-originate [route-map map-name]
 no neighbor {ip-address | peer-group-name} default-originate [route-map map-name]
 ```
 ## Technical Context
-By design, when a BGP neighbor is configured with a specific IP address, the local router originates the TCP connection (port 179) using the primary IP address of the outgoing physical interface.
 
-If the remote peer expects the BGP session to originate from a loopback address, a mismatch occurs, leaving the session stuck in the **Active** state. The `neighbor [ip-address] update-source [interface]` command overrides this behavior, instructing the BGP process to source packets from the specified loopback interface. Additionally, a session reset (`clear ip bgp *`) is required to re-establish the connection using the new parameters.
+In network scenarios where a service provider (ISP) or an edge router advertises a summary block (for example, `192.168.0.0/16`) toward a customer or internal router (`cust-R2`), if traffic is destined for an IP address within that block that is not active or configured on the receiving router's specific interfaces, the router will use its default route to forward the packet back to the network core. This generates a continuous routing loop between the routers until the packet's TTL (Time to Live) field expires, severely affecting CPU utilization and link performance.
 
+## Interactive Discovery
 
+* **Analyzed Topology:**
+  * **BB-R3:** Backbone router (upstream ISP) connected via eBGP to `ISP-R1`.
+  * **ISP-R1:** Local provider router that originates/injects the summary block `192.168.0.0/16` toward the customer and has a static route toward the customer router (`cust-R2`).
+  * **`cust-R2`:** Customer router that handles specific subnets (`192.168.1.0/24`, `192.168.2.0/24`) and has a default route pointing to `ISP-R1`.
+* **Root Problem:** Lack of a discard route for unused addresses within the summarized range, causing traffic destined for unused or malicious IPs (DoS attacks, scans) to bounce indefinitely.
 # Practical Exercise
 
 ## Step 1: Configure Connections
