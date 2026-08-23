@@ -42,6 +42,13 @@ ip route 192.168.1.0 255.255.255.0 Null0 200
   * **`cust-R2`:** Customer router that handles specific subnets (`192.168.1.0/24`, `192.168.2.0/24`) and has a default route pointing to `ISP-R1`.
 * **Root Problem:** Lack of a discard route for unused addresses within the summarized range, causing traffic destined for unused or malicious IPs (DoS attacks, scans) to bounce indefinitely.
 
+COMMAND REFERENCE:
+
+In the context of the technical document and BGP (Border Gateway Protocol) routing protocols, these commands serve specific functions to establish eBGP neighborship between routers that are not directly connected and to propagate default routing information:
+
+* **`neighbor 10.1.1.1 ebgp-multihop 2`** (or the configured value):
+  * By default, eBGP (External BGP) sessions require neighboring routers to be directly connected (their TTL value for BGP packets is 1). Since in many topologies eBGP routers communicate through virtual interfaces (such as Loopbacks) or are separated by more than one network hop, this command allows you to **increase the allowed TTL hop limit** for BGP packets. This ensures that the eBGP session can come up correctly between the routers (for example, between `BB-R3` and `ISP-R1`) using Loopback addresses.
+
 # Practical Exercise
 
 ## Step 1: Configure Connections
