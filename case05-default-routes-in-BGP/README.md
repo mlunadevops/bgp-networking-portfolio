@@ -88,7 +88,7 @@ router bgp 65503
  no synchronization
  bgp log-neighbor-changes
  neighbor 10.1.1.1 remote-as 65501
- neighbor 10.1.1.1 ebgp-multihop 255
+ neighbor 10.1.1.1 ebgp-multihop 2
  neighbor 10.1.1.1 default-originate
  no auto-summary
 !
