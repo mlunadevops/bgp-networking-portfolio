@@ -66,14 +66,6 @@ Router 1 neighbor state output without the neighbor 10.1.1.1 ebgp-multihop 2 com
 
 ![R1 sh ip bgp su sin ebgp-multihop 2](images/02R1sinebgp-multihopactive.png)
 
-Router 3 (R3) with the neighbor 10.1.1.1 default-originate command:
-
-![R3 con default-originate](images/03R3conndefaultorignate.png)
-
-Router 1 routing table output with the neighbor 10.1.1.1 default-originate command configured in R3:
-
-![R1 table con default-originate](images/03R1condefaultorignate.png)
-
 ## IMPORTANT NOTE ABOUT (`default-originate`) COMMAND (`neighbor 10.1.1.1 default-originate`):
 
 In a network architecture, although the local ISP (`ISP-R1`) could manually create a static default route toward the backbone, using `default-originate` from the upstream provider's edge router (`BB-R3`) responds to a strategy of dynamism, scalability, and ISP operations for the following reasons:
