@@ -135,6 +135,6 @@ In summary, this is not a failure of your local link or of BGP on Router A, but 
 #### 7.1) Load Balancing Verification via Traceroute
 Once the return path routing issue is resolved in the remote ISP/AS, running multiple `traceroute` commands toward destination `2.2.2.2` will demonstrate load balancing by alternating next-hop exits:
 
-![LOAD BALANCE](images/03RAtracert160.png)
+![LOAD BALANCE](images/02RAextendedping160.png)
 
 ### Advertisement Configuration
