@@ -71,7 +71,13 @@ Router 1 routing table output without the neighbor 10.1.1.1 default-originate co
 
 ![R1 table sin default-originate](images/02R1sindefaultorignate.png)
 
-  
+Router 3 (R3) with the neighbor 10.1.1.1 default-originate command:
+
+![R3 con default-originate](images/03R3conndefaultorignate.png)
+
+Router 1 routing table output with the neighbor 10.1.1.1 default-originate command configured in R3:
+
+![R1 table con default-originate](images/03R1condefaultorignate.png)
 
 # Practical Exercise
 
