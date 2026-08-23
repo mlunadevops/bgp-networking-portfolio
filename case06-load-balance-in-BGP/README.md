@@ -77,6 +77,26 @@ router bgp 10
 
 ![LOAD BALANCE](images/01RAroutingtable.png)
 
+**🚀 Step 3: Implementing the maximum-paths Command
+
+### 3.1 & 3.2) Command Configuration and Verification
+To allow BGP to install multiple equal-cost paths, add `maximum-paths 2` inside the BGP configuration process on Router A:
+
+```text
+!
+router bgp 11
+ no synchronization
+ bgp log-neighbor-changes
+ network 1.1.1.1 mask 255.255.255.255
+ neighbor 150.10.10.2 remote-as 10
+ neighbor 160.20.20.2 remote-as 10
+ maximum-paths 2
+ no auto-summary
+!
+```
+
+**
+
 * **Router A:** Advertises its Loopback interface (1.1.1.1/32).
 * **Router B and C:** Advertise the shared destination network (2.2.2.0/24).
 
