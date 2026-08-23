@@ -48,7 +48,7 @@ To put it into the broader picture:
 | **03** | [BGP Loopback Interface & OSPF](./case-03-loopback-interfaces/) | Why Loopbacks break your BGP? (And how to fix it) . |
 | **04** | [Route aggregation in BGP](./case04-route-aggregation-in-BGP/) | Route aggregation in BGP. |
 | **05** | [Default Routes](./case05-default-routes-in-BGP/) | Defaul Routes in BGP |
-| **06** | [BGP Load Balance](./case05-default-routes-in-BGP/) | Defaul Routes in BGP |
+| **06** | [BGP Load Balance](./case06-load-balance-in-BGP/) | Load Balance in BGP |
 | ... | ... | ... |
 
 
