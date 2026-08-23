@@ -22,11 +22,11 @@ In network scenarios where a service provider (ISP) or an edge router advertises
 
 * **Value-Add:**
   * Clear identification of the impact on network resources (CPU consumption and link saturation due to TTL expiration)[cite: 1].
-  * Direct solution using the routing command to `Null0`[cite: 1].
+  * Direct solution using the routing command to `Null0`.
   * Advanced solution for dynamic or intermittent link scenarios (such as ISDN) through the use of floating static routes with a high administrative distance[cite: 1].
 * **Iterative Refinement:**
   * **Loop Detection:** Identify traffic bouncing between `ISP-R1` and `cust-R2` using tracing/debugging (`debug ip packet`) when attempting to reach an unassigned IP (e.g., `192.168.20.1`)[cite: 1].
-  * **Application of Primary Static Route to Null0:**[cite: 1]
+  * **Application of Primary Static Route to Null0:**
 
 ## Interactive Discovery
 
