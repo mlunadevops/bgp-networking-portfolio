@@ -108,7 +108,7 @@ Perform extended pings from Router A to IP `2.2.2.2` specifying the source outgo
 ![LOAD BALANCE](images/02RAextendedping150.png)
 
 
-* **Test 2:** Exiting through interface Serial0/1 (`150.10.10.1`)
+* **Test 2:** Exiting through interface Serial0/1 (`160.10.10.1`)
 
 ![LOAD BALANCE](images/02RAextendedping160.png)
 
