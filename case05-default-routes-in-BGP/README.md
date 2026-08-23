@@ -28,7 +28,7 @@ In network scenarios where a service provider (ISP) or an edge router advertises
   * **Loop Detection:** Identify traffic bouncing between `ISP-R1` and `cust-R2` using tracing/debugging (`debug ip packet`) when attempting to reach an unassigned IP (e.g., `192.168.20.1`)[cite: 1].
   * **Application of Primary Static Route to Null0:**
 
-  ```text
+ ```text
 !
 ip route 192.168.1.0 255.255.255.0 Null0 200
 !
