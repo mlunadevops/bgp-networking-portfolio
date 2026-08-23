@@ -48,6 +48,9 @@ In the context of the technical document and BGP (Border Gateway Protocol) routi
 
 * **`neighbor 10.1.1.1 ebgp-multihop 2`** (or the configured value):
   * By default, eBGP (External BGP) sessions require neighboring routers to be directly connected (their TTL value for BGP packets is 1). Since in many topologies eBGP routers communicate through virtual interfaces (such as Loopbacks) or are separated by more than one network hop, this command allows you to **increase the allowed TTL hop limit** for BGP packets. This ensures that the eBGP session can come up correctly between the routers (for example, between `BB-R3` and `ISP-R1`) using Loopback addresses.
+ 
+* **`neighbor 10.1.1.1 default-originate`**:
+  * This command configures a router (in this case, typically a provider or backbone router like `BB-R3`) to **originate and advertise a default route (`0.0.0.0/0`)** toward its BGP neighbor (`ISP-R1`). This allows the receiving router to learn a default route to forward all external traffic toward the Internet or the network core without needing to learn all the routes from the backbone.
 
 # Practical Exercise
 
