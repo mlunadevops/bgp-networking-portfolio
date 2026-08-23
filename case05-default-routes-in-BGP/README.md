@@ -191,3 +191,15 @@ router bgp 65501
  network 192.168.0.0 mask 255.255.0.0
  no auto-summary
 !
+```
+
+R3 VERIFICATION:
+
+![R1 table con default-originate](images/04verification.png)
+
+* **Verification via CLI**: After applying the `update-source` command and clearing the session (`clear ip bgp *`), verify the establishment using Router RTA:
+* **State/PfxRcd (`0`)**: A numeric value indicates that the session has successfully transitioned from `Active`/`Connect` to the **Established** state.
+* **Up/Down Time**: Displays the active duration of the stable peering session.
+
+![Show IP BGP Summary](images/03rtastablished.png)
+
