@@ -52,7 +52,7 @@ In the context of the technical document and BGP (Border Gateway Protocol) routi
 * **`neighbor 10.1.1.1 default-originate`**:
   * This command configures a router (in this case, typically a provider or backbone router like `BB-R3`) to **originate and advertise a default route (`0.0.0.0/0`)** toward its BGP neighbor (`ISP-R1`). This allows the receiving router to learn a default route to forward all external traffic toward the Internet or the network core without needing to learn all the routes from the backbone.
 
-## IMPORTANT NOTE:
+## IMPORTANT NOTE ABOUT (`default-originate`) COMMAND:
 
 In a network architecture, although the local ISP (`ISP-R1`) could manually create a static default route toward the backbone, using `default-originate` from the upstream provider's edge router (`BB-R3`) responds to a strategy of dynamism, scalability, and ISP operations for the following reasons:
 
