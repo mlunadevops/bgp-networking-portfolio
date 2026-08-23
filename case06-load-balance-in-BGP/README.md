@@ -7,3 +7,42 @@ To achieve load sharing with equal-cost paths, you can use the BGP configuration
  ```text
 maximum-paths [1-6]
  ```
+This command allows you to change the maximum number of parallel equal-cost paths allowed in the routing table (accepting values from 1 to 6).
+
+⚙️ Step 1: EBGP Neighbor Configuration
+Configure BGP on Router A (AS 11) to establish eBGP peering relationships with Routers B and C in AS 10.
+
+Router A (RA - AS 11)
+
+ ```text
+!
+router bgp 11
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 150.10.10.2 remote-as 10
+ neighbor 160.20.20.2 remote-as 10
+ no auto-summary
+!
+ ```
+Router B (RB - AS 10)
+
+ ```text
+!
+router bgp 10
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 160.20.20.1 remote-as 11
+ no auto-summary
+!
+ ```
+Router C (RC - AS 10)
+
+```text
+!
+router bgp 10
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 150.10.10.1 remote-as 11
+ no auto-summary
+!
+ ```
