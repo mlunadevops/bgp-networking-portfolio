@@ -16,6 +16,12 @@ Accessibility is now guaranteed through the Internet (ISP Backbone router R3) to
 neighbor {ip-address | peer-group-name} default-originate [route-map map-name]
 no neighbor {ip-address | peer-group-name} default-originate [route-map map-name]
 ```
+## Technical Context
+By design, when a BGP neighbor is configured with a specific IP address, the local router originates the TCP connection (port 179) using the primary IP address of the outgoing physical interface.
+
+If the remote peer expects the BGP session to originate from a loopback address, a mismatch occurs, leaving the session stuck in the **Active** state. The `neighbor [ip-address] update-source [interface]` command overrides this behavior, instructing the BGP process to source packets from the specified loopback interface. Additionally, a session reset (`clear ip bgp *`) is required to re-establish the connection using the new parameters.
+
+
 # Practical Exercise
 
 ## Step 1: Configure Connections
