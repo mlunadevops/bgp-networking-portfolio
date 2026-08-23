@@ -68,6 +68,8 @@ Router 1 neighbor state output without the neighbor 10.1.1.1 ebgp-multihop 2 com
 
 ![R1 sh ip bgp su sin ebgp-multihop 2](images/02R1sinebgp-multihopactive.png)
 
+On R1 (Active): Here the technical nuance is that R1 is indeed the one trying to initiate the TCP connection toward R3 by sending a SYN packet. However, the response packets or synchronization fail because the returning packets (or the eBGP neighbor validation) are affected by the lack of multihop on R3, or R3 rejects/ignores the attempt. Since the TCP three-way handshake cannot be completed (no bidirectional connection is established), R1 gets stuck retrying repeatedly, which is precisely reflected in the Active state (waiting for/initiating a TCP connection without receiving the response that finalizes the establishment).
+
 ## IMPORTANT NOTE ABOUT (`default-originate`) COMMAND (`neighbor 10.1.1.1 default-originate`):
 
 In a network architecture, although the local ISP (`ISP-R1`) could manually create a static default route toward the backbone, using `default-originate` from the upstream provider's edge router (`BB-R3`) responds to a strategy of dynamism, scalability, and ISP operations for the following reasons:
