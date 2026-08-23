@@ -99,9 +99,9 @@ router bgp 65503
 router bgp 65501
  no synchronization
  bgp log-neighbor-changes
- network 192.168.0.0 mask 255.255.0.0
  neighbor 10.3.3.3 remote-as 65503
  neighbor 10.3.3.3 ebgp-multihop 2
+ network 192.168.0.0 mask 255.255.0.0
  no auto-summary
 !
 ```
