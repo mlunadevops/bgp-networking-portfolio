@@ -21,11 +21,11 @@ no neighbor {ip-address | peer-group-name} default-originate [route-map map-name
 In network scenarios where a service provider (ISP) or an edge router advertises a summary block (for example, `192.168.0.0/16`) toward a customer or internal router (`cust-R2`), if traffic is destined for an IP address within that block that is not active or configured on the receiving router's specific interfaces, the router will use its default route to forward the packet back to the network core. This generates a continuous routing loop between the routers until the packet's TTL (Time to Live) field expires, severely affecting CPU utilization and link performance.
 
 * **Value-Add:**
-  * Clear identification of the impact on network resources (CPU consumption and link saturation due to TTL expiration)[cite: 1].
+  * Clear identification of the impact on network resources (CPU consumption and link saturation due to TTL expiration).
   * Direct solution using the routing command to `Null0`.
-  * Advanced solution for dynamic or intermittent link scenarios (such as ISDN) through the use of floating static routes with a high administrative distance[cite: 1].
+  * Advanced solution for dynamic or intermittent link scenarios (such as ISDN) through the use of floating static routes with a high administrative distance.
 * **Iterative Refinement:**
-  * **Loop Detection:** Identify traffic bouncing between `ISP-R1` and `cust-R2` using tracing/debugging (`debug ip packet`) when attempting to reach an unassigned IP (e.g., `192.168.20.1`)[cite: 1].
+  * **Loop Detection:** Identify traffic bouncing between `ISP-R1` and `cust-R2` using tracing/debugging (`debug ip packet`) when attempting to reach an unassigned IP (e.g., `192.168.20.1`).
   * **Application of Primary Static Route to Null0:**
 
  ```text
