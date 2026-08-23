@@ -76,3 +76,34 @@ ip route 0.0.0.0 0.0.0.0 10.0.0.1
 
 ## Step 3: Configure BGP and Routing
 * Configure Router 1 (R1) to establish an EBGP relationship with Router 3 (R3) and Router 2 (R2), while advertising the necessary networks.
+
+### Router 3 (R3)
+```text
+!
+router bgp 65503
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 10.1.1.1 remote-as 65501
+ neighbor 10.1.1.1 ebgp-multihop 255
+ neighbor 10.1.1.1 default-originate
+ no auto-summary
+!
+```
+### Router 1 (R1)
+```text
+!
+router bgp 65501
+ no synchronization
+ bgp log-neighbor-changes
+ network 192.168.0.0 mask 255.255.0.0
+ neighbor 10.3.3.3 remote-as 65503
+ neighbor 10.3.3.3 ebgp-multihop 255
+ no auto-summary
+!
+```
+### Router 2 (R2)
+```text
+!
+
+!
+```
