@@ -54,9 +54,15 @@ In the context of the technical document and BGP (Border Gateway Protocol) routi
 
 ## IMPORTANT NOTE ABOUT (`neighbor ip-address ebgp-multihop value`) COMMAND (`neighbor 10.1.1.1 ebgp-multihop 2`):
 
-Router 3 (R3) without the neighbor 10.1.1.1 ebgp-multihop 2 command:
+Router 3 (R3) without the neighbor 10.1.1.1 ebgp-multihop 2 command but Router 1 (R1) with it`s neighbor 10.3.3.3 ebgp-multihop 2 command configure:
+
+R3:
 
 ![R3 sin ebgp-multihop 2](images/02R3sinebgp-multihop.png)
+
+R1: 
+
+![R1 con ebgp-multihop 2](images/02R3conebgp-multihop.png)
 
 Router 3 neighbor state output without the neighbor 10.1.1.1 ebgp-multihop 2 command configured in R3:
 
