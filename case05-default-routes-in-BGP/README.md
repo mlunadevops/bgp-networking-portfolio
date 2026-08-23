@@ -191,10 +191,3 @@ router bgp 65501
  network 192.168.0.0 mask 255.255.0.0
  no auto-summary
 !
-```
-### Router 2 (R2)
-```text
-!
-
-!
-```
