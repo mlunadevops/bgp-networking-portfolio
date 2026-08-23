@@ -49,3 +49,11 @@ router bgp 10
 Analysis Questions:
 1.1) Use the `show ip bgp summary` command to verify adjacencies.
 1.2) Has the BGP neighbor relationship been established? Why? (Verify physical connectivity, IP addressing, and neighbor policies).
+
+📡 Step 2: Network Advertisement
+Each router advertises its respective networks into BGP.
+
+* **Router A:** Advertises its Loopback interface (1.1.1.1/32).
+* **Router B and C:** Advertise the shared destination network (2.2.2.0/24).
+
+### Advertisement Configuration
