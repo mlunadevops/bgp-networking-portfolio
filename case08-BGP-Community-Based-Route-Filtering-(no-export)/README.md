@@ -55,6 +55,7 @@ router bgp 200
  neighbor 3.3.3.2 remote-as 300 
  neighbor 3.3.3.2 send-community 
  neighbor 3.3.3.2 route-map setcommunity out
+```
 
 Analysis Questions:
 
