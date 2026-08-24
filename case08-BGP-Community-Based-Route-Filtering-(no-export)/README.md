@@ -2,6 +2,28 @@
 
 **Objective of this Practice:** Configure RTB (AS 200) to set the community attribute on BGP routes it advertises so that RTC (AS 300) does not propagate those routes to external peers like RTA (AS 100), using the `no-export` well-known community filter.
 
+## Introduction & Key Concepts
+
+This series of commands configures the Border Gateway Protocol (BGP) routing protocol on a router (typically Cisco IOS). Its main function is to advertise a local network to a BGP neighbor by applying a special tag called a Community to control how external autonomous systems will propagate that route.
+
+Below is a step-by-step breakdown of what each block does:
+
+### 1. BGP Configuration (`router bgp 200`)
+
+```text
+router bgp 200 
+ network 160.10.0.0 mask 255.255.0.0
+ neighbor 3.3.3.2 remote-as 300 
+ neighbor 3.3.3.2 send-community 
+ neighbor 3.3.3.2 route-map setcommunity out
+```
+
+Analysis Questions:
+
+Use the show ip bgp summary command on each router to inspect neighbor states.
+
+Has the BGP neighbor relationship been established successfully? Verify physical links, IP connectivity, and AS configurations.
+
 ⚙️ Step 1: Initial EBGP Neighbor Configuration
 Configure the BGP routing processes on RTA, RTB, and RTC to establish peering sessions.
 
@@ -40,28 +62,6 @@ router bgp 200
  no auto-summary
 !
 ```
-
-## Introduction & Key Concepts
-
-This series of commands configures the Border Gateway Protocol (BGP) routing protocol on a router (typically Cisco IOS). Its main function is to advertise a local network to a BGP neighbor by applying a special tag called a Community to control how external autonomous systems will propagate that route.
-
-Below is a step-by-step breakdown of what each block does:
-
-### 1. BGP Configuration (`router bgp 200`)
-
-```text
-router bgp 200 
- network 160.10.0.0 mask 255.255.0.0
- neighbor 3.3.3.2 remote-as 300 
- neighbor 3.3.3.2 send-community 
- neighbor 3.3.3.2 route-map setcommunity out
-```
-
-Analysis Questions:
-
-Use the show ip bgp summary command on each router to inspect neighbor states.
-
-Has the BGP neighbor relationship been established successfully? Verify physical links, IP connectivity, and AS configurations.
 
 📡 Step 2: Advertising Networks from RTA
 
