@@ -79,3 +79,11 @@ Answer: It defines the maximum TTL value in the IP header of the BGP session pac
 ### Step 3: Configuring the Source Address and Static Routes
 Configure the Loopback interface as the source for BGP updates and add static routes to reach the multiple physical links (`Serial0/0` and `Serial0/1`).
 
+```text
+router bgp 11
+ neighbor 2.2.2.2 update-source Loopback0
+!
+ip route 2.2.2.2 255.255.255.255 Serial0/1
+ip route 2.2.2.2 255.255.255.255 Serial0/0
+```
+
