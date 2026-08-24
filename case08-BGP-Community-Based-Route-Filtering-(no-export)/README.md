@@ -103,7 +103,7 @@ RTC Configuration
  ```text
 !
 router bgp 300
- network 170.10.0.0 mask 255.255.255.0  ! (or corresponding mask)
+ network 170.10.0.0 mask 255.255.0.0 
 !
  ```
 📡 Step 4: Advertising Networks from RTB
