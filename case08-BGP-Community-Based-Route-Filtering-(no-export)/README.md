@@ -199,7 +199,13 @@ route-map setcommunity permit 10
 access-list 1 permit 0.0.0.0 255.255.255.255
 !
 ```
+* **`access-list 1 permit 0.0.0.0 255.255.255.255`**: Uses a wildcard mask that matches any IP address (in this context, translated as "match any route").
 
+### Flow Summary
+
+1. The router advertises its `160.10.0.0/16` network to neighbor `3.3.3.2` (AS 300).
+2. Before sending it, the route-map intercepts the route, verifies that it matches the access list (any route), and attaches the `no-export` tag.
+3. The neighbor receives the route and knows it can use it, but is prohibited from sharing it with other ASes on the Internet.
 
 ### 🔍 Step 6: Verification and Analysis on RTA
 
