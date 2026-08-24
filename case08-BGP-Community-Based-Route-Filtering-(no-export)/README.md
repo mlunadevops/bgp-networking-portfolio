@@ -89,8 +89,19 @@ router bgp 300
  network 170.10.0.0 mask 255.255.255.0  ! (or corresponding mask)
 !
  ```
+📡 Step 4: Advertising Networks from RTB
+
+**RTB Configuration**
 
 Verification: Check the routing tables across all routers to confirm visibility of network 170.10.0.0.
+
+ ```text
+!
+router bgp 200
+ network 160.10.0.0 mask 255.255.0.0
+!
+ ```
+Verification: Verify routing tables on RTA, RTB, and RTC. At this stage, all networks are fully visible across the topology.
 
 🛠️ Step 5: Applying Community Filters & ACLs on RTB
 To prevent RTB's routes from being exported further by RTC to external peers (like RTA), configure a route map with the `no-export` community and tie it to an access list.
