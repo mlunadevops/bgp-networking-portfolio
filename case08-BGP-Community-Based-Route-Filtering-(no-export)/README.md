@@ -172,9 +172,11 @@ access-list 1 permit 0.0.0.0 255.255.255.255
 ```
 ### Key Commands Explained:
 
-* `neighbor 3.3.3.2 send-community`: Mandatory command to pass community attributes to neighbor RTC.
-* `set community no-export`: Ensures the receiving router (RTC) will not advertise these updates to external AS peers (RTA).
-* `access-list 1 permit 0.0.0.0 255.255.255.255`: Matches routes according to the defined filter rule.
+  * **`router bgp 200`**: Starts the BGP process, indicating that your router belongs to Autonomous System (AS) 200.
+* **`network 160.10.0.0 mask 255.255.0.0`**: Instructs BGP to inject and advertise the `160.10.0.0/16` network to your neighbors (provided that this route exists in the router's routing table).
+* **`neighbor 3.3.3.2 remote-as 300`**: Defines a BGP neighbor whose IP is `3.3.3.2` belonging to AS 300.
+* **`neighbor 3.3.3.2 send-community`**: Very important. By default, BGP does not send community attributes to its neighbors unless explicitly instructed using this command.
+* **`neighbor 3.3.3.2 route-map setcommunity out`**: Applies an outbound filter (`route-map`) named `setcommunity` to all routes sent to that neighbor.
 
   ### 🔍 Step 6: Verification and Analysis on RTA
 
