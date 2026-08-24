@@ -178,6 +178,21 @@ access-list 1 permit 0.0.0.0 255.255.255.255
 * **`neighbor 3.3.3.2 send-community`**: Very important. By default, BGP does not send community attributes to its neighbors unless explicitly instructed using this command.
 * **`neighbor 3.3.3.2 route-map setcommunity out`**: Applies an outbound filter (`route-map`) named `setcommunity` to all routes sent to that neighbor.
 
+### 2. The Route Map (`route-map setcommunity`)
+
+```text
+!
+route-map setcommunity permit 10
+ match ip address 1 
+ set community no-export
+!
+```
+
+* **`route-map setcommunity permit 10`**: Creates a rule named `setcommunity` with sequence number 10 that permits traffic matching the conditions.
+* **`match ip address 1`**: Checks if the routes match the criteria defined in Access Control List (ACL) number 1 (`access-list 1`).
+* **`set community no-export`**: Appends the well-known `no-export` community to matching routes. This instructs the neighbor (AS 300) NOT to re-advertise this route to any other external Autonomous System. It will stay strictly within AS 300.
+
+* 
   ### 🔍 Step 6: Verification and Analysis on RTA
 
 #### 6.1) Analysis Questions
