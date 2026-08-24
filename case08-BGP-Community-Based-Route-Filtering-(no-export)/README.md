@@ -124,8 +124,6 @@ Verifiying network 170.10.0.0 255.255.0.0 on RTA & RTB:
 ![BGP community](images/03RBshipro.png)
 
 
-
-
 📡 Step 4: Advertising Networks from RTB
 
 **RTB Configuration**
@@ -138,6 +136,16 @@ router bgp 200
  network 160.10.0.0 mask 255.255.0.0
 !
  ```
+
+**Router A (RTA - AS 100) verification**
+
+![BGP community](images/04RAshipro.png)
+
+**Router C (RTC - AS 300) verification**
+
+![BGP community](images/04RCshipro.png)
+
+
 Verification: Verify routing tables on RTA, RTB, and RTC. At this stage, all networks are fully visible across the topology.
 
 🛠️ Step 5: Applying Community Filters & ACLs on RTB
