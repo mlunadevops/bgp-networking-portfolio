@@ -91,7 +91,7 @@ router bgp 100
  network 150.10.0.0 mask 255.255.0.0
 !
  ```
-Verifiying network 150.10.0.0 255.255.0.0 on RTC & RTA:
+Verifiying network 150.10.0.0 255.255.0.0 on RTC & RTB:
 
 **Router C (RTC - AS 300) verification**
 
