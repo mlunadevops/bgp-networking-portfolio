@@ -81,4 +81,42 @@ To prevent RTB's routes from being exported further by RTC to external peers (li
 
 **Configuration on RTB**
 
+Router B (RTB - AS 200)
+
+```text
+!
+router bgp 200 
+ network 160.10.0.0 mask 255.255.0.0
+ neighbor 3.3.3.2 remote-as 300 
+ neighbor 3.3.3.2 send-community 
+ neighbor 3.3.3.2 route-map setcommunity out 
+!
+route-map setcommunity permit 10
+ match ip address 1 
+ set community no-export  
+!
+access-list 1 permit 0.0.0.0 255.255.255.255
+!
+```
+### Key Commands Explained:
+
+* `neighbor 3.3.3.2 send-community`: Mandatory command to pass community attributes to neighbor RTC.
+* `set community no-export`: Ensures the receiving router (RTC) will not advertise these updates to external AS peers (RTA).
+* `access-list 1 permit 0.0.0.0 255.255.255.255`: Matches routes according to the defined filter rule.
+
+  ### 🔍 Step 6: Verification and Analysis on RTA
+
+#### 6.1) Analysis Questions
+
+* **What effect does permitting network `0.0.0.0/24` (or `0.0.0.0 255.255.255.255` wildcard matching) via the access list have?**  
+  It acts as a wildcard match to select routes advertised in the updates processed by the route map.
+
+* **Why does network `160.10.0.0` no longer appear in the routing table of Router A (RTA)?**  
+  Because RTB tagged the update with the `no-export` community when sending it to RTC. Respecting this community attribute, RTC kept the route in its local/transit routing table but refused to advertise or export it to external neighbors in other Autonomous Systems (such as RTA in AS 100).
+
+* **What is the purpose of the command `set community community-number [additive] [well-known-community]`?**  
+  It allows tagging BGP route updates with custom or standard community values (like `no-export`, `no-advertise`, or `local-AS`) to enforce centralized routing policies across multiple administrative domains.
+
+
+
 
