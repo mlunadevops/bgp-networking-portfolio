@@ -65,6 +65,8 @@ router bgp 200
 !
 ```
 
+
+
 📡 Step 2: Advertising Networks from RTA
 
 **RTA Configuration**
@@ -79,6 +81,19 @@ router bgp 100
  ```
 
 Verification: Inspect the routing tables on RTA, RTB, and RTC to verify the propagation of network 150.10.0.0/16.
+
+**Router A (RTA - AS 100) verification**
+
+![BGP community](images/01RAbgpsu.png)
+
+**Router C (RTA - AS 300) verification**
+
+![BGP community](images/01RCbgpsu.png)
+
+**Router C (RTB - AS 300) verification**
+
+![BGP community](images/01RBbgpsu.png)
+
 
 📡 Step 3: Advertising Networks from RTC
 RTC Configuration
