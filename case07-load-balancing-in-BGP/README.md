@@ -72,3 +72,7 @@ Answer: It allows an EBGP session to be established between routers that are not
 
 Answer: It defines the maximum TTL value in the IP header of the BGP session packets, allowing the packet to traverse up to 255 intermediate routers without being dropped.
 
+**Status Question:** Use the `show ip bgp summary` command. What is the reason why the BGP neighbor relationship has not been established?
+
+**Answer / Solution:** Even though we already allowed multiple hops with a TTL of 255, the routers still do not know where to route traffic to reach the neighbor's Loopback IP address (`2.2.2.2` or `1.1.1.1`), because the output interface or static route to that IP has not been specified, nor has the physical IP address that the router should use as its source been indicated (`update-source`).
+
