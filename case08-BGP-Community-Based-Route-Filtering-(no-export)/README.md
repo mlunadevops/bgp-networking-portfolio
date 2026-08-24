@@ -192,8 +192,16 @@ route-map setcommunity permit 10
 * **`match ip address 1`**: Checks if the routes match the criteria defined in Access Control List (ACL) number 1 (`access-list 1`).
 * **`set community no-export`**: Appends the well-known `no-export` community to matching routes. This instructs the neighbor (AS 300) NOT to re-advertise this route to any other external Autonomous System. It will stay strictly within AS 300.
 
-* 
-  ### 🔍 Step 6: Verification and Analysis on RTA
+### 3. The Access List (`access-list 1`)
+
+```text
+!
+access-list 1 permit 0.0.0.0 255.255.255.255
+!
+```
+
+
+### 🔍 Step 6: Verification and Analysis on RTA
 
 #### 6.1) Analysis Questions
 
