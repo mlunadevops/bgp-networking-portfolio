@@ -90,7 +90,7 @@ Verification: Inspect the routing tables on RTA, RTB, and RTC to verify the prop
 
 ![BGP community](images/01RCbgpsu.png)
 
-**Router C (RTB - AS 300) verification**
+**Router C (RTB - AS 200) verification**
 
 ![BGP community](images/01RBbgpsu.png)
 
