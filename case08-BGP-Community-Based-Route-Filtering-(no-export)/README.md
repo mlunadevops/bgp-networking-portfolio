@@ -79,8 +79,6 @@ Verification: Inspect the routing tables on RTA, RTB, and RTC to verify the prop
 ![BGP community](images/01RBbgpsu.png)
 
 
-
-
 📡 Step 2: Advertising Networks from RTA
 
 **RTA Configuration**
