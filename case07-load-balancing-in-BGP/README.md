@@ -62,4 +62,13 @@ neighbor 1.1.1.1 ebgp-multihop 255
 !
 ```
 
+Analysis Questions:
+
+2.1) What is the ebgp-multihop command used for?
+
+Answer: It allows an EBGP session to be established between routers that are not directly connected (meaning they are more than one network hop away), by modifying the default TTL value.
+
+2.2) What does the value of 255 at the end of the ebgp-multihop command mean?
+
+Answer: It defines the maximum TTL value in the IP header of the BGP session packets, allowing the packet to traverse up to 255 intermediate routers without being dropped.
 
