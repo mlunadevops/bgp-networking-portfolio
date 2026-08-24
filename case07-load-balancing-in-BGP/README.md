@@ -14,12 +14,17 @@
 ### Step 1: Initial BGP Configuration (Direct EBGP)
 Initially, configure routers RA (AS 11) and RB (AS 10) with basic BGP commands:  
 
-**Router A (RA):**
-
+### Router A (RA)
+```text
+!
 router bgp 11
  no synchronization
  neighbor 2.2.2.2 remote-as 10
  no auto-summary
 !
-ip http server
+```
+
+**Router A (RA):**
+
+
 
