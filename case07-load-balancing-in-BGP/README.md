@@ -76,3 +76,6 @@ Answer: It defines the maximum TTL value in the IP header of the BGP session pac
 
 **Answer / Solution:** Even though we already allowed multiple hops with a TTL of 255, the routers still do not know where to route traffic to reach the neighbor's Loopback IP address (`2.2.2.2` or `1.1.1.1`), because the output interface or static route to that IP has not been specified, nor has the physical IP address that the router should use as its source been indicated (`update-source`).
 
+### Step 3: Configuring the Source Address and Static Routes
+Configure the Loopback interface as the source for BGP updates and add static routes to reach the multiple physical links (`Serial0/0` and `Serial0/1`).
+
