@@ -8,6 +8,8 @@ This series of commands configures the Border Gateway Protocol (BGP) routing pro
 
 Below is a step-by-step breakdown of what each block does:
 
+## STEP BY STEP CONFIGURATION
+
 ### 1. BGP Configuration (`router bgp 200`)
 
 ```text
