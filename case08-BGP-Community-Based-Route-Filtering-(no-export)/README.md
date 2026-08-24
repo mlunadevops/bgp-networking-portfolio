@@ -113,6 +113,19 @@ router bgp 300
  network 170.10.0.0 mask 255.255.0.0 
 !
  ```
+Verifiying network 170.10.0.0 255.255.0.0 on RTA & RTB:
+
+**Router A (RTC - AS 100) verification**
+
+![BGP community](images/03RAshipro.png)
+
+**Router B (RTB - AS 200) verification**
+
+![BGP community](images/03RBshipro.png)
+
+
+
+
 📡 Step 4: Advertising Networks from RTB
 
 **RTB Configuration**
