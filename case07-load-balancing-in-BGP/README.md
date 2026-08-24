@@ -36,5 +36,9 @@ router bgp 11
 !
 ```
 
+**Analysis Question:** Use the `show ip bgp summary` command. What is the reason why the BGP neighbor relationship has not been established?
+
+**Answer / Solution:** By default, EBGP (External BGP) sessions require routers to be directly connected and the TTL (Time to Live) value of BGP packets to be 1. If you try to establish a session using IP addresses that are not directly connected (such as Loopback interfaces) or if there are intermediate hops, the adjacency will not come up.
+
 
 
