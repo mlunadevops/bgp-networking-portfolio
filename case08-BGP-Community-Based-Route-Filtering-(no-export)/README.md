@@ -211,6 +211,10 @@ RTA Output before Applying Community Filters & ACLs on RTB:
 
 ![LOAD BALANCE](images/05RAshiprobefore.png)
 
+RTA Output later Applying Community Filters & ACLs on RTB:
+
+![LOAD BALANCE](images/05RAshiprolater.png)
+
 ### 🔍 Step 6: Verification and Analysis on RTA
 
 #### 6.1) Analysis Questions
