@@ -207,6 +207,10 @@ access-list 1 permit 0.0.0.0 255.255.255.255
 2. Before sending it, the route-map intercepts the route, verifies that it matches the access list (any route), and attaches the `no-export` tag.
 3. The neighbor receives the route and knows it can use it, but is prohibited from sharing it with other ASes on the Internet.
 
+RTA Output before Applying Community Filters & ACLs on RTB:
+
+![LOAD BALANCE](images/05RAshiprobefore.png)
+
 ### 🔍 Step 6: Verification and Analysis on RTA
 
 #### 6.1) Analysis Questions
