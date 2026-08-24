@@ -74,7 +74,7 @@ Verification: Inspect the routing tables on RTA, RTB, and RTC to verify the prop
 
 ![BGP community](images/01RCbgpsu.png)
 
-**Router C (RTB - AS 200) verification**
+**Router B (RTB - AS 200) verification**
 
 ![BGP community](images/01RBbgpsu.png)
 
@@ -91,6 +91,16 @@ router bgp 100
  network 150.10.0.0 mask 255.255.0.0
 !
  ```
+Verifiying network 150.10.0.0 255.255.0.0 on RTC & RTA:
+
+**Router C (RTC - AS 300) verification**
+
+![BGP community](images/02RCshipro.png)
+
+**Router B (RTB - AS 200) verification**
+
+![BGP community](images/02RBshipro.png)
+
 
 📡 Step 3: Advertising Networks from RTC
 RTC Configuration
