@@ -2,6 +2,10 @@
 
 **Objective of this Practice:** Configure RTB (AS 200) to set the community attribute on BGP routes it advertises so that RTC (AS 300) does not propagate those routes to external peers like RTA (AS 100), using the `no-export` well-known community filter.
 
+**TOPOLOGY**
+
+![BGP community](images/0Topology.jpg)
+
 ## Introduction & Key Concepts
 
 This series of commands configures the Border Gateway Protocol (BGP) routing protocol on a router (typically Cisco IOS). Its main function is to advertise a local network to a BGP neighbor by applying a special tag called a Community to control how external autonomous systems will propagate that route.
