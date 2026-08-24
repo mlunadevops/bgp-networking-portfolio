@@ -46,3 +46,16 @@ Analysis Questions:
 Use the show ip bgp summary command on each router to inspect neighbor states.
 
 Has the BGP neighbor relationship been established successfully? Verify physical links, IP connectivity, and AS configurations.
+
+📡 Step 2: Advertising Networks from RTA
+
+**RTA Configuration**
+
+**Router A (RTA - AS 100)**
+
+ ```text
+!
+router bgp 100
+ network 150.10.0.0 mask 255.255.0.0
+!
+ ```
