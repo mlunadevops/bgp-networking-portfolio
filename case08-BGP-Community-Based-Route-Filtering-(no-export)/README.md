@@ -59,3 +59,5 @@ router bgp 100
  network 150.10.0.0 mask 255.255.0.0
 !
  ```
+
+Verification: Inspect the routing tables on RTA, RTB, and RTC to verify the propagation of network 150.10.0.0/16.
