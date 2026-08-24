@@ -82,21 +82,25 @@ Configure the Loopback interface as the source for BGP updates and add static ro
 Router A:
 
 ```text
+!
 router bgp 11
  neighbor 2.2.2.2 update-source Loopback0
 !
 ip route 2.2.2.2 255.255.255.255 Serial0/1
 ip route 2.2.2.2 255.255.255.255 Serial0/0
+!
 ```
 
 
 Router B:
 
 ```text
-router bgp 11
- neighbor 2.2.2.2 update-source Loopback0
 !
-ip route 2.2.2.2 255.255.255.255 Serial0/1
-ip route 2.2.2.2 255.255.255.255 Serial0/0
+router bgp 10
+ neighbor 1.1.1.1 update-source Loopback0
+!
+ip route 1.1.1.1 255.255.255.255 Serial0/0
+ip route 1.1.1.1 255.255.255.255 Serial0/1
+!
 ```
 
