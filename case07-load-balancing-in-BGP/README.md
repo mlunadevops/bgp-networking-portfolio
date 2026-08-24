@@ -104,3 +104,13 @@ ip route 1.1.1.1 255.255.255.255 Serial0/1
 !
 ```
 
+**Analysis Question:** 3.4) What is the reason why the BGP neighbor relationship has not been established? Perform troubleshooting and communicate the routers.  
+*Answer / Solution:* When configuring static routes pointing directly to multi-access or serial interfaces without a clear next-hop IP on point-to-point or broadcast networks, BGP may have issues resolving recursion if proper Layer 2/Layer 3 connectivity is missing. Additionally, IP addresses on the serial interfaces must be secured (e.g., configuring PPP/HDLC encapsulation or valid `/30` subnets). Once static routes are corrected with the proper next-hop IPs or interfaces, communication is established.
+
+**3.5) Device Verification:**  
+Run `show ip bgp summary` on both routers to confirm that the adjacency state shows a number (indicating exchanged prefixes) instead of states like `Idle` or `Active`.
+
+### Steps 4 and 5: Verifying Load Balancing
+* **Check the Routing Table:** Run `show ip route bgp` on Router RA to verify that multiple equal-cost routes appear toward the destination network.
+* **Perform Traceroute:** Run a `traceroute` toward the neighbor's Loopback address to check which interfaces traffic alternates through, proving load balancing is working.
+
