@@ -29,10 +29,10 @@ router bgp 11
 
 ```text
 !
-router bgp 11
+router bgp 10
  no synchronization
- neighbor 2.2.2.2 remote-as 10
- no auto-summary
+ bgp log-neighbor-changes
+ neighbor 1.1.1.1 remote-as 11
 !
 ```
 
@@ -40,5 +40,26 @@ router bgp 11
 
 **Answer / Solution:** By default, EBGP (External BGP) sessions require routers to be directly connected and the TTL (Time to Live) value of BGP packets to be 1. If you try to establish a session using IP addresses that are not directly connected (such as Loopback interfaces) or if there are intermediate hops, the adjacency will not come up.
 
+Step 2: Using the ebgp-multihop CommandContinue configuring both routers to allow multiple hops in EBGP:  
+
+
+### Router A (RA):
+
+```text
+!
+router bgp 11
+neighbor 2.2.2.2 ebgp-multihop 255
+ip http server
+!
+```
+
+**Router B (RB):
+
+```text
+!
+router bgp 10
+neighbor 1.1.1.1 ebgp-multihop 255
+!
+```
 
 
