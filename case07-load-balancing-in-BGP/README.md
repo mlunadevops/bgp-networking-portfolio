@@ -89,3 +89,14 @@ ip route 2.2.2.2 255.255.255.255 Serial0/1
 ip route 2.2.2.2 255.255.255.255 Serial0/0
 ```
 
+
+Router B:
+
+```text
+router bgp 11
+ neighbor 2.2.2.2 update-source Loopback0
+!
+ip route 2.2.2.2 255.255.255.255 Serial0/1
+ip route 2.2.2.2 255.255.255.255 Serial0/0
+```
+
