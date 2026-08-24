@@ -16,3 +16,10 @@ Initially, configure routers RA (AS 11) and RB (AS 10) with basic BGP commands:
 
 **Router A (RA):**
 
+router bgp 11
+ no synchronization
+ neighbor 2.2.2.2 remote-as 10
+ no auto-summary
+!
+ip http server
+
