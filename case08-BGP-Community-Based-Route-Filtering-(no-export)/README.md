@@ -17,3 +17,32 @@ router bgp 100
  no auto-summary
 !
  ```
+Router C (RTC - AS 300)
+
+```text
+!
+router bgp 300
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 2.2.2.2 remote-as 100
+ neighbor 3.3.3.1 remote-as 200
+ no auto-summary
+!
+```
+Router B (RTB - AS 200)
+
+```text
+!
+router bgp 200
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 3.3.3.2 remote-as 300
+ no auto-summary
+!
+```
+
+Analysis Questions:
+
+Use the show ip bgp summary command on each router to inspect neighbor states.
+
+Has the BGP neighbor relationship been established successfully? Verify physical links, IP connectivity, and AS configurations.
