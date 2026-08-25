@@ -207,6 +207,22 @@ ip as-path access-list 7 permit _400$
 * `ip as-path access-list 7 permit _400$`: Creates or appends to a regular expression-based AS-path filter numbered 7, matching routes whose AS-path ends with AS 400.
   * The underscore (`_`) represents a space, comma, beginning, or end of the AS-path string.
   * The dollar sign (`$`) anchors the match to the end of the AS-path, meaning AS 400 is the origin AS (the network that originally generated the route).
+    
+3. Route Map: Sequence 10 (Matching and Modifying)
+
+*Router D  EDGE (RTD - AS 256):**
+
+ ```text
+!
+route-map setlocalin permit 10
+match as-path 7
+set local-preference 200
+!
+```
+
+* `route-map setlocalin permit 10`: Defines the first rule (sequence 10) of the route-map named `setlocalin` with an action of permit.
+* `match as-path 7`: Checks if the route's AS-path matches the criteria defined in AS-path access list 7 (i.e., routes originating from AS 400).
+* `set local-preference 200`: If the route matches, its Local Preference is modified to 200. (Note: The default BGP local preference is 100. A higher value means higher priority when choosing the best path within your AS, so this makes routes originating from AS 400 more preferred).
 
 
 #### Analysis Questions
