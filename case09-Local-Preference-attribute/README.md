@@ -150,6 +150,12 @@ Examine the routing table on Router 6 (`show ip ro`).
 
 ![BGP Local preference](images/02RT6outputroutingt.png)
 
+### Step 4: Implementing Local Preference with Route Maps & AS-Path ACLs
+
+To override the default path selection and force traffic through Router D (RD), configure an AS-path access list, a route map, and apply it inbound on RD.
+
+#### Configuration on Router D (RD)
+
 #### Analysis Questions
 
 * How many paths does Router R6 have to reach network `7.7.7.0/24`?
