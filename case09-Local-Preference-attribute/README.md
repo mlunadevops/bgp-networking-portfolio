@@ -117,6 +117,10 @@ Verification: Inspect the routing tables of RTA, RTD, and R6 to check path propa
 
 ![BGP Local preference](images/01RT6output.png)
 
+Note: Router 6 is the only router that does not have the `7.7.7.0/24` route; this is because it has not been configured on the edge routers of AS 256. The command is:
+
+`neighbor <ip-address> next-hop-self`
+
 ### Step 3: Analyzing Initial Routing & Forwarding Tables
 
 Examine the BGP forwarding table on Router 6 (`show ip bgp`).
