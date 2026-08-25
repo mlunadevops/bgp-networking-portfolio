@@ -23,4 +23,41 @@ router bgp 256
  no auto-summary
 !
  ```
+**Router B (RTB - AS 300):**
 
+ ```text
+!
+router bgp 300
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 3.3.3.3 remote-as 256
+ neighbor 4.4.4.2 remote-as 400
+ no auto-summary
+!
+ ```
+
+**Router D (RTD - AS 256):**
+
+ ```text
+!
+router bgp 256
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 3.3.3.4 remote-as 300
+ neighbor 128.213.12.1 remote-as 256
+ no auto-summary
+!
+ ```
+
+**Router 6 (R6 - AS 256):**
+
+ ```text
+!
+router bgp 256
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 128.213.11.1 remote-as 256
+ neighbor 128.213.12.2 remote-as 256
+ no auto-summary
+!
+ ```
