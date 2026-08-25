@@ -101,5 +101,26 @@ router bgp 400
  ```
 Verification: Inspect the routing tables of RTA, RTD, and R6 to check path propagation:
 
+**Router A (RTA - AS 100):**
+
+![BGP Local preference](images/01RTAoutput.png)
+
+**Router B (RTB - AS 300):**
+
+![BGP Local preference](images/02RTBoutput.png)
+
+**Router C (RTB - AS 256):**
+
+![BGP Local preference](images/02RTCoutput.png)
+
+**Router D (RTD - AS 256):**
+
+![BGP Local preference](images/02RTDoutput.png)
+
+
+
+
+
+
 
 ![BGP Local preference](images/01RTAoutput.png)
