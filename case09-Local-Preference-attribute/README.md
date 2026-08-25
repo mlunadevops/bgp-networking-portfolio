@@ -10,6 +10,19 @@ The Local Preference attribute is used to influence the preferred exit point fro
 2. Verify that the interfaces between the devices have connectivity.
 3. Configure all routers to have connectivity among all their BGP neighbors.
 
+**Router A (RTA - AS 100):**
+ 
+ ```text
+!
+router bgp 100
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 1.1.1.2 remote-as 256
+ neighbor 2.2.2.2 remote-as 400
+ no auto-summary
+!
+ ```
+
 
 **Router C (RTC - AS 256):**
  
@@ -74,3 +87,19 @@ router bgp 400
  no auto-summary
 !
  ```
+### Step 2: Advertising Networks from R7
+
+#### R7 Configuration
+
+Publish the loopback network on R7 to inject it into BGP:
+
+ ```text
+!
+router bgp 400
+ network 7.7.7.0 mask 255.255.255.0
+!
+ ```
+Verification: Inspect the routing tables of RTA, RTD, and R6 to check path propagation:
+
+
+![BGP Local preference](images/01RTAoutput.png)
