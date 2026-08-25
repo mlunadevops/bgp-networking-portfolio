@@ -51,6 +51,7 @@ To put it into the broader picture:
 | **06** | [BGP Load Balance](./case06-load-balance-in-BGP/) | Load Balance in BGP |
 | **07** | [BGP Load Balance](./case07-load-balancing-in-BGP/) | Load Balance in BGP |
 | **08** | [BGP Community](./case08-BGP-Community-Based-Route-Filtering-(no-export)/) | configuring BGP community attributes and route maps. |
+| **09** | [Local Preference](./case09-Local-Preference-attribute/) | configuring BGP community attributes and route maps. |
 | ... | ... | ... |
 
 
