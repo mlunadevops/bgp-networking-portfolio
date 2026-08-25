@@ -150,6 +150,8 @@ Examine the routing table on Router 6 (`show ip ro`).
 
 ![BGP Local preference](images/02RT6outputroutingt.png)
 
+Note:  To reach the `7.7.7.0/24` route from Router 6, it takes Router RTC (`128.213.11.1/24`) by default. In the next configuration, we will force the exit through Router RTD (`128.213.12.1/24`) in the step 4.
+
 ### Step 4: Implementing Local Preference with Route Maps & AS-Path ACLs
 
 To override the default path selection and force traffic through Router D (RD), configure an AS-path access list, a route map, and apply it inbound on RD.
