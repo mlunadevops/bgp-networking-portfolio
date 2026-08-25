@@ -190,6 +190,10 @@ no auto-summary
 !
 ```
 
+* `router bgp 256`: Enables the BGP routing process and assigns your autonomous system (AS) number as 256.
+* `neighbor 3.3.3.4 route-map setlocalin in`: Applies an inbound route-map named `setlocalin` to updates received from the BGP neighbor with IP address `3.3.3.4`. Any routes coming from this neighbor must pass through this policy before entering your BGP routing table.
+* `no auto-summary`: Disables automatic network summarization at major network boundaries (a legacy IPv4 feature, generally considered best practice to disable so BGP advertises exact prefix lengths).
+
 
 #### Analysis Questions
 
