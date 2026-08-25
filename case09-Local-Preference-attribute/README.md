@@ -234,6 +234,9 @@ route-map setlocalin permit 20
 !
 ```
 
+* `route-map setlocalin permit 20`: Defines the next rule (sequence 20) in the `setlocalin` route-map.
+* Since there are no match or set statements under sequence 20, it acts as a catch-all permit statement. Any routes from neighbor `3.3.3.4` that did not match sequence 10 are still permitted to pass through without any modifications to their attributes.
+
 
 #### Analysis Questions
 
