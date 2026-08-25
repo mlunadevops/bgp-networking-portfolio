@@ -154,6 +154,24 @@ Examine the routing table on Router 6 (`show ip ro`).
 
 To override the default path selection and force traffic through Router D (RD), configure an AS-path access list, a route map, and apply it inbound on RD.
 
+**Router D  EDGE (RTD - AS 256):**
+
+ ```text
+!
+router bgp 256
+ neighbor 3.3.3.4 route-map setlocalin in
+ no auto-summary
+!
+ip as-path access-list 7 permit _400$
+!
+route-map setlocalin permit 10
+ match as-path 7
+ set local-preference 200
+!
+route-map setlocalin permit 20
+!
+```
+
 #### Configuration on Router D (RD)
 
 #### Analysis Questions
