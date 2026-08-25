@@ -115,6 +115,15 @@ Verification: Inspect the routing tables of RTA, RTD, and R6 to check path propa
 
 **Router 6 (RT6 - AS 256):**
 
+### Step 3: Analyzing Initial Routing & Forwarding Tables
+
+Examine the BGP forwarding table on Router 6 (`show ip bgp`).
+
+#### Analysis Questions
+
+* How many paths does Router R6 have to reach network `7.7.7.0/24`?
+* Why does R6 choose the next-hop `128.213.11.1` (via RTC) instead of `128.213.12.2` (via RTD) by default? (Typically due to lower BGP router ID, older path installation, or IGP metric preference).
+
 ![BGP Local preference](images/01RT6output.png)
 
 
