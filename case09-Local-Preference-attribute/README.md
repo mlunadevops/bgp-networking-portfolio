@@ -224,6 +224,16 @@ set local-preference 200
 * `match as-path 7`: Checks if the route's AS-path matches the criteria defined in AS-path access list 7 (i.e., routes originating from AS 400).
 * `set local-preference 200`: If the route matches, its Local Preference is modified to 200. (Note: The default BGP local preference is 100. A higher value means higher priority when choosing the best path within your AS, so this makes routes originating from AS 400 more preferred).
 
+4. Route Map: Sequence 20 (Implicit Catch-All)
+
+*Router D  EDGE (RTD - AS 256):**
+
+ ```text
+!
+route-map setlocalin permit 20
+!
+```
+
 
 #### Analysis Questions
 
