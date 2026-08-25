@@ -174,7 +174,22 @@ route-map setlocalin permit 20
 !
 ```
 
+Here is the breakdown of the BGP configuration snippet below, line by line:
+
+1. BGP Routing Process Configuration
+
 #### Configuration on Router D (RD)
+
+*Router D  EDGE (RTD - AS 256):**
+
+ ```text
+!
+router bgp 256
+neighbor 3.3.3.4 route-map setlocalin in
+no auto-summary
+!
+```
+
 
 #### Analysis Questions
 
