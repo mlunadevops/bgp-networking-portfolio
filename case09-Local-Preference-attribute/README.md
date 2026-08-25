@@ -194,6 +194,20 @@ no auto-summary
 * `neighbor 3.3.3.4 route-map setlocalin in`: Applies an inbound route-map named `setlocalin` to updates received from the BGP neighbor with IP address `3.3.3.4`. Any routes coming from this neighbor must pass through this policy before entering your BGP routing table.
 * `no auto-summary`: Disables automatic network summarization at major network boundaries (a legacy IPv4 feature, generally considered best practice to disable so BGP advertises exact prefix lengths).
 
+2. AS-Path Access List
+
+*Router D  EDGE (RTD - AS 256):**
+
+ ```text
+!
+ip as-path access-list 7 permit _400$
+!
+```
+
+* `ip as-path access-list 7 permit _400$`: Creates or appends to a regular expression-based AS-path filter numbered 7, matching routes whose AS-path ends with AS 400.
+  * The underscore (`_`) represents a space, comma, beginning, or end of the AS-path string.
+  * The dollar sign (`$`) anchors the match to the end of the AS-path, meaning AS 400 is the origin AS (the network that originally generated the route).
+
 
 #### Analysis Questions
 
