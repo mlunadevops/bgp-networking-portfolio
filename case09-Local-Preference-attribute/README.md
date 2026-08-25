@@ -141,9 +141,13 @@ router bgp 256
 router bgp 256
  neighbor 128.213.12.1 next-hop-self
 !
- ```
-
+```
 Examine the BGP forwarding table on Router 6 (`show ip bgp`).
+
+![BGP Local preference](images/02RT6output.png)
+
+
+
 
 #### Analysis Questions
 
