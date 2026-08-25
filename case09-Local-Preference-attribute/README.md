@@ -129,6 +129,7 @@ Configure on edge routers RTC and RTD:
  
  ```text
 !
+router bgp 256
  neighbor 128.213.11.2 next-hop-self
  no auto-summary
 
@@ -139,6 +140,7 @@ Configure on edge routers RTC and RTD:
 
  ```text
 !
+router bgp 256
  neighbor 128.213.12.1 next-hop-self
 !
  ```
