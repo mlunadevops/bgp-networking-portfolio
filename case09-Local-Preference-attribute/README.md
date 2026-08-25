@@ -146,8 +146,9 @@ Examine the BGP forwarding table on Router 6 (`show ip bgp`).
 
 ![BGP Local preference](images/02RT6output.png)
 
+Examine the routing table on Router 6 (`show ip ro`).
 
-
+![BGP Local preference](images/02RT6outputroutingt.png)
 
 #### Analysis Questions
 
