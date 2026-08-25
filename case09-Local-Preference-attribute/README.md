@@ -107,15 +107,15 @@ Verification: Inspect the routing tables of RTA, RTD, and R6 to check path propa
 
 **Router B (RTB - AS 300):**
 
-![BGP Local preference](images/02RTBoutput.png)
+![BGP Local preference](images/01RTBoutput.png)
 
 **Router C (RTB - AS 256):**
 
-![BGP Local preference](images/02RTCoutput.png)
+![BGP Local preference](images/01RTCoutput.png)
 
 **Router D (RTD - AS 256):**
 
-![BGP Local preference](images/02RTDoutput.png)
+![BGP Local preference](images/01RTDoutput.png)
 
 
 
