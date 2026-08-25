@@ -121,7 +121,32 @@ Note: Router 6 is the only router that does not have the `7.7.7.0/24` route; thi
 
 `neighbor <ip-address> next-hop-self`
 
-### Step 3: Analyzing Initial Routing & Forwarding Tables
+### Step 3: Analyzing Initial Routing & Forwarding Tables:
+
+Configure on edge routers RTC and RTD:
+
+**Router C (RTC - AS 256):**
+ 
+ ```text
+!
+ neighbor 128.213.11.2 next-hop-self
+ no auto-summary
+
+!
+ ```
+
+**Router D (RTD - AS 256):**
+
+ ```text
+!
+router bgp 256
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 3.3.3.4 remote-as 300
+ neighbor 128.213.12.1 remote-as 256
+ no auto-summary
+!
+ ```
 
 Examine the BGP forwarding table on Router 6 (`show ip bgp`).
 
