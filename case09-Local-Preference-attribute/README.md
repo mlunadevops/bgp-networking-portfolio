@@ -61,3 +61,16 @@ router bgp 256
  no auto-summary
 !
  ```
+
+**Router 7 (R7 - AS 256):**
+
+ ```text
+!
+router bgp 400
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 2.2.2.1 remote-as 100
+ neighbor 4.4.4.1 remote-as 300
+ no auto-summary
+!
+ ```
