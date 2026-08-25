@@ -237,6 +237,15 @@ route-map setlocalin permit 20
 * `route-map setlocalin permit 20`: Defines the next rule (sequence 20) in the `setlocalin` route-map.
 * Since there are no match or set statements under sequence 20, it acts as a catch-all permit statement. Any routes from neighbor `3.3.3.4` that did not match sequence 10 are still permitted to pass through without any modifications to their attributes.
 
+### Step 5: Verification and Analysis
+
+#### 5.1 Verification on R6
+
+Check the routing table and BGP forwarding table on Router 6. You should see that the preferred next-hop for `7.7.7.0/24` has switched to `128.213.12.2` (RD) because its path now carries a higher Local Preference (200 vs default 100).
+
+Examine the routing table on Router 6 (`show ip ro`).
+
+![BGP Local preference](images/03RT6outputroutingt.png)
 
 #### Analysis Questions
 
