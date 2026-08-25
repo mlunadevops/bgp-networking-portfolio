@@ -113,9 +113,9 @@ Verification: Inspect the routing tables of RTA, RTD, and R6 to check path propa
 
 ![BGP Local preference](images/01RTCoutput.png)
 
-**Router D (RTD - AS 256):**
+**Router 6 (RT6 - AS 256):**
 
-![BGP Local preference](images/01RTDoutput.png)
+![BGP Local preference](images/01RT6output.png)
 
 
 
