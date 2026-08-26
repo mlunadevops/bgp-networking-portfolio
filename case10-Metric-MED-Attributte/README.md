@@ -63,16 +63,6 @@ interface Ethernet0/0
  ip address 1.1.1.1 255.255.255.0
  half-duplex
 !
-
-!
-interface Serial1/1
- ip address 3.3.3.1 255.255.255.0
- serial restart-delay 0
-!
-interface Serial1/2
- ip address 6.6.6.2 255.255.255.0
- serial restart-delay 0
-!
 interface Serial1/1
  ip address 3.3.3.1 255.255.255.0
  serial restart-delay 0
