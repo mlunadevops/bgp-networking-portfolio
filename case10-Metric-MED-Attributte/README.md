@@ -156,4 +156,22 @@ route-map ste permit 10
 !
  ```
 
+# Configuración de Métricas (MED) en BGP
+
+El sentido de configurar estos comandos en los routers (**RTC**, **RTD** y **RTB**) es asignar y enviar valores de métrica (**MED** - *Multi-Exit Discriminator*) hacia los vecinos externos de BGP con el propósito de influir de manera dinámica en la selección de rutas.
+
+## Desglose de cada bloque de configuración
+
+* **Aplicación de un route-map:** Se utiliza la instrucción `neighbor [IP] route-map ste out` para aplicar un mapa de ruta llamado `ste` a las actualizaciones de BGP que salen hacia un vecino específico.
+* **Definición de la política (`route-map ste permit 10`):** Permite que las rutas pasen a través del filtro y modifica sus atributos.
+* **Modificación de la métrica (`set metric [valor]`):** Establece un valor de MED específico para las rutas anunciadas a ese vecino externo:
+  * **Router C (RTC):** Asigna una métrica de `200` al vecino `2.2.2.2`.
+  * **Router D (RTD):** Asigna una métrica de `150` al vecino `3.3.3.2`.
+  * **Router B (RTB):** Asigna una métrica de `500` al vecino `4.4.4.4`.
+
+## ¿Para qué sirve esto en la red?
+
+Como el atributo **MED** funciona como una sugerencia para que un Sistema Autónomo (AS) externo decida cuál es el mejor punto de entrada o qué camino preferir (recordando que **un valor de métrica menor es preferido**), estos comandos permiten que los routers anuncien sus rutas con diferentes "costos".
+
+De esta forma, el AS receptor sabrá a qué router darle prioridad (por ejemplo, preferirá la ruta de RTD con métrica `150`).
 
