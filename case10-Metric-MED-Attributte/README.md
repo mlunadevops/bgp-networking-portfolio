@@ -101,3 +101,7 @@ View the routing tables of Router A, Router D, and Router C.
 **Router C (RTC - AS 300) routing table:**
 
 ![BGP MED](images/01RTCshipro.jpg)
+
+**Router F (RTF - AS 200) routing table:**
+
+![BGP MED](images/01RTFshipro.jpg)
