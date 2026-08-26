@@ -8,6 +8,8 @@ Unlike local preference, the metric (MED) is exchanged between ASes. A metric is
 
 Unless a router receives other instructions, it compares metrics for routes from neighbors in the same AS. For the router to compare metrics from neighbors originating in different ASes, you must execute the special configuration command `bgp always-compare-med` on the router.
 
+![BGP MED](images/01lotopology.jpg)
+
 **Router A (RTA - AS 100):**
  
  ```text
@@ -86,3 +88,16 @@ network 180.10.0.1 mask 255.255.255.255
 !
  ```
 
+View the routing tables of Router A, Router D, and Router C.
+
+**Router A (RTA - AS 100) routing table:**
+
+![BGP MED](images/01RTAshipro.jpg)
+
+**Router D (RTD - AS 300) routing table:**
+
+![BGP MED](images/01RTDshipro.jpg)
+
+**Router C (RTC - AS 300) routing table:**
+
+![BGP MED](images/01RTCshipro.jpg)
