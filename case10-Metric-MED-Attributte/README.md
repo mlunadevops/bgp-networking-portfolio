@@ -27,3 +27,31 @@ interface Serial1/2
 !
  ```
 
+**Router C (RTC - AS 300):**
+
+ ```text
+!
+interface Ethernet0/0
+ ip address 1.1.1.2 255.255.255.0
+ half-duplex
+!
+interface Serial1/2
+ ip address 2.2.2.1 255.255.255.0
+ serial restart-delay 0
+!
+interface Serial1/2
+ ip address 2.2.2.2 255.255.255.0
+ serial restart-delay 0
+!
+ ```
+
+**Router B (RTC - AS 400):**
+
+ ```text
+!
+interface Serial1/0
+ ip address 4.4.4.3 255.255.255.0
+ serial restart-delay 0
+!
+ ```
+
