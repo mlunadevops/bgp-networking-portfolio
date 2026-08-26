@@ -7,3 +7,23 @@ The metric attribute is also known as MULTI_EXIT_DISCRIMINATOR, MED (BGP4), or I
 Unlike local preference, the metric (MED) is exchanged between ASes. A metric is carried into an AS, but it does not leave it. When an update enters an AS with a specific metric, that metric is used to make routing decisions within the AS. When the update from that same AS is passed to a third AS, the metric is reset to 0. The diagram in this section illustrates the set of metrics. The default metric value is 0.
 
 Unless a router receives other instructions, it compares metrics for routes from neighbors in the same AS. For the router to compare metrics from neighbors originating in different ASes, you must execute the special configuration command `bgp always-compare-med` on the router.
+
+**Router A (RTA - AS 100):**
+ 
+ ```text
+!
+!
+interface Serial1/0
+ ip address 4.4.4.4 255.255.255.0
+ serial restart-delay 0
+!
+interface Serial1/1
+ ip address 3.3.3.2 255.255.255.0
+ serial restart-delay 0
+!
+interface Serial1/2
+ ip address 2.2.2.2 255.255.255.0
+ serial restart-delay 0
+!
+ ```
+
