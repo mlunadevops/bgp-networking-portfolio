@@ -73,4 +73,16 @@ interface Serial1/2
 !
  ```
 
+## Publish the Lo Interface on RTB
+
+To publish the Loopback (`Lo`) interface on Router B (RTB), use the `network` command inside the BGP configuration mode:
+
+**Router B (RTC - AS 400):**
+
+ ```text
+!
+router bgp 400
+network 180.10.0.1 mask 255.255.255.255
+!
+ ```
 
