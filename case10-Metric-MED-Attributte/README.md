@@ -112,9 +112,14 @@ sh ip bgp (BGP Table / Loc-RIB)
 
 What it is: The internal and exclusive database of the BGP protocol.
 
+**Router A (RTA - AS 100) routing table:**
+
+![BGP MED](images/02RTAshipbg.jpg)
+
 What it shows: It stores all routes learned from BGP neighbors (both eBGP and iBGP), including multiple paths or alternative routes to the same destination (even those that were not selected as the best paths).
 
 Attributes: It displays detailed information on BGP attributes for each route (such as AS-Path, Local Preference, MED, Next-Hop, and the > symbol to indicate which route is the "best path").
+
 
 sh ip route (Global Routing Table / RIB)
 
