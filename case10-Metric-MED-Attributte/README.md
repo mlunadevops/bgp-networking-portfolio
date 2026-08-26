@@ -121,10 +121,39 @@ What it shows: It stores all routes learned from BGP neighbors (both eBGP and iB
 Attributes: It displays detailed information on BGP attributes for each route (such as AS-Path, Local Preference, MED, Next-Hop, and the > symbol to indicate which route is the "best path").
 
 
-sh ip route (Global Routing Table / RIB)
+# CONFIGURING (Multi-Exit Discriminator):
 
-What it is: The main operating system routing table of the router.
+**Router C MED Configuration (RTC - AS 300):**
 
-What it shows: It contains only the best routes selected to reach each destination, regardless of which protocol discovered them (it can include static routes, directly connected routes, OSPF, EIGRP, and of course, BGP).
+ ```text
+!
+router bgp 300 
+   neighbor 2.2.2.2 route-map ste out 
+   route-map ste permit 10 
+   set metric 200
+!
+ ```
 
-Filtering: If BGP learns a route but it loses to another route with a lower Administrative Distance (for example, a static route or an IGP protocol), that BGP route will appear in sh ip bgp, but it will not appear in sh ip route.
+**Router D MED Configuration (RTD - AS 300):**
+
+ ```text
+!
+router bgp 300 
+      neighbor 3.3.3.2 route-map ste out 
+   route-map ste permit 10 
+   set metric 150
+!
+ ```
+
+**Router B MED Configuration (RTB - AS 400):**
+
+ ```text
+!
+router bgp 400 
+   neighbor 4.4.4.4 route-map ste out 
+route-map ste permit 10 
+   set metric 500
+!
+ ```
+
+
