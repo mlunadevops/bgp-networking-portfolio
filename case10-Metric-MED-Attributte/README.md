@@ -105,3 +105,21 @@ View the routing tables of Router A, Router D, and Router C.
 **Router F (RTF - AS 200) routing table:**
 
 ![BGP MED](images/01RTFshipro.jpg)
+
+**View the BGP forwarding table on Router A:**
+
+sh ip bgp (BGP Table / Loc-RIB)
+
+What it is: The internal and exclusive database of the BGP protocol.
+
+What it shows: It stores all routes learned from BGP neighbors (both eBGP and iBGP), including multiple paths or alternative routes to the same destination (even those that were not selected as the best paths).
+
+Attributes: It displays detailed information on BGP attributes for each route (such as AS-Path, Local Preference, MED, Next-Hop, and the > symbol to indicate which route is the "best path").
+
+sh ip route (Global Routing Table / RIB)
+
+What it is: The main operating system routing table of the router.
+
+What it shows: It contains only the best routes selected to reach each destination, regardless of which protocol discovered them (it can include static routes, directly connected routes, OSPF, EIGRP, and of course, BGP).
+
+Filtering: If BGP learns a route but it loses to another route with a lower Administrative Distance (for example, a static route or an IGP protocol), that BGP route will appear in sh ip bgp, but it will not appear in sh ip route.
