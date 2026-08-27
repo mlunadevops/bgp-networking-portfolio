@@ -19,15 +19,17 @@ In this lab, we will perform filtering using path information (*AS-path*). The g
 ### BGP Configuration on Routers
 
 #### Router A (RTA - AS 100)
+
 ```router
 router bgp 100
  no synchronization
  bgp log-neighbor-changes
  neighbor 2.2.2.1 remote-as 300
  no auto-summary
-```[cite: 1]
+```
 
 #### Router C (RTC - AS 300)
+
 ```router
 router bgp 300
  no synchronization
@@ -35,16 +37,17 @@ router bgp 300
  neighbor 2.2.2.2 remote-as 100
  neighbor 3.3.3.1 remote-as 200
  no auto-summary
-```[cite: 1]
+```
 
 #### Router B (RTB - AS 200)
+
 ```router
 router bgp 200
  no synchronization
  bgp log-neighbor-changes
  neighbor 3.3.3.2 remote-as 300
  no auto-summary
-```[cite: 1]
+```
 
 3. **Neighbor Verification:** Run the `show ip bgp summary` command on each router[cite: 1].
    > **Question:** Was the BGP neighbor relationship established? Why?  
@@ -55,24 +58,27 @@ router bgp 200
 ## 🌐 Step 2: Route Announcement
 
 ### 1. Configure and Verify the Network in RTA (AS 100)
+
 ```router
 router bgp 100
  network 150.10.0.0 mask 255.255.0.0
-```[cite: 1]
+```
 * **Action:** Review and document the resulting routing tables (`show ip route` or `show ip bgp`) on RTA, RTB, and RTC[cite: 1].
 
 ### 2. Configure and Verify the Network in RTC (AS 300)
+
 ```router
 router bgp 300
  network 170.10.0.0 mask 255.255.0.0
-```[cite: 1]
+```
 * **Action:** Review and document the updated routing tables on RTA, RTB, and RTC[cite: 1].
 
 ### 3. Configure and Verify the Network in RTB (AS 200)
+
 ```router
 router bgp 200
  network 160.10.0.0 mask 255.255.0.0
-```[cite: 1]
+```
 * **Action:** Verify route propagation on each of the routers[cite: 1].
 
 ---
@@ -82,6 +88,7 @@ router bgp 200
 To block updates for the network `160.10.0.0` from reaching AS 100, we will configure a route-based access list on **Router C (RTC)**[cite: 1].
 
 ### 1. Configuration on Router C (RTC)
+
 Implement the access lists and apply them on the outbound direction toward neighbor RTA (`2.2.2.2`)[cite: 1]:
 
 ```router
@@ -93,7 +100,7 @@ router bgp 300
  neighbor 3.3.3.1 remote-as 200 
  neighbor 2.2.2.2 remote-as 100 
  neighbor 2.2.2.2 filter-list 1 out
-```[cite: 1]
+```
 
 ### 💡 Regular Expression Analysis
 - **`^200$`**: The symbol `^` means "begins with" and `$` means "ends with". Since RTB sends updates for network `160.10.0.0` with path information originating in AS 200, it matches this rule and the access list **denies** those updates[cite: 1].
