@@ -262,6 +262,3 @@ The function of associating an AS-path access list via the `filter-list` command
 ### 3) Explanation of the diagram and technical conclusion regarding BGP route filtering based on path vectors:
 
 As a technical conclusion, path vector filtering (AS-path filtering) in BGP proves to be an extremely powerful and flexible mechanism for controlling routing policies between different Autonomous Systems. By using regular expressions (such as `^200$`), routers can inspect the complete history of an update's path and make selective denial or permission decisions (complemented by wildcards like `.*`), preventing routing loops or controlling the propagation of unwanted prefixes to neighboring domains without affecting the remaining legitimate traffic.
-
-4. **Explain the diagram or behavior observed in the network.**  
-   *(Write a technical conclusion regarding BGP route filtering based on path vectors).*[cite: 1]
