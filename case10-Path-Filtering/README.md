@@ -154,6 +154,25 @@ RTC (AS 300):
 
 ![Path Filtering](images/02RTCshipbgp.png)
 
+### Breakdown of Routes in the BGP Table from RTC:
+
+Each line shows the information of the networks learned and managed by RTC:
+
+* **First Network (150.10.0.0):**
+  * **Status (`*>`):** Valid route and selected as the best route.
+  * **Next Hop (`2.2.2.2`):** The next hop to reach this network is the IP address of the corresponding BGP neighbor (RTA).
+  * **Metric / Path (`0` / `100 i`):** It has a metric of 0, and its path shows that it belongs to AS 100 (RTA) with an IGP-type origin.
+
+* **Second Network (160.10.0.0):**
+  * **Status (`*>`):** Valid route and selected as the best route.
+  * **Next Hop (`3.3.3.1`):** Traffic is directed towards the BGP neighbor RTB (`3.3.3.1`).
+  * **Path (`200 i`):** Indicates that the route originates directly in AS 200 (RTB) with an IGP-type origin.
+
+* **Third Network (170.10.0.0):**
+  * **Status (`*>`):** Valid route and selected as the best route.
+  * **Next Hop (`0.0.0.0`):** Since it is locally configured on this router (RTC), the next hop is zero.
+  * **Metric / Weight (`0` / `32768`):** Being a locally originated network, it has a default high Weight of 32768.
+
 RTB (AS 200):
 
 ![Path Filtering](images/02RTBshipbgp.png)
