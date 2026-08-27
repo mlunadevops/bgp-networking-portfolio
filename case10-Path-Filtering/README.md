@@ -126,7 +126,17 @@ router bgp 200
 ```
 * **Action:** Verify route propagation on each of the routers.
 
-![Path Filtering](images/02RTA.jpg)
+RTA (AS 100):
+
+![Path Filtering](images/02RTAshipbgp.png)
+
+RTC (AS 300):
+
+![Path Filtering](images/02RTCshipbgp.png)
+
+RTB (AS 200):
+
+![Path Filtering](images/02RTBshipbgp.png)
 
 ---
 
