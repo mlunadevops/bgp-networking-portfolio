@@ -7,7 +7,7 @@ In this lab, we will perform filtering using path information (*AS-path*). The g
 
 ![Path Filtering](images/0Topology.png)
 
-### Lab Scenario
+### Case Scenario
 - **RTB** originates the network `160.10.0.0` (originating from **AS 200**) and sends the update to **RTC**[cite: 1].
 - If **RTC** wants to stop the propagation of updates for the network `160.10.0.0` to **AS 100** (RTA), it must define an AS-path access list and apply it during communication with RTA.
 
