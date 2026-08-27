@@ -220,6 +220,7 @@ router bgp 300
  neighbor 2.2.2.2 remote-as 100 
  neighbor 2.2.2.2 filter-list 1 out
 ```
+![Path Filtering](images/03RTAshipbgp.png)
 
 ### 💡 Regular Expression Analysis
 - **`^200$`**: The symbol `^` means "begins with" and `$` means "ends with". Since RTB sends updates for network `160.10.0.0` with path information originating in AS 200, it matches this rule and the access list **denies** those updates[cite: 1].
