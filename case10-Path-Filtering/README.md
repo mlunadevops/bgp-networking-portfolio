@@ -1,9 +1,9 @@
 # Lab: BGP Path Filtering
 
 ## 📋 Introduction
-A series of different filtering methods allow you to control the sending and receiving of BGP updates. You can filter BGP updates using routing information, path information, or communities as a basis. All methods achieve the same results, and choosing one method over another depends on the specific network configuration[cite: 1]. 
+A series of different filtering methods allow you to control the sending and receiving of BGP updates. You can filter BGP updates using routing information, path information, or communities as a basis. All methods achieve the same results, and choosing one method over another depends on the specific network configuration. 
 
-In this lab, we will perform filtering using path information (*AS-path*). The goal is to restrict the routing information that the router learns or announces from a particular neighbor by using access lists associated with route filters[cite: 1].
+In this lab, we will perform filtering using path information (*AS-path*). The goal is to restrict the routing information that the router learns or announces from a particular neighbor by using access lists associated with route filters.
 
 ![Path Filtering](images/01Topology.jpg)
 
