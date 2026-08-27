@@ -1,4 +1,4 @@
-# Lab: BGP Path Filtering
+# Case 10: BGP Path Filtering
 
 ## 📋 Introduction
 A series of different filtering methods allow you to control the sending and receiving of BGP updates. You can filter BGP updates using routing information, path information, or communities as a basis. All methods achieve the same results, and choosing one method over another depends on the specific network configuration. 
