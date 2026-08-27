@@ -177,7 +177,7 @@ RTB (AS 200):
 
 ![Path Filtering](images/02RTBshipbgp.png)
 
-### Breakdown of Routes in the BGP Table
+### Breakdown of Routes in the BGP Table from RTB:
 
 Each line shows the information of the networks learned and managed by RTC:
 
