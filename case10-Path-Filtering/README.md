@@ -204,7 +204,7 @@ To block updates for the network `160.10.0.0` from reaching AS 100, we will conf
 
 ### 1. Configuration on Router C (RTC)
 
-Implement the access lists and apply them on the outbound direction toward neighbor RTA (`2.2.2.2`)[cite: 1]:
+Implement the access lists and apply them on the outbound direction toward neighbor RTA (`2.2.2.2`):
 
 ```router
 ip as-path access-list 1 deny ^200$
