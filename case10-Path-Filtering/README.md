@@ -124,7 +124,7 @@ router bgp 300
 router bgp 200
  network 160.10.0.0 mask 255.255.0.0
 ```
-**Action:** Verify route propagation on each of the routers RTA, RTB. RTC**
+### **Action:** Verify route propagation on each of the routers RTA, RTB. RTC**
 
 RTA (AS 100):
 
