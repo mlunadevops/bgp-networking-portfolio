@@ -105,26 +105,26 @@ router bgp 200
 
 ## 🌐 Step 2: Route Announcement
 
-### 1. Configure and Verify the Network in RTA (AS 100)
+### 1. Configure the Network advertisement for (150.10.0.0) in RTA (AS 100)
 
 ```router
 router bgp 100
  network 150.10.0.0 mask 255.255.0.0
 ```
-### 2. Configure and Verify the Network in RTC (AS 300)
+### 2. Configure the Network advertisement for (170.10.0.0) in RTC (AS 300)
 
 ```router
 router bgp 300
  network 170.10.0.0 mask 255.255.0.0
 ```
 
-### 3. Configure and Verify the Network in RTB (AS 200)
+### 3. Configure the Network advertisement for RTB (AS 200)
 
 ```router
 router bgp 200
  network 160.10.0.0 mask 255.255.0.0
 ```
-* **Action:** Verify route propagation on each of the routers.
+**Action:** Verify route propagation on each of the routers RTA, RTB. RTC**
 
 RTA (AS 100):
 
