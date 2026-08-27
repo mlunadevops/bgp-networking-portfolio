@@ -1,4 +1,4 @@
-# Case Study 10: MED (Multi-Exit Discriminator)
+# Case Study 11: MED (Multi-Exit Discriminator)
 
 ## The Metric Attribute (MED)
 
