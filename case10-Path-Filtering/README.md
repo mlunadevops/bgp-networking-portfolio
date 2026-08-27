@@ -62,8 +62,6 @@ interface Serial1/1
  ip address 3.3.3.1 255.255.255.0
  serial restart-delay 0
 !
-
-
 ```
 
 
