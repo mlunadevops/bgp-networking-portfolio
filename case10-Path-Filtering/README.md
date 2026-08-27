@@ -211,6 +211,7 @@ ip as-path access-list 1 deny ^200$
 ip as-path access-list 1 permit .*
 ```
 
+```
 router bgp 300 
  network 170.10.0.0 mask 255.255.0.0
  neighbor 3.3.3.1 remote-as 200 
