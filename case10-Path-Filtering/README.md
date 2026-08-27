@@ -130,6 +130,26 @@ RTA (AS 100):
 
 ![Path Filtering](images/02RTAshipbgp.png)
 
+### Breakdown of Routes in the BGP Table
+
+Each line represents a network learned or advertised via BGP, along with its respective attributes:
+
+* **First Network (150.10.0.0):**
+  * **Status (`*>`):** It is a valid route and the best route.
+  * **Next Hop (`0.0.0.0`):** Means this network is locally originated on this same router (RTA).
+  * **Metric / LocPrf / Weight (`0` / `32768`):** Being a local network, it has a metric of 0 and a default high Weight of 32768.
+  * **Path (`i`):** Its origin is IGP.
+
+* **Second Network (160.10.0.0):**
+  * **Status (`*>`):** It is a valid route and the best route.
+  * **Next Hop (`2.2.2.1`):** The next hop to reach this network is the IP address of the BGP neighbor (RTC).
+  * **Path (`300 200 i`):** Shows the autonomous system vector (AS-path). Indicates that the update passed first through AS 300 (RTC) and originally originated in AS 200 (RTB).
+
+* **Third Network (170.10.0.0):**
+  * **Status (`*>`):** It is a valid route and the best route.
+  * **Next Hop (`2.2.2.1`):** Traffic is directed towards the RTC neighbor (`2.2.2.1`).
+  * **Metric / Path (`300 i`):** Indicates that this network belongs directly to AS 300 (RTC) with an IGP type origin.
+
 RTC (AS 300):
 
 ![Path Filtering](images/02RTCshipbgp.png)
