@@ -222,6 +222,27 @@ router bgp 300
 ```
 ![Path Filtering](images/03RTAshipbgp.png)
 
+### Breakdown of Routes in the BGP Table on RTA (Post-Filtering)
+
+After applying the `filter-list 1 out` command on Router C (RTC) toward neighbor RTA (`2.2.2.2`), let's analyze the updated output of the `show ip bgp` and `show ip route` commands on RTA:
+
+* **First Network (`150.10.0.0`):**
+  * **Status (`*>`):** Valid route and selected as the best route.
+  * **Next Hop (`0.0.0.0`):** Locally originated network on RTA itself.
+  * **Metric / Weight (`0` / `32768`):** Local network attributes.
+
+* **Second Network (`170.10.0.0`):**
+  * **Status (`*>`):** Valid route and selected as the best route.
+  * **Next Hop (`2.2.2.1`):** Traffic points toward the neighbor RTC (`2.2.2.1`).
+  * **Path (`300 i`):** Indicates it belongs to AS 300 (RTC) with an IGP-type origin.
+
+---
+
+### Key Observation: What happened to network `160.10.0.0`?
+
+* **Disappearance from BGP & Routing Tables:** The network `160.10.0.0` (originating from AS 200) **no longer appears** in RTA's BGP table or routing table (`show ip ro`).
+* **Reason:** The AS-path access list `ip as-path access-list 1 deny ^200$` configured on RTC matched the update path starting and ending with AS 200 (`200`), blocking it from being advertised outbound to RTA (`2.2.2.2`), while `ip as-path access-list 1 permit .*` allowed all other traffic to pass successfully.
+
 ### 💡 Regular Expression Analysis
 - **`^200$`**: The symbol `^` means "begins with" and `$` means "ends with". Since RTB sends updates for network `160.10.0.0` with path information originating in AS 200, it matches this rule and the access list **denies** those updates[cite: 1].
 - **`.*`**: The dot `.` means "any character" and the asterisk `*` represents "the repetition of that character". Therefore, `.*` represents any other path information, which is necessary to **permit** the transmission of all other routing updates[cite: 1].
