@@ -8,7 +8,7 @@ In this lab, we will perform filtering using path information (*AS-path*). The g
 ![Path Filtering](images/0Topology.png)
 
 ### Case Scenario
-- **RTB** originates the network `160.10.0.0` (originating from **AS 200**) and sends the update to **RTC**[cite: 1].
+- **RTB** originates the network `160.10.0.0` (originating from **AS 200**) and sends the update to **RTC**.
 - If **RTC** wants to stop the propagation of updates for the network `160.10.0.0` to **AS 100** (RTA), it must define an AS-path access list and apply it during communication with RTA.
 
 ![Path Filtering](images/01Topology.jpg)
@@ -16,8 +16,45 @@ In this lab, we will perform filtering using path information (*AS-path*). The g
 
 ## 🛠️ Step 1: Connectivity and Initial Configuration
 
-1. **Link Configuration:** Configure all physical and logical connections between the links of the routers[cite: 1].
-2. **Verification:** Verify that the interfaces between devices have connectivity through successful pings[cite: 1].
+1. **Link Configuration:** Configure all physical and logical connections between the links of the routers.
+
+#### Router A (RTA - AS 100)
+
+```router
+!
+interface Ethernet0/0
+ ip address 150.10.0.1 255.255.0.0
+ half-duplex
+!
+interface Serial1/0
+ ip address 2.2.2.2 255.255.255.0
+ serial restart-delay 0
+!
+```
+
+#### Router C (RTC - AS 300)
+
+```router
+router bgp 300
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 2.2.2.2 remote-as 100
+ neighbor 3.3.3.1 remote-as 200
+ no auto-summary
+```
+
+#### Router B (RTB - AS 200)
+
+```router
+router bgp 200
+ no synchronization
+ bgp log-neighbor-changes
+ neighbor 3.3.3.2 remote-as 300
+ no auto-summary
+```
+
+
+3. **Verification:** Verify that the interfaces between devices have connectivity through successful pings.
 
 ### BGP Configuration on Routers
 
