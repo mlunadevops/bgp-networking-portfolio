@@ -53,11 +53,17 @@ interface Serial1/1
 #### Router B (RTB - AS 200)
 
 ```router
-router bgp 200
- no synchronization
- bgp log-neighbor-changes
- neighbor 3.3.3.2 remote-as 300
- no auto-summary
+!
+interface Ethernet0/0
+ ip address 160.10.0.1 255.255.0.0
+ half-duplex
+!
+interface Serial1/1
+ ip address 3.3.3.1 255.255.255.0
+ serial restart-delay 0
+!
+
+
 ```
 
 
