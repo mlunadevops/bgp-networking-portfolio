@@ -251,14 +251,17 @@ After applying the `filter-list 1 out` command on Router C (RTC) toward neighbor
 
 ## 📝 Analysis Questions and Conclusions
 
-1. **What effect does denying via `^200$` and permitting via `.*` have, according to the previous statements?**  
-   *(Document your answer here on how the origin of AS 200 is selectively blocked while the rest of the traffic is permitted).*[cite: 1]
+### 1) How does the filter applied on RTC prevent the route from being advertised to RTA?
 
-2. **Check the routing table on Router A (RTA). Why does network `160.10.0.0` no longer appear via BGP?**  
-   *(Explain how the filter applied on RTC prevents the route from being advertised to RTA).*[cite: 1]
+The filter applied on RTC uses an AS-path access list (`ip as-path access-list 1 deny ^200$`) that specifically identifies and blocks updates whose autonomous system path begins and ends with AS 200 (the origin of the network 160.10.0.0). By applying this filter in the outbound direction toward the RTA neighbor (`neighbor 2.2.2.2 filter-list 1 out`), RTC discards this update and avoids advertising it, meaning RTA never receives it or installs it in its routing table.
 
-3. **What is the purpose of the `filter-list` command?**  
-   *(Describe the function of associating an AS-path access list with a specific BGP neighbor).*[cite: 1]
+### 2) What is the purpose of the `filter-list` command?
+
+The function of associating an AS-path access list via the `filter-list` command with a specific BGP neighbor is to granularly control which routes are accepted or advertised based on the autonomous system vector through which the routing information has traveled. This allows for customized per-neighbor filtering policies (either inbound or outbound).
+
+### 3) Explanation of the diagram and technical conclusion regarding BGP route filtering based on path vectors:
+
+As a technical conclusion, path vector filtering (AS-path filtering) in BGP proves to be an extremely powerful and flexible mechanism for controlling routing policies between different Autonomous Systems. By using regular expressions (such as `^200$`), routers can inspect the complete history of an update's path and make selective denial or permission decisions (complemented by wildcards like `.*`), preventing routing loops or controlling the propagation of unwanted prefixes to neighboring domains without affecting the remaining legitimate traffic.
 
 4. **Explain the diagram or behavior observed in the network.**  
    *(Write a technical conclusion regarding BGP route filtering based on path vectors).*[cite: 1]
