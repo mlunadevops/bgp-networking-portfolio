@@ -5,13 +5,13 @@ A series of different filtering methods allow you to control the sending and rec
 
 In this lab, we will perform filtering using path information (*AS-path*). The goal is to restrict the routing information that the router learns or announces from a particular neighbor by using access lists associated with route filters.
 
-![Path Filtering](images/00Topology.jpg)
+![Path Filtering](images/0Topology.png)
 
 ### Lab Scenario
 - **RTB** originates the network `160.10.0.0` (originating from **AS 200**) and sends the update to **RTC**[cite: 1].
 - If **RTC** wants to stop the propagation of updates for the network `160.10.0.0` to **AS 100** (RTA), it must define an AS-path access list and apply it during communication with RTA.
 
-![Path Filtering](images/0Topology.png)
+![Path Filtering](images/01Topology.jpg)
 ---
 
 ## 🛠️ Step 1: Connectivity and Initial Configuration
