@@ -130,7 +130,7 @@ RTA (AS 100):
 
 ![Path Filtering](images/02RTAshipbgp.png)
 
-### Breakdown of Routes in the BGP Table
+### Breakdown of Routes in the BGP Table from RTA:
 
 Each line represents a network learned or advertised via BGP, along with its respective attributes:
 
