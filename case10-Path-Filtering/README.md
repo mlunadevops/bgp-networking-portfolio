@@ -35,12 +35,19 @@ interface Serial1/0
 #### Router C (RTC - AS 300)
 
 ```router
-router bgp 300
- no synchronization
- bgp log-neighbor-changes
- neighbor 2.2.2.2 remote-as 100
- neighbor 3.3.3.1 remote-as 200
- no auto-summary
+!
+interface Ethernet0/0
+ ip address 170.10.0.1 255.255.0.0
+ half-duplex
+!
+interface Serial1/0
+ ip address 2.2.2.1 255.255.255.0
+ serial restart-delay 0
+!
+interface Serial1/1
+ ip address 3.3.3.2 255.255.255.0
+ serial restart-delay 0
+!
 ```
 
 #### Router B (RTB - AS 200)
