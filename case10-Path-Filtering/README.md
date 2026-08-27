@@ -111,7 +111,7 @@ router bgp 200
 router bgp 100
  network 150.10.0.0 mask 255.255.0.0
 ```
-* **Action:** Review and document the resulting routing tables (`show ip route` or `show ip bgp`) on RTA, RTB, and RTC[cite: 1].
+* **Action:** Review and document the resulting routing tables (`show ip route` or `show ip bgp`) on RTA, RTB, and RTC.
 
 ### 2. Configure and Verify the Network in RTC (AS 300)
 
