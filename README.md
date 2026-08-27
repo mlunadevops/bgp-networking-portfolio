@@ -53,6 +53,8 @@ To put it into the broader picture:
 | **08** | [BGP Community](./case08-BGP-Community-Based-Route-Filtering-(no-export)/) | configuring BGP community attributes and route maps. |
 | **09** | [Local Preference](./case09-Local-Preference-attribute/) | configuring BGP community attributes and route maps. |
 | **10** | [BGP Path Filtering](./case10-Path-Filtering/) | BGP Path Filtering. |
+| **11** | [MED (Multi-Exit Discriminator)](./case11-Metric-MED-Attributte/) | BGP MED |
+| **12** | [WEIGHT (Weight-Atribute)](./case12-Weight-Atribute/) | BGP Weight Atribute |
 | ... | ... | ... |
 
 
