@@ -100,10 +100,7 @@ router bgp 200
  no auto-summary
 ```
 
-3. **Neighbor Verification:** Run the `show ip bgp summary` command on each router[cite: 1].
-   > **Question:** Was the BGP neighbor relationship established? Why?  
-   > *[Space to document or answer the observation in your lab]*
-
+3. **Neighbor Verification:** Run the `show ip bgp summary` command on each router.
 ---
 
 ## 🌐 Step 2: Route Announcement
