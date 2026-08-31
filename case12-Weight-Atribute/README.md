@@ -19,3 +19,5 @@ The Weight attribute is a Cisco proprietary parameter used in BGP (Border Gatewa
 The topology consists of four routers across different Autonomous Systems (AS 100, AS 200, AS 300, and AS 400). Before advertising prefixes, BGP neighbor adjacencies were established on each device.
 
 ![BGP MED](images/0Topologia.jpg)
+
+![Infografia](images/InfografiaWEIGHT.jpg)
