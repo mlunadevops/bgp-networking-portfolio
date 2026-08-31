@@ -76,3 +76,14 @@ router bgp 400
  network 175.10.0.0
 !
 ```
+## 3. ADD ROUTE:
+
+**Router D (RTD - AS 400):**
+
+```text
+! 
+router bgp 400
+ network 175.10.0.0
+!
+```
+## 3. ADD ROUTE:
