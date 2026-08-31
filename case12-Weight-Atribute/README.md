@@ -61,7 +61,7 @@ router bgp 300
  neighbor 2.2.2.2 remote-as 200
  no auto-summary
 !
-``
+```
 
 **Router D (RTD - AS 400):**
 
