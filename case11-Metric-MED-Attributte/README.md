@@ -1,4 +1,5 @@
 # Case Study 11: MED (Multi-Exit Discriminator)
+**CCNP Miguelangel Luna**
 
 ## The Metric Attribute (MED)
 
