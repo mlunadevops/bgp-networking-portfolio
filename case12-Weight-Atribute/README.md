@@ -107,3 +107,5 @@ RTB Shows the successful propagation of the route toward the 175.10.0.0/16 netwo
 
 ![BGP WEIGTH](images/0RTCshipro.png)
 
+RTC Shows the BGP forwarding table on RTC with two available paths (next-hops 2.2.2.2 and 1.1.1.1) prior to applying the Weight attribute.
+
