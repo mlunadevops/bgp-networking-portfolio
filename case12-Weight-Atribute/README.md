@@ -109,3 +109,7 @@ RTB Shows the successful propagation of the route toward the 175.10.0.0/16 netwo
 
 RTC Shows the BGP forwarding table on RTC with two available paths (next-hops 2.2.2.2 and 1.1.1.1) prior to applying the Weight attribute.
 
+4. Traffic Engineering with Weight Attribute on Router C (RTC)
+To alter path selection on Router C (RTC), specific weights were configured per neighbor within the BGP instance:
+
+
