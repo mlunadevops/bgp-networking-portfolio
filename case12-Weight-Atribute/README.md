@@ -101,6 +101,8 @@ RTA shows the IP and BGP routing table on RTA, verifying the learning of the 175
 
 ![BGP WEIGTH](images/0RTBshipro.png)
 
+RTB Shows the successful propagation of the route toward the 175.10.0.0/16 network on Router B.
+
 3.4 Validation on Router C (RTC)
 
 ![BGP WEIGTH](images/0RTCshipro.png)
