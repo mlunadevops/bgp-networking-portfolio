@@ -20,4 +20,4 @@ The topology consists of four routers across different Autonomous Systems (AS 10
 
 ![BGP MED](images/0Topologia.jpg)
 
-                                ![Infografia](images/InfografiaWEIGHT.jpg)
+                          
