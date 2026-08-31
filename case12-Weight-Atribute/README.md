@@ -95,6 +95,10 @@ Following the advertisement of the 175.10.0.0/16 network on Router D (AS 400), r
 
 ![BGP WEIGTH](images/0RTAshipro.png)
 
+## RTA Routing Table Analysis
+
+RTA shows the IP and BGP routing table on RTA, verifying the learning of the 175.10.0.0/16 network via next-hop 3.3.3.2 with default Weight 0.
+
 3.2 Validation on Router B (RTB)
 
 ![BGP WEIGTH](images/0RTBshipro.png)
