@@ -1,7 +1,10 @@
 # Case Study 11: MED (Multi-Exit Discriminator)
-**CCNP Miguelangel Luna**
 
 ## The Metric Attribute (MED)
+
+**CCNP Miguelangel Luna**
+
+
 
 The metric attribute is also known as MULTI_EXIT_DISCRIMINATOR, MED (BGP4), or INTER_AS (BGP3). This attribute acts as a suggestion to external neighbors regarding route preference within an Autonomous System (AS). It provides a dynamic way to influence another AS, such as determining how to reach a specific route when there are multiple entry points into that AS. A lower metric value is preferred.
 
