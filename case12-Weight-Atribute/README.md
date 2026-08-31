@@ -116,9 +116,11 @@ To alter path selection on Router C (RTC), specific weights were configured per 
 6.1 Configuration on Router C (RTC)
 
 ```text
+!
 router bgp 300
  neighbor 1.1.1.1 weight 200
  neighbor 2.2.2.2 weight 100
+!
 ```
 
 6.2 Validation on Router C (RTC)
