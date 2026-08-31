@@ -76,7 +76,7 @@ router bgp 400
  network 175.10.0.0
 !
 ```
-## 3. ADD ROUTE:
+## 4. ADD ROUTE:
 
 **Router D (RTD - AS 400):**
 
@@ -87,29 +87,31 @@ router bgp 400
 !
 ```
 
-## 4. Log and Initial Validations with Evidences
+## 5. Log and Initial Validations with Evidences
 
 Following the advertisement of the 175.10.0.0/16 network on Router D (AS 400), routing and forwarding tables were verified across each node in the topology. Below are the corresponding graphic evidences.
 
-3.1 Validation on Router A (RTA)
+5.1 Validation on Router A (RTA)
 
 ![BGP WEIGTH](images/0RTAshipro.png)
 
 RTA shows the IP and BGP routing table on RTA, verifying the learning of the 175.10.0.0/16 network via next-hop 3.3.3.2 with default Weight 0.
 
-3.2 Validation on Router B (RTB)
+5.2 Validation on Router B (RTB)
 
 ![BGP WEIGTH](images/0RTBshipro.png)
 
 RTB Shows the successful propagation of the route toward the 175.10.0.0/16 network on Router B.
 
-3.4 Validation on Router C (RTC)
+5.3 Validation on Router C (RTC)
 
 ![BGP WEIGTH](images/0RTCshipro.png)
 
 RTC Shows the BGP forwarding table on RTC with two available paths (next-hops 2.2.2.2 and 1.1.1.1) prior to applying the Weight attribute.
 
-4. Traffic Engineering with Weight Attribute on Router C (RTC)
+## 6. Traffic Engineering with Weight Attribute on Router C (RTC)
+
 To alter path selection on Router C (RTC), specific weights were configured per neighbor within the BGP instance:
 
+![BGP WEIGTH](images/01RTCshipbgp.png)
 
