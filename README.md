@@ -55,6 +55,7 @@ To put it into the broader picture:
 | **10** | [BGP Path Filtering](./case10-Path-Filtering/) | BGP Path Filtering. |
 | **11** | [MED (Multi-Exit Discriminator)](./case11-Metric-MED-Attributte/) | BGP MED |
 | **12** | [WEIGHT (Weight-Atribute)](./case12-Weight-Atribute/) | BGP Weight Atribute |
+| **13** | [WEIGHT (Weight-Atribute)](./case12-Weight-Atribute/) | BGP Weight Atribute |
 | ... | ... | ... |
 
 
