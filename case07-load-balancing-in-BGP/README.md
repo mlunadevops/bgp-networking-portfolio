@@ -39,8 +39,17 @@ This topology illustrates an eBGP Multihop configuration between two independent
 ```text
 ! 
 router bgp 100
+ no synchronization
+ bgp log-neighbor-changes
+ network 203.0.113.1 mask 255.255.255.255
+ neighbor 198.51.100.1 remote-as 200
+ neighbor 198.51.100.1 ebgp-multihop 2
+ neighbor 198.51.100.1 update-source Loopback0
+ no auto-summary
 !
 ```
+
+
 
 ### 4. BGP Configuration:
 
