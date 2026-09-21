@@ -7,6 +7,10 @@
 
 ## 1. Introduction and Theoretical Framework
 
+This laboratory guide outlines the configuration and verification procedures for establishing an eBGP Multihop session between two independent Autonomous Systems (AS 100 and AS 200). 
+
+By utilizing loopback interfaces and static routes across two parallel physical links, this lab demonstrates how to achieve Equal-Cost Multi-Path (ECMP) load balancing for control and data traffic in BGP.
+
 **ECMP (Equal-Cost Multi-Path):** is a routing technique that allows you to distribute network traffic across multiple simultaneous paths toward the same destination, provided that all of them have the exact same cost or metric.
 
 **Main Benefits:**
@@ -65,7 +69,6 @@ interface GigabitEthernet0/1
 
 ---
 
-
 ## 4. BGP (eBGP Multihop) Configuration:
 
 **Router A (RTA - AS 100):**
@@ -93,7 +96,7 @@ ip route 198.51.100.1 255.255.255.255 198.18.1.2
 ip route 198.51.100.1 255.255.255.255 198.18.2.2
 !
 ```
-
+Note: Because eBGP multihop peers are not directly connected via their loopback, specific static routes pointing across both physical links are required to enable ECMP load balancing.
 
 **Router B (RTB - AS 200):**
 
@@ -119,26 +122,12 @@ ip route 203.0.113.1 255.255.255.255 198.18.2.1
 !
 ```
 
-### 4. BGP Configuration:
-
--------------------------------------------------------------------------------------------
-
-# Step-by-Step Lab Guide: eBGP Multihop over Parallel Links with Load Balancing (ECMP)
-
-## Overview
-This laboratory guide outlines the configuration and verification procedures for establishing an eBGP Multihop session between two independent Autonomous Systems (AS 100 and AS 200). 
-
-By utilizing loopback interfaces and static routes across two parallel physical links, this lab demonstrates how to achieve Equal-Cost Multi-Path (ECMP) load balancing for control and data traffic in BGP.
-
----
-
-
-
+Note: Because eBGP multihop peers are not directly connected via their loopback, specific static routes pointing across both physical links are required to enable ECMP load balancing.
 
 
 ## Step 2: Configuring Static Routes for ECMP
 
-Because eBGP multihop peers are not directly connected via their loopback addresses, specific static host routes pointing across both physical links are required to enable ECMP load balancing.
+.
 
 ### RTA Static Routes
 ```text
