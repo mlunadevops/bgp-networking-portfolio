@@ -27,7 +27,7 @@ Configure the physical interface IP addresses and the Loopback interfaces on bot
 
 ### RTA Configuration (AS 100)
 ```text
-RTA# configure terminal
+configure terminal
 !
 interface Loopback 0
  ip address 203.0.113.1 255.255.255.255
@@ -46,7 +46,7 @@ interface GigabitEthernet0/1
 
 ### RTB Configuration (AS 200)
 ```text
-RTB# configure terminal
+configure terminal
 !
 interface Loopback 0
  ip address 198.51.100.1 255.255.255.255
