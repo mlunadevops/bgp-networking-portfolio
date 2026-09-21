@@ -27,11 +27,10 @@
 
 ## 2. Topology and BGP Neighbor Establishment
 
-This topology illustrates an eBGP Multihop configuration between two independent Autonomous Systems (AS 100 and AS 200), he setup features two routers, RTA and RTB, each equipped with a Loopback 0 interface (203.0.113.1/32 and 198.51.100.1/32 respectively).
+This topology illustrates an eBGP Multihop configuration between two independent Autonomous Systems (AS 100 and AS 200), the setup features two routers, RTA and RTB, each equipped with a Loopback 0 interface (203.0.113.1/32 and 198.51.100.1/32 respectively).
 
 ![eBGP Multihop](images/00TopologyEbgpMultihop.jpg)
 
- four routers across different Autonomous Systems (AS 100, AS 200, AS 300, and AS 400). Before advertising prefixes, BGP neighbor adjacencies were established on each device.
 
 ## 3. BGP Configuration:
 
