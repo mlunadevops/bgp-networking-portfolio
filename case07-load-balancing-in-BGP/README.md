@@ -32,9 +32,52 @@ This topology illustrates an eBGP Multihop configuration between two independent
 
 ![eBGP Multihop](images/00TopologyEbgpMultihop.jpg)
 
+## 3. BGP Physical interface IP Configuration:
 
-## 3. BGP (eBGP Multihop) Configuration:
+Configure the physical interface IP addresses and the Loopback interfaces on both routers to ensure basic interface up/up status.
 
+### RTA Configuration (AS 100)
+```text
+RTA# configure terminal
+!
+interface Loopback 0
+ ip address 203.0.113.1 255.255.255.255
+ exit
+!
+interface GigabitEthernet0/0
+ ip address 198.18.1.1 255.255.255.252
+ no shutdown
+ exit
+!
+interface GigabitEthernet0/1
+ ip address 198.18.2.1 255.255.255.252
+ no shutdown
+ exit
+```
+
+### RTB Configuration (AS 200)
+```text
+RTB# configure terminal
+!
+interface Loopback 0
+ ip address 198.51.100.1 255.255.255.255
+ exit
+!
+interface GigabitEthernet0/0
+ ip address 198.18.1.2 255.255.255.252
+ no shutdown
+ exit
+!
+interface GigabitEthernet0/1
+ ip address 198.18.2.2 255.255.255.252
+ no shutdown
+ exit
+```
+
+---
+
+
+## 4. BGP (eBGP Multihop) Configuration:
 
 **Router A (RTA - AS 100):**
 
@@ -100,63 +143,9 @@ By utilizing loopback interfaces and static routes across two parallel physical 
 
 ---
 
-## Topology Specifications
-* **Autonomous System 100 (Router RTA):**
-  * Loopback 0 IP: `203.0.113.1/32`
-* **Autonomous System 200 (Router RTB):**
-  * Loopback 0 IP: `198.51.100.1/32`
-* **Parallel Physical Link 1:**
-  * Subnet: `198.18.1.0/30`
-  * RTA: `198.18.1.1` | RTB: `198.18.1.2`
-* **Parallel Physical Link 2:**
-  * Subnet: `198.18.2.0/30`
-  * RTA: `198.18.2.1` | RTB: `198.18.2.2`
 
----
 
-## Step 1: Physical and Logical Interface Configuration
 
-Configure the physical interface IP addresses and the Loopback interfaces on both routers to ensure basic interface up/up status.
-
-### RTA Configuration (AS 100)
-```text
-RTA# configure terminal
-!
-interface Loopback 0
- ip address 203.0.113.1 255.255.255.255
- exit
-!
-interface GigabitEthernet0/0
- ip address 198.18.1.1 255.255.255.252
- no shutdown
- exit
-!
-interface GigabitEthernet0/1
- ip address 198.18.2.1 255.255.255.252
- no shutdown
- exit
-```
-
-### RTB Configuration (AS 200)
-```text
-RTB# configure terminal
-!
-interface Loopback 0
- ip address 198.51.100.1 255.255.255.255
- exit
-!
-interface GigabitEthernet0/0
- ip address 198.18.1.2 255.255.255.252
- no shutdown
- exit
-!
-interface GigabitEthernet0/1
- ip address 198.18.2.2 255.255.255.252
- no shutdown
- exit
-```
-
----
 
 ## Step 2: Configuring Static Routes for ECMP
 
