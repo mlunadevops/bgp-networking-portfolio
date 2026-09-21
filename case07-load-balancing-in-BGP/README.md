@@ -135,11 +135,17 @@ Use the following commands in your GNS3 lab to verify proper operation, route di
 
 **Router A (sh ip route):**
 
-![Show ip route](images/10RTAshiproute.jpg)
+![Show ip route](images/10RTAshiproute.png)
 
 **Router B (sh ip route):**
 
-![Show ip route](images/11RTBshiproute.jpg)
+![Show ip route](images/10RTBshiproute.png)
+
+**Verification Analysis:**
+
+* **On RTA (`show ip route`):** The static route to RTB's Loopback (198.51.100.1) shows two paths with the same administrative distance and metric `[1/0]`, via 198.18.2.2 and 198.18.1.2. Additionally, the connected networks Ethernet0/0 and Ethernet0/1 are active.
+* 
+* **On RTB (`show ip route`):** Symmetrically, the static route to RTA's Loopback (203.0.113.1) shows two paths with a metric of `[1/0]` through 198.18.2.1 and 198.18.1.1.
 
 ### 2. Verify eBGP Peer Summary Status
 * **Command:** `show ip bgp summary`
