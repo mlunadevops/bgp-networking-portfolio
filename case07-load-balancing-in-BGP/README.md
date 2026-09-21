@@ -20,6 +20,7 @@
 
 **Parallel Links & ECMP:** Both routers are connected by two parallel physical links (e0/0 and e0/1) utilizing subnets 198.18.1.0/30 and 198.18.2.0/30. Static routes pointing across both links enable Equal-Cost Multi-Path (ECMP) load balancing.   
 
+
 ## 2. Topology and BGP Neighbor Establishment
 
 This topology illustrates an eBGP Multihop configuration between two independent Autonomous Systems (AS 100 and AS 200), the setup features two routers, RTA and RTB, each equipped with a Loopback 0 interface (203.0.113.1/32 and 198.51.100.1/32 respectively).
@@ -27,7 +28,7 @@ This topology illustrates an eBGP Multihop configuration between two independent
 ![eBGP Multihop](images/00TopologyEbgpMultihop.jpg)
 
 
-## 3. BGP Configuration:
+## 3. BGP (eBGP Multihop) Configuration:
 
 **Router A (RTA - AS 100):**
 
