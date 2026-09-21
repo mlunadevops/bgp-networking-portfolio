@@ -18,12 +18,7 @@
 
 ## 1. Introduction and Theoretical Framework
 
-**Devices & Interfaces:** The setup features two routers, RTA and RTB, each equipped with a Loopback 0 interface (203.0.113.1/32 and 198.51.100.1/32 respectively).   
-
 **Parallel Links & ECMP:** Both routers are connected by two parallel physical links (e0/0 and e0/1) utilizing subnets 198.18.1.0/30 and 198.18.2.0/30. Static routes pointing across both links enable Equal-Cost Multi-Path (ECMP) load balancing.   
-
-**Logical Session:** Because the neighbors are not directly connected via their peering IP addresses, an eBGP multihop session is established logically between their loopback addresses, traversing the parallel physical paths.
-
 
 ## 2. Topology and BGP Neighbor Establishment
 
@@ -49,7 +44,20 @@ router bgp 100
 !
 ```
 
+**Router B (RTB - AS 200):**
 
+```text
+!
+router bgp 200
+ no synchronization
+ bgp log-neighbor-changes
+ network 198.51.100.1 mask 255.255.255.255
+ neighbor 203.0.113.1 remote-as 100
+ neighbor 203.0.113.1 ebgp-multihop 2
+ neighbor 203.0.113.1 update-source Loopback0
+ no auto-summary
+!
+```
 
 ### 4. BGP Configuration:
 
