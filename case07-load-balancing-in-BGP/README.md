@@ -1,116 +1,187 @@
-# Lab Guide: BGP Load Balancing in GNS3
+# TECHNICAL LOG & BGP ENGINEERING GUIDE
 
-## 1. Lab Topology and Prerequisites
-* **Software:** GNS3.
-* **Devices:** 2 Routers (e.g., Cisco IOS Routers, such as c3725 or c7200 series).
-* **Required Interfaces per Router:**
-  * At least two serial interfaces (e.g., `Serial0/0` and `Serial0/1`) to simulate multiple equal-cost links between the routers.
-  * Loopback interface (`Loopback0`) to simulate the routers' IP addresses for BGP neighbors.
+## Traffic Manipulation via the Weight Attribute
+**CCNP Miguelangel Luna**
 
 ---
 
-## 2. Lab Step-by-Step and Analysis Questions
+## CONTENIDOS:
 
-### Step 1: Initial BGP Configuration (Direct EBGP)
-Initially, configure routers RA (AS 11) and RB (AS 10) with basic BGP commands:  
+| Case | Title | Description |
+| :--- | :--- | :--- |
+| **01** | [Claude & n8n AI Agents](./case-01-Google-Auth/) | Agentes Claude . |
+| **02** | [Packet Tracert & VS CODE](./case-02-PT-MCP-VS-Code/) | Conecta Packet Tracert con MCP |
+| **03** | [Generar un Archivo Word desde Markdown usando Phyton](./case-03-Markdown-Word-Using-Phyton/) | Convierte un MD a Word usando Phyton |
+| **04** | [GNS3 AI](./case04-GNS3-AI/) | Conexion GNS3 MCP. |
 
-### Router A (RA):
+[Google](https://www.google.com)
+
+## 1. Introduction and Theoretical Framework
+
+The Weight attribute is a Cisco proprietary parameter used in BGP (Border Gateway Protocol) for best path selection. Its main characteristics are:
+
+* **Local Scope:** It has meaning exclusively within the local router where it is configured and is not propagated via BGP routing updates to neighbors.
+* **Value Range:** An integer number between 0 and 65,535.
+* **Default Values:** Routes originated locally by the router receive a weight of 32,768 by default; routes learned from external or internal neighbors receive a weight of 0 by default.
+* **Precedence:** It is evaluated in the absolute first place within BGP's decision algorithm (above Local Preference, AS_PATH, MED, etc.). Routes with a higher Weight value have absolute preference.
+
+## 2. Topology and BGP Neighbor Establishment
+
+The topology consists of four routers across different Autonomous Systems (AS 100, AS 200, AS 300, and AS 400). Before advertising prefixes, BGP neighbor adjacencies were established on each device.
+
+![BGP WEIGTH](images/01Topologia.jpg)
+
+ four routers across different Autonomous Systems (AS 100, AS 200, AS 300, and AS 400). Before advertising prefixes, BGP neighbor adjacencies were established on each device.
+
+## 3. BGP Configuration:
+
+**Router A (RTA - AS 100):**
 
 ```text
-!
-router bgp 11
- no synchronization
- neighbor 2.2.2.2 remote-as 10
- no auto-summary
+! 
+router bgp 100
 !
 ```
 
-**Router B (RB):
+### 4. BGP Configuration:
 
+-------------------------------------------------------------------------------------------
+
+# Step-by-Step Lab Guide: eBGP Multihop over Parallel Links with Load Balancing (ECMP)
+
+## Overview
+This laboratory guide outlines the configuration and verification procedures for establishing an eBGP Multihop session between two independent Autonomous Systems (AS 100 and AS 200). 
+
+By utilizing loopback interfaces and static routes across two parallel physical links, this lab demonstrates how to achieve Equal-Cost Multi-Path (ECMP) load balancing for control and data traffic in BGP.
+
+---
+
+## Topology Specifications
+* **Autonomous System 100 (Router RTA):**
+  * Loopback 0 IP: `203.0.113.1/32`
+* **Autonomous System 200 (Router RTB):**
+  * Loopback 0 IP: `198.51.100.1/32`
+* **Parallel Physical Link 1:**
+  * Subnet: `198.18.1.0/30`
+  * RTA: `198.18.1.1` | RTB: `198.18.1.2`
+* **Parallel Physical Link 2:**
+  * Subnet: `198.18.2.0/30`
+  * RTA: `198.18.2.1` | RTB: `198.18.2.2`
+
+---
+
+## Step 1: Physical and Logical Interface Configuration
+
+Configure the physical interface IP addresses and the Loopback interfaces on both routers to ensure basic interface up/up status.
+
+### RTA Configuration (AS 100)
 ```text
+RTA# configure terminal
 !
-router bgp 10
- no synchronization
- bgp log-neighbor-changes
- neighbor 1.1.1.1 remote-as 11
+interface Loopback 0
+ ip address 203.0.113.1 255.255.255.255
+ exit
 !
+interface GigabitEthernet0/0
+ ip address 198.18.1.1 255.255.255.252
+ no shutdown
+ exit
+!
+interface GigabitEthernet0/1
+ ip address 198.18.2.1 255.255.255.252
+ no shutdown
+ exit
 ```
 
-**Analysis Question:** Use the `show ip bgp summary` command. What is the reason why the BGP neighbor relationship has not been established?
-
-**Answer / Solution:** By default, EBGP (External BGP) sessions require routers to be directly connected and the TTL (Time to Live) value of BGP packets to be 1. If you try to establish a session using IP addresses that are not directly connected (such as Loopback interfaces) or if there are intermediate hops, the adjacency will not come up.
-
-Step 2: Using the ebgp-multihop CommandContinue configuring both routers to allow multiple hops in EBGP:  
-
-
-### Router A (RA):
-
+### RTB Configuration (AS 200)
 ```text
+RTB# configure terminal
 !
-router bgp 11
-neighbor 2.2.2.2 ebgp-multihop 255
-ip http server
+interface Loopback 0
+ ip address 198.51.100.1 255.255.255.255
+ exit
 !
+interface GigabitEthernet0/0
+ ip address 198.18.1.2 255.255.255.252
+ no shutdown
+ exit
+!
+interface GigabitEthernet0/1
+ ip address 198.18.2.2 255.255.255.252
+ no shutdown
+ exit
 ```
 
-**Router B (RB):
+---
 
+## Step 2: Configuring Static Routes for ECMP
+
+Because eBGP multihop peers are not directly connected via their loopback addresses, specific static host routes pointing across both physical links are required to enable ECMP load balancing.
+
+### RTA Static Routes
 ```text
-!
-router bgp 10
-neighbor 1.1.1.1 ebgp-multihop 255
-!
+RTA# configure terminal
+ip route 198.51.100.1 255.255.255.255 198.18.1.2
+ip route 198.51.100.1 255.255.255.255 198.18.2.2
 ```
 
-Analysis Questions:
-
-2.1) What is the ebgp-multihop command used for?
-
-Answer: It allows an EBGP session to be established between routers that are not directly connected (meaning they are more than one network hop away), by modifying the default TTL value.
-
-2.2) What does the value of 255 at the end of the ebgp-multihop command mean?
-
-Answer: It defines the maximum TTL value in the IP header of the BGP session packets, allowing the packet to traverse up to 255 intermediate routers without being dropped.
-
-**Status Question:** Use the `show ip bgp summary` command. What is the reason why the BGP neighbor relationship has not been established?
-
-**Answer / Solution:** Even though we already allowed multiple hops with a TTL of 255, the routers still do not know where to route traffic to reach the neighbor's Loopback IP address (`2.2.2.2` or `1.1.1.1`), because the output interface or static route to that IP has not been specified, nor has the physical IP address that the router should use as its source been indicated (`update-source`).
-
-### Step 3: Configuring the Source Address and Static Routes
-Configure the Loopback interface as the source for BGP updates and add static routes to reach the multiple physical links (`Serial0/0` and `Serial0/1`).
-
-Router A:
-
+### RTB Static Routes
 ```text
-!
-router bgp 11
- neighbor 2.2.2.2 update-source Loopback0
-!
-ip route 2.2.2.2 255.255.255.255 Serial0/1
-ip route 2.2.2.2 255.255.255.255 Serial0/0
-!
+RTB# configure terminal
+ip route 203.0.113.1 255.255.255.255 198.18.1.1
+ip route 203.0.113.1 255.255.255.255 198.18.2.1
 ```
 
+---
 
-Router B:
+## Step 3: BGP Routing Protocol Configuration
 
+Configure BGP processes, specifying the remote AS, forcing BGP to use loopback source addresses, and allowing multihop sessions.
+
+### RTA BGP Configuration (AS 100)
 ```text
-!
-router bgp 10
- neighbor 1.1.1.1 update-source Loopback0
-!
-ip route 1.1.1.1 255.255.255.255 Serial0/0
-ip route 1.1.1.1 255.255.255.255 Serial0/1
-!
+RTA# configure terminal
+router bgp 100
+ neighbor 198.51.100.1 remote-as 200
+ neighbor 198.51.100.1 ebgp-multihop 2
+ neighbor 198.51.100.1 update-source Loopback 0
+ network 203.0.113.1 mask 255.255.255.255
+ exit
 ```
 
-**Analysis Question:** 3.4) What is the reason why the BGP neighbor relationship has not been established? Perform troubleshooting and communicate the routers.  
-*Answer / Solution:* When configuring static routes pointing directly to multi-access or serial interfaces without a clear next-hop IP on point-to-point or broadcast networks, BGP may have issues resolving recursion if proper Layer 2/Layer 3 connectivity is missing. Additionally, IP addresses on the serial interfaces must be secured (e.g., configuring PPP/HDLC encapsulation or valid `/30` subnets). Once static routes are corrected with the proper next-hop IPs or interfaces, communication is established.
+### RTB BGP Configuration (AS 200)
+```text
+RTB# configure terminal
+router bgp 200
+ neighbor 203.0.113.1 remote-as 100
+ neighbor 203.0.113.1 ebgp-multihop 2
+ neighbor 203.0.113.1 update-source Loopback 0
+ network 198.51.100.1 mask 255.255.255.255
+ exit
+```
 
-**3.5) Device Verification:**  
-Run `show ip bgp summary` on both routers to confirm that the adjacency state shows a number (indicating exchanged prefixes) instead of states like `Idle` or `Active`.
+---
 
-### Steps 4 and 5: Verifying Load Balancing
-* **Check the Routing Table:** Run `show ip route bgp` on Router RA to verify that multiple equal-cost routes appear toward the destination network.
-* **Perform Traceroute:** Run a `traceroute` toward the neighbor's Loopback address to check which interfaces traffic alternates through, proving load balancing is working.
+## Step 4: Verification and Troubleshooting Commands
 
+Use the following commands in your GNS3 lab to verify proper operation, route distribution, and load balancing. Paste your CLI output evidence below each command block.
+
+### 1. Verify IP Routing Table and ECMP Paths
+* **Command:** `show ip route` or `show ip route [loopback-ip]`
+* **Objective:** Confirm that two equal-cost paths exist toward the neighbor's loopback address.
+* *[Insert your GNS3 output evidence here]*
+
+### 2. Verify eBGP Peer Summary Status
+* **Command:** `show ip bgp summary`
+* **Objective:** Check that the BGP neighbor session is established (state shows a numeric prefix count instead of Active/Idle).
+* *[Insert your GNS3 output evidence here]*
+
+### 3. Inspect BGP Table Entries
+* **Command:** `show ip bgp`
+* **Objective:** Validate that local networks and advertised prefixes from the remote AS are correctly received and installed.
+* *[Insert your GNS3 output evidence here]*
+
+### 4. Verify CEF and Load Balancing Behavior
+* **Command:** `show ip cef [loopback-ip]`
+* **Objective:** Confirm that traffic is being split across both parallel physical interfaces (`GigabitEthernet0/0` and `GigabitEthernet0/1`).
+* *[Insert your GNS3 output evidence here]*
