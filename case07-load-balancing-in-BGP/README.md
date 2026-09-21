@@ -153,11 +153,11 @@ Use the following commands in your GNS3 lab to verify proper operation, route di
 
 **Router A (show ip bgp summary):**
 
-![show ip bgp summary(images/11RTAshowipbgpsummary.jpg)
+![show ip bgp summary(images/11RTAshowipbgpsummary.png)
 
 **Router B (show ip bgp summary):**
 
-![show ip bgp summary](images/11RTBshowipbgpsummary.jpg)
+![show ip bgp summary](images/11RTBshowipbgpsummary.png)
 
 
 ### 3. Inspect BGP Table Entries
