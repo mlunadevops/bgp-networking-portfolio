@@ -125,74 +125,57 @@ ip route 203.0.113.1 255.255.255.255 198.18.2.1
 Note: Because eBGP multihop peers are not directly connected via their loopback, specific static routes pointing across both physical links are required to enable ECMP load balancing.
 
 
-## Step 2: Configuring Static Routes for ECMP
-
-.
-
-### RTA Static Routes
-```text
-RTA# configure terminal
-ip route 198.51.100.1 255.255.255.255 198.18.1.2
-ip route 198.51.100.1 255.255.255.255 198.18.2.2
-```
-
-### RTB Static Routes
-```text
-RTB# configure terminal
-ip route 203.0.113.1 255.255.255.255 198.18.1.1
-ip route 203.0.113.1 255.255.255.255 198.18.2.1
-```
-
----
-
-## Step 3: BGP Routing Protocol Configuration
-
-Configure BGP processes, specifying the remote AS, forcing BGP to use loopback source addresses, and allowing multihop sessions.
-
-### RTA BGP Configuration (AS 100)
-```text
-RTA# configure terminal
-router bgp 100
- neighbor 198.51.100.1 remote-as 200
- neighbor 198.51.100.1 ebgp-multihop 2
- neighbor 198.51.100.1 update-source Loopback 0
- network 203.0.113.1 mask 255.255.255.255
- exit
-```
-
-### RTB BGP Configuration (AS 200)
-```text
-RTB# configure terminal
-router bgp 200
- neighbor 203.0.113.1 remote-as 100
- neighbor 203.0.113.1 ebgp-multihop 2
- neighbor 203.0.113.1 update-source Loopback 0
- network 198.51.100.1 mask 255.255.255.255
- exit
-```
-
----
-
-## Step 4: Verification and Troubleshooting Commands
+## 5: Verification and Troubleshooting Commands
 
 Use the following commands in your GNS3 lab to verify proper operation, route distribution, and load balancing. Paste your CLI output evidence below each command block.
 
 ### 1. Verify IP Routing Table and ECMP Paths
 * **Command:** `show ip route` or `show ip route [loopback-ip]`
 * **Objective:** Confirm that two equal-cost paths exist toward the neighbor's loopback address.
-* *[Insert your GNS3 output evidence here]*
+
+**Router A (sh ip route):**
+
+![Show ip route](images/10RTAshiproute.jpg)
+
+**Router B (sh ip route):**
+
+![Show ip route](images/11RTBshiproute.jpg)
 
 ### 2. Verify eBGP Peer Summary Status
 * **Command:** `show ip bgp summary`
 * **Objective:** Check that the BGP neighbor session is established (state shows a numeric prefix count instead of Active/Idle).
-* *[Insert your GNS3 output evidence here]*
+
+**Router A (show ip bgp summary):**
+
+![show ip bgp summary(images/11RTAshowipbgpsummary.jpg)
+
+**Router B (show ip bgp summary):**
+
+![show ip bgp summary](images/11RTBshowipbgpsummary.jpg)
+
 
 ### 3. Inspect BGP Table Entries
 * **Command:** `show ip bgp`
 * **Objective:** Validate that local networks and advertised prefixes from the remote AS are correctly received and installed.
-* *[Insert your GNS3 output evidence here]*
+
+**Router A (show ip bgp):**
+
+![show ip bgp summary(images/12RTAshowipbgp.jpg)
+
+**Router B (show ip bgp):**
+
+![show ip bgp summary](images/12RTBshowipbgp.jpg)
+
 
 ### 4. Verify CEF and Load Balancing Behavior
 * **Command:** `show ip cef [loopback-ip]`
 * **Objective:** Confirm that traffic is being split across both parallel physical interfaces (`GigabitEthernet0/0` and `GigabitEthernet0/1`).
-* *[Insert your GNS3 output evidence here]*
+
+**Router A (show ip cef):**
+
+![show ip bgp summary(images/13RTAshowipcef.jpg)
+
+**Router B (show ip cef):**
+
+![show ip bgp summary](images/13RTBshowipcef.jpg)
+
