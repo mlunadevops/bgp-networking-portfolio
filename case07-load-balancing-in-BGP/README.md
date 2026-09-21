@@ -129,7 +129,7 @@ Note: Because eBGP multihop peers are not directly connected via their loopback,
 
 Use the following commands in your GNS3 lab to verify proper operation, route distribution, and load balancing. Paste your CLI output evidence below each command block.
 
-### 1. Verify IP Routing Table and ECMP Paths
+### 5.1 Verify IP Routing Table and ECMP Paths
 * **Command:** `show ip route` or `show ip route [loopback-ip]`
 * **Objective:** Confirm that two equal-cost paths exist toward the neighbor's loopback address.
 
@@ -147,7 +147,7 @@ Use the following commands in your GNS3 lab to verify proper operation, route di
 * 
 * **On RTB (`show ip route`):** Symmetrically, the static route to RTA's Loopback (203.0.113.1) shows two paths with a metric of `[1/0]` through 198.18.2.1 and 198.18.1.1.
 
-### 2. Verify eBGP Peer Summary Status
+### 5.2 Verify eBGP Peer Summary Status
 * **Command:** `show ip bgp summary`
 * **Objective:** Check that the BGP neighbor session is established (state shows a numeric prefix count instead of Active/Idle).
 
