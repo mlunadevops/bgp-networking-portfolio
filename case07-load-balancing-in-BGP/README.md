@@ -183,5 +183,5 @@ Use the following commands in your GNS3 lab to verify proper operation, route di
 
 **Router B (show ip cef):**
 
-![show ip bgp summary](images/13RTBshowipcef.jpg)
+![show ip bgp summary](images/13RTBshowipcef.png)
 
