@@ -160,7 +160,7 @@ Use the following commands in your GNS3 lab to verify proper operation, route di
 ![show ip bgp summary](images/11RTBshowipbgpsummary.png)
 
 
-### 3. Inspect BGP Table Entries
+### 5.3 Inspect BGP Table Entries
 * **Command:** `show ip bgp`
 * **Objective:** Validate that local networks and advertised prefixes from the remote AS are correctly received and installed.
 
@@ -173,7 +173,7 @@ Use the following commands in your GNS3 lab to verify proper operation, route di
 ![show ip bgp summary](images/12RTBshowipbgp.png)
 
 
-### 4. Verify CEF and Load Balancing Behavior
+### 5.4 Verify CEF and Load Balancing Behavior
 * **Command:** `show ip cef [loopback-ip]`
 * **Objective:** Confirm that traffic is being split across both parallel physical interfaces (`GigabitEthernet0/0` and `GigabitEthernet0/1`).
 
