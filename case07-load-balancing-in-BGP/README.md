@@ -179,7 +179,7 @@ Use the following commands in your GNS3 lab to verify proper operation, route di
 
 **Router A (show ip cef):**
 
-![show ip bgp summary(images/13RTAshowipcef.jpg)
+![show ip bgp summary](images/13RTAshowipcef.png)
 
 **Router B (show ip cef):**
 
