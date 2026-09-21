@@ -18,8 +18,11 @@
 
 ## 1. Introduction and Theoretical Framework
 
-**Parallel Links & ECMP:** Both routers are connected by two parallel physical links (e0/0 and e0/1) utilizing subnets 198.18.1.0/30 and 198.18.2.0/30. Static routes pointing across both links enable Equal-Cost Multi-Path (ECMP) load balancing.   
+**ECMP (Equal-Cost Multi-Path):** is a routing technique that allows you to distribute network traffic across multiple simultaneous paths toward the same destination, provided that all of them have the exact same cost or metric.
 
+**Main Benefits:**
+* **Load balancing:** Prevents the saturation of a single link by splitting the data flow.
+* **Redundancy:** If one of the paths fails, traffic is automatically redirected through the remaining available paths.
 
 ## 2. Topology and BGP Neighbor Establishment
 
@@ -32,7 +35,10 @@ This topology illustrates an eBGP Multihop configuration between two independent
 
 ## 3. BGP (eBGP Multihop) Configuration:
 
+
 **Router A (RTA - AS 100):**
+
+eBGP configuration: 
 
 ```text
 ! 
@@ -47,6 +53,16 @@ router bgp 100
 !
 ```
 
+Static route configuration on RTA:
+
+```text
+!
+ip route 198.51.100.1 255.255.255.255 198.18.1.2
+ip route 198.51.100.1 255.255.255.255 198.18.2.2
+!
+```
+
+
 **Router B (RTB - AS 200):**
 
 ```text
@@ -59,6 +75,15 @@ router bgp 200
  neighbor 203.0.113.1 ebgp-multihop 2
  neighbor 203.0.113.1 update-source Loopback0
  no auto-summary
+!
+```
+
+Static route configuration on RTB:
+
+```text
+!
+ip route 203.0.113.1 255.255.255.255 198.18.1.1
+ip route 203.0.113.1 255.255.255.255 198.18.2.1
 !
 ```
 
