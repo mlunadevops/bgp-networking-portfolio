@@ -166,11 +166,11 @@ Use the following commands in your GNS3 lab to verify proper operation, route di
 
 **Router A (show ip bgp):**
 
-![show ip bgp summary(images/12RTAshowipbgp.jpg)
+![show ip bgp summary](images/12RTAshowipbgp.png)
 
 **Router B (show ip bgp):**
 
-![show ip bgp summary](images/12RTBshowipbgp.jpg)
+![show ip bgp summary](images/12RTBshowipbgp.png)
 
 
 ### 4. Verify CEF and Load Balancing Behavior
