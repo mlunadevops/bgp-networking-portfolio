@@ -1,0 +1,54 @@
+RTB#sh run
+Building configuration...
+
+Current configuration : 1275 bytes
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname RTB
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+memory-size iomem 5
+no ip icmp rate-limit unreachable
+!
+!
+ip cef
+no ip domain lookup
+!
+!
+ip tcp synwait-time 5
+!
+!
+!
+interface Loopback0
+ ip address 198.51.100.1 255.255.255.255
+!
+interface Ethernet0/0
+ ip address 198.18.2.2 255.255.255.252
+ half-duplex
+!
+router bgp 200
+ no synchronization
+ bgp log-neighbor-changes
+ network 198.51.100.1 mask 255.255.255.255
+ neighbor 203.0.113.1 remote-as 100
+ neighbor 203.0.113.1 ebgp-multihop 2
+ neighbor 203.0.113.1 update-source Loopback0
+ no auto-summary
+!
+no ip http server
+!
+ip route 203.0.113.1 255.255.255.255 198.18.1.1
+ip route 203.0.113.1 255.255.255.255 198.18.2.1
+!
+!
+no cdp log mismatch duplex
+!
+end
