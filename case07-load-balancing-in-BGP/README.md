@@ -24,7 +24,7 @@
 
 The topology consists of four routers across different Autonomous Systems (AS 100, AS 200, AS 300, and AS 400). Before advertising prefixes, BGP neighbor adjacencies were established on each device.
 
-![eBGP Multihop](images/01Topologia.jpg)
+![eBGP Multihop](images/00TopologyEbgpMultihop.jpg)
 
  four routers across different Autonomous Systems (AS 100, AS 200, AS 300, and AS 400). Before advertising prefixes, BGP neighbor adjacencies were established on each device.
 
