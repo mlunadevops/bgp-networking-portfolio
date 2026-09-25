@@ -40,6 +40,11 @@ interface Ethernet0/0
  description Link to R2
  ip address 9.9.1.1 255.255.255.0
 !
+router ospf 1
+ router-id 2.2.2.2
+ network 2.2.2.2 0.0.0.0 area 0
+ network 9.9.3.0 0.0.0.255 area 0
+!
 ```
 
 **R2 (Sub-AS 10 - Confederation 400):**
