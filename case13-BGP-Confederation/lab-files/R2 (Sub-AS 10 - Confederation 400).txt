@@ -1,0 +1,46 @@
+R2#sh run
+Building configuration...
+
+Current configuration : 1371 bytes
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R2
+!
+interface Loopback0
+ ip address 2.2.2.2 255.255.255.255
+!
+interface Ethernet0/0
+ description Link to R1
+ ip address 9.9.1.2 255.255.255.0
+ half-duplex
+!
+interface Ethernet0/1
+ description Link to R4
+ ip address 9.9.3.2 255.255.255.0
+ half-duplex
+!
+router ospf 1
+ router-id 2.2.2.2
+ log-adjacency-changes
+ network 2.2.2.2 0.0.0.0 area 0
+ network 9.9.3.0 0.0.0.255 area 0
+!
+router bgp 10
+ no synchronization
+ bgp log-neighbor-changes
+ bgp confederation identifier 400
+ bgp confederation peers 20
+ neighbor 3.3.3.3 remote-as 10
+ neighbor 3.3.3.3 update-source Loopback0
+ neighbor 3.3.3.3 next-hop-self
+ neighbor 9.9.1.1 remote-as 300
+ no auto-summary
+!
+!
+end
+
+R2#
