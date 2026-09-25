@@ -198,3 +198,20 @@ router bgp 20
  neighbor 5.5.5.5 update-source Loopback0
 !
 ```
+
+**R5 (Sub-AS 20 - Confederación 400):**
+
+```text
+!
+router bgp 20
+ no synchronization
+ bgp log-neighbor-changes
+ bgp confederation identifier 400
+ bgp confederation peers 10
+ neighbor 4.4.4.4 remote-as 20
+ neighbor 4.4.4.4 update-source Loopback0
+ neighbor 4.4.4.4 next-hop-self
+ neighbor 9.9.2.1 remote-as 300
+ no auto-summary
+!
+```
