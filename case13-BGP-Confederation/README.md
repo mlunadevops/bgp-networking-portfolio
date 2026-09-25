@@ -42,7 +42,7 @@ interface Ethernet0/0
 !
 ```
 
-**R2 (Core 400, Sub-AS 10):**
+**R2 (Sub-AS 10 - Confederation 400):**
 
 ```text
 !
@@ -59,7 +59,7 @@ interface Ethernet0/1
  !
 ```
 
-**R3 (Core 400, Sub-AS 10):**
+**R3 (Sub-AS 10 - Confederación 400):**
 
 ```text
 !
@@ -117,7 +117,46 @@ interface Ethernet0/0
 !
 ```
 
-
-
 ### 4. BGP Configuration:
+
+**R1 (AS 300):**
+
+```text
+!
+router bgp 300
+ bgp log-neighbor-changes
+ network 1.1.1.1 mask 255.255.255.255
+ neighbor 9.9.1.2 remote-as 400
+!
+```
+
+**R2 (Sub-AS 10 - Confederation 400):**
+
+```text
+!
+router bgp 10
+ bgp log-neighbor-changes
+ bgp confederation identifier 400
+ bgp confederation peers 20
+ neighbor 3.3.3.3 remote-as 10
+ neighbor 3.3.3.3 update-source Loopback0
+ neighbor 9.9.1.1 remote-as 300
+!
+```
+
+**R3 (Sub-AS 10 - Confederación 400):**
+
+```text
+!
+interface Loopback0
+ ip address 3.3.3.3 255.255.255.255
+!
+interface Ethernet0/0
+ ip address 9.9.3.3 255.255.255.0
+!
+interface Ethernet0/1
+ ip address 9.9.4.3 255.255.255.0
+ !
+```
+
 
