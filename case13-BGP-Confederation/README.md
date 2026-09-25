@@ -29,7 +29,7 @@ Topologia
 
 ## 3. BGP Confederation Configuration:
 
-**R1(AS 300):**
+**R1 (AS 300):**
 
 ```text
 !
@@ -42,12 +42,20 @@ interface Ethernet0/0
 !
 ```
 
-**R2(Core, Sub-AS 65101):**
+**R2 (Core, Sub-AS 65101):**
 
 ```text
-! 
-
 !
+interface Loopback0
+ ip address 2.2.2.2 255.255.255.255
+!
+interface Ethernet0/0
+ ip address 9.9.1.2 255.255.255.0
+!
+interface Ethernet0/1
+ ip address 9.9.3.2 255.255.255.0
+!
+
 ```
 
 
