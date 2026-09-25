@@ -22,28 +22,23 @@
 
 ## 2. Topology and BGP Neighbor Establishment
 
-The topology consists of four routers across different Autonomous Systems (AS 100, AS 200, AS 300, and AS 400). Before advertising prefixes, BGP neighbor adjacencies were established on each device.
-
+Topologia
 ![BGP Confederation Topology](images/00Topology.jpg)
 
  four routers across different Autonomous Systems (AS 100, AS 200, AS 300, and AS 400). Before advertising prefixes, BGP neighbor adjacencies were established on each device.
 
 ## 3. BGP Confederation Configuration:
 
-**R1(AS 200):**
+**R1(AS 300):**
 
 ```text
-! 
+!
 interface Loopback0
  ip address 1.1.1.1 255.255.255.255
 !
-interface FastEthernet0/0
- ip address 9.9.12.1 255.255.255.0
-!
-router bgp 200
- bgp log-neighbor-changes
- network 1.1.1.1 mask 255.255.255.255
- neighbor 9.9.12.2 remote-as 100
+interface Ethernet0/0
+ description Link to R2
+ ip address 9.9.1.1 255.255.255.0
 !
 ```
 
