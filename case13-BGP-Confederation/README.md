@@ -40,11 +40,6 @@ interface Ethernet0/0
  description Link to R2
  ip address 9.9.1.1 255.255.255.0
 !
-router ospf 1
- router-id 2.2.2.2
- network 2.2.2.2 0.0.0.0 area 0
- network 9.9.3.0 0.0.0.255 area 0
-!
 ```
 
 **R2 (Sub-AS 10 - Confederation 400):**
@@ -62,6 +57,11 @@ interface Ethernet0/1
  description Link to R4
  ip address 9.9.3.2 255.255.255.0
  !
+router ospf 1
+ router-id 2.2.2.2
+ network 2.2.2.2 0.0.0.0 area 0
+ network 9.9.3.0 0.0.0.255 area 0
+!
 ```
 
 **R3 (Sub-AS 10 - Confederación 400):**
@@ -77,6 +77,12 @@ interface Ethernet0/0
 interface Ethernet0/1
  ip address 9.9.4.3 255.255.255.0
  !
+router ospf 1
+ router-id 3.3.3.3
+ network 3.3.3.3 0.0.0.0 area 0
+ network 9.9.3.0 0.0.0.255 area 0
+ network 9.9.4.0 0.0.0.255 area 0
+!
 ```
 
 **R4 (Core 400, Sub-AS 20):**
@@ -92,6 +98,12 @@ interface Ethernet0/0
 interface Ethernet0/1
  ip address 9.9.5.4 255.255.255.0
 !
+router ospf 1
+ router-id 4.4.4.4
+ network 4.4.4.4 0.0.0.0 area 0
+ network 9.9.4.0 0.0.0.255 area 0
+ network 9.9.5.0 0.0.0.255 area 0
+!
 ```
 
 **R5 (Core 400, Sub-AS 20):**
@@ -106,6 +118,11 @@ interface Ethernet0/0
 !
 interface Ethernet0/1
  ip address 9.9.2.2 255.255.255.0
+!
+router ospf 1
+router-id 5.5.5.5
+network 5.5.5.5 0.0.0.0 area 0
+network 9.9.5.0 0.0.0.255 area 0
 !
 ```
 
