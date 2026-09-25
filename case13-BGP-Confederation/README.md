@@ -241,6 +241,19 @@ router bgp 300
 
 ![BGP Confederation Evidence R1](images/01R1Evidence.png)
 
+The Lesson of the Source Ping:
+ping 6.6.6.6 -> 0% success (.....): Clearly demonstrates that using the physical outgoing IP does not work because that local subnet is not advertised in BGP.
+ping 6.6.6.6 source loopback 0 -> 100% success (!!!!!): Demonstrates the importance of forcing Loopback 1.1.1.1 as the source, achieving end-to-end bidirectional communication.
+
+Autonomous System Abstraction (show ip bgp summary):
+Displays neighbor 9.9.1.2 under AS 400. R1 has no idea that Sub-ASs 10 and 20 exist inside.
+
+Routing Table Installation (show ip route):
+Confirms the route B 6.6.6.6 [20/0] via 9.9.1.2 learned via BGP and actively installed in the router's RIB.
+
+AS_PATH Attribute Handling (sh ip bgp):
+Shows the path as 400 300. Evidence of how the confederation removed the parentheses of the internal Sub-ASs before delivering the route to R1.
+
 **R2 EVIDENCE (Sub-AS 10 - Confederation 400):**
 
 ![BGP Confederation Evidence R1](images/01R6Evidence.png)
