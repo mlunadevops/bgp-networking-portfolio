@@ -5,7 +5,7 @@
 
 ---
 
-## CONTENIDOS:
+## CONTENT:
 
 | Case | Title | Description |
 | :--- | :--- | :--- |
@@ -16,12 +16,11 @@
 
 **BGP Confederation (defined in RFC 5065):** is a scalability technique that allows a large Autonomous System (AS) to be divided into multiple smaller internal sub-ASes. To external ASes, the entire setup still appears as a single Autonomous System, but internally, it avoids the scalability issues of traditional iBGP design.
 
-## 2. Topology and BGP Neighbor Establishment
+## 2. Topology:
 
 Topologia
 ![BGP Confederation Topology](images/00Topology.jpg)
 
- four routers across different Autonomous Systems (AS 100, AS 200, AS 300, and AS 400). Before advertising prefixes, BGP neighbor adjacencies were established on each device.
 
 ## 3. BGP Routing Configuration:
 
@@ -142,9 +141,12 @@ interface Ethernet0/0
 ```text
 !
 router bgp 300
- bgp log-neighbor-changes
- network 1.1.1.1 mask 255.255.255.255
- neighbor 9.9.1.2 remote-as 400
+no synchronization
+bgp log-neighbor-changes
+network 1.1.1.1 mask 255.255.255.255
+neighbor 9.9.1.2 remote-as 400
+neighbor 9.9.1.2 allowas-in
+no auto-summary
 !
 ```
 
