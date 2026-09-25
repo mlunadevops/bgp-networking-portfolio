@@ -148,15 +148,16 @@ router bgp 10
 
 ```text
 !
-interface Loopback0
- ip address 3.3.3.3 255.255.255.255
+router bgp 10
+ bgp log-neighbor-changes
+ bgp confederation identifier 400
+ bgp confederation peers 20
+ neighbor 2.2.2.2 remote-as 10
+ neighbor 2.2.2.2 update-source Loopback0
+ neighbor 4.4.4.4 remote-as 20
+ neighbor 4.4.4.4 ebgp-multihop 2
+ neighbor 4.4.4.4 update-source Loopback0
 !
-interface Ethernet0/0
- ip address 9.9.3.3 255.255.255.0
-!
-interface Ethernet0/1
- ip address 9.9.4.3 255.255.255.0
- !
 ```
 
 
