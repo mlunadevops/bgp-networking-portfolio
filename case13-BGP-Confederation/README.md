@@ -241,6 +241,7 @@ router bgp 300
 
 ![BGP Confederation Evidence R1](images/01R1Evidence.png)
 
+## Key Points Highlighted in R1 Evidence:
 
 **ping 6.6.6.6 -> 0% success (.....):**  ping 6.6.6.6 source loopback 0 -> 100% success (!!!!!): Demonstrates the importance of forcing Loopback 1.1.1.1 as the source, achieving end-to-end bidirectional communication.
 
@@ -253,3 +254,17 @@ router bgp 300
 **R2 EVIDENCE (Sub-AS 10 - Confederation 400):**
 
 ![BGP Confederation Evidence R1](images/01R6Evidence.png)
+
+## Key Points Highlighted in Your R6 Evidence:
+
+### Perfect AS Abstraction (show ip bgp summary)
+* **Neighbor 9.9.2.2 (R5)** appears in AS 400 and delivers 1 prefix (`State/PfxRcd = 1`). Just like R1, R6 is completely unaware of the internal Sub-ASs 10 and 20.
+
+### RIB Installation (sh ip ro)
+* The `1.1.1.1/32` route learned via BGP (B) is correctly installed via `9.9.2.2`.
+
+### Inclusion of `allowas-in` and Sub-AS Stripping (`sh ip bgp`)
+* Shows the `1.1.1.1/32` route with `Path: 400 300 i`. This proves two things simultaneously: the confederation stripped the internal Sub-AS tags outward, and the `allowas-in` command on R6 allowed it to accept the route originally sourced from its own AS (300).
+
+### Bidirectional Acid Test (`ping 1.1.1.1 source loopback 0`)
+* The five exclamation marks `!!!!!` (100% success rate) from R6 to R1 confirm the operational data plane in the reverse direction.
