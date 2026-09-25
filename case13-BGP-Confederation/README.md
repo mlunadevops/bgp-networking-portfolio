@@ -253,7 +253,7 @@ router bgp 300
 
 **R2 EVIDENCE (Sub-AS 10 - Confederation 400):**
 
-![BGP Confederation Evidence R1](images/01R6Evidence.png)
+![BGP Confederation Evidence R6](images/01R6Evidence.png)
 
 ## Key Points Highlighted in Your R6 Evidence:
 
@@ -268,3 +268,18 @@ router bgp 300
 
 ### Bidirectional Acid Test (`ping 1.1.1.1 source loopback 0`)
 * The five exclamation marks `!!!!!` (100% success rate) from R6 to R1 confirm the operational data plane in the reverse direction.
+
+**R3 EVIDENCE (Sub-AS 10 - Confederation 400):**
+
+![BGP Confederation Evidence R3](images/01R6Evidence.png)
+
+## The 3 Key Technical Details of the R3 Capture:
+
+### Session Coexistence (`sh ip bgp su`)
+* Shows the iBGP session with `2.2.2.2` (AS 10) and the intra-confederation eBGP session with `4.4.4.4` (AS 20), both having cleanly exchanged routes (`PfxRcd = 1`).
+
+### Internal AS_PATH Tracking (`show ip bgp`)
+* Observe the `6.6.6.6/32` network: the path is `(20) 300 i`. The perfect contrast: It shows `(20)` on R3 (inside the confederation), whereas on R1/R6 it is displayed simply as `400 300` (outward).
+
+### Special `confed-external` Attribute (`show ip bgp 6.6.6.6`)
+* The `confed-external` tag confirms that the boundary between Sub-AS 10 and Sub-AS 20 transports the route while preserving iBGP attributes such as Local Preference `100` and the Next Hop `5.5.5.5`.
