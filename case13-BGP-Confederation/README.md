@@ -172,14 +172,16 @@ no auto-summary
 ```text
 !
 router bgp 10
- bgp log-neighbor-changes
- bgp confederation identifier 400
- bgp confederation peers 20
- neighbor 2.2.2.2 remote-as 10
- neighbor 2.2.2.2 update-source Loopback0
- neighbor 4.4.4.4 remote-as 20
- neighbor 4.4.4.4 ebgp-multihop 2
- neighbor 4.4.4.4 update-source Loopback0
+no synchronization
+bgp log-neighbor-changes
+bgp confederation identifier 400
+bgp confederation peers 20
+neighbor 2.2.2.2 remote-as 10
+neighbor 2.2.2.2 update-source Loopback0
+neighbor 4.4.4.4 remote-as 20
+neighbor 4.4.4.4 ebgp-multihop 2
+neighbor 4.4.4.4 update-source Loopback0
+no auto-summary
 !
 ```
 
