@@ -74,6 +74,36 @@ interface Ethernet0/1
  !
 ```
 
+**R4 (Core 400, Sub-AS 20):**
+
+```text
+!
+interface Loopback0
+ ip address 4.4.4.4 255.255.255.255
+!
+interface Ethernet0/0
+ ip address 9.9.4.4 255.255.255.0
+!
+interface Ethernet0/1
+ ip address 9.9.5.4 255.255.255.0
+!
+```
+
+**R5 (Core 400, Sub-AS 20):**
+
+```text
+!
+interface Loopback0
+ ip address 5.5.5.5 255.255.255.255
+!
+interface Ethernet0/0
+ ip address 9.9.5.5 255.255.255.0
+!
+interface Ethernet0/1
+ ip address 9.9.2.2 255.255.255.0
+!
+```
+
 
 ### 4. BGP Configuration:
 
