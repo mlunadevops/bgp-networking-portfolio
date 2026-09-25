@@ -248,8 +248,7 @@ router bgp 300
 
 **Routing Table Installation (show ip route):** Confirms the route B 6.6.6.6 [20/0] via 9.9.1.2 learned via BGP and actively installed in the router's RIB.
 
-AS_PATH Attribute Handling (sh ip bgp):
-Shows the path as 400 300. Evidence of how the confederation removed the parentheses of the internal Sub-ASs before delivering the route to R1.
+**AS_PATH Attribute Handling (sh ip bgp):** Shows the path as 400 300. Evidence of how the confederation removed the parentheses of the internal Sub-ASs before delivering the route to R1.
 
 **R2 EVIDENCE (Sub-AS 10 - Confederation 400):**
 
