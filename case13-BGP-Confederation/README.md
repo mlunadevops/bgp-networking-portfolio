@@ -42,7 +42,7 @@ interface Ethernet0/0
 !
 ```
 
-**R2 (Core, Sub-AS 65101):**
+**R2 (Core 400, Sub-AS 10):**
 
 ```text
 !
@@ -50,15 +50,29 @@ interface Loopback0
  ip address 2.2.2.2 255.255.255.255
 !
 interface Ethernet0/0
+ description Link to R1
  ip address 9.9.1.2 255.255.255.0
-!
+ !
 interface Ethernet0/1
+ description Link to R4
  ip address 9.9.3.2 255.255.255.0
-!
-
+ !
 ```
 
+**R3 (Core 400, Sub-AS 10):**
 
+```text
+!
+interface Loopback0
+ ip address 3.3.3.3 255.255.255.255
+!
+interface Ethernet0/0
+ ip address 9.9.3.3 255.255.255.0
+!
+interface Ethernet0/1
+ ip address 9.9.4.3 255.255.255.0
+ !
+```
 
 
 ### 4. BGP Configuration:
