@@ -104,6 +104,20 @@ interface Ethernet0/1
 !
 ```
 
+**R6 (AS 300):**
+
+```text
+!
+interface Loopback0
+ ip address 6.6.6.6 255.255.255.255
+!
+interface Ethernet0/0
+ ip address 9.9.2.1 255.255.255.0
+ half-duplex
+!
+```
+
+
 
 ### 4. BGP Configuration:
 
