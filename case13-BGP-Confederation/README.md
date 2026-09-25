@@ -234,3 +234,13 @@ router bgp 300
  no auto-summary
 !
 ```
+
+## 5. EVIDENCE:
+
+**R1 EVIDENCE (AS 300):**
+
+![BGP Confederation Evidence R1](images/01R1Evidence.png)
+
+**R2 EVIDENCE (Sub-AS 10 - Confederation 400):**
+
+![BGP Confederation Evidence R1](images/01R6Evidence.png)
