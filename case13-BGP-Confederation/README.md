@@ -64,7 +64,7 @@ router ospf 1
 !
 ```
 
-**R3 (Sub-AS 10 - Confederación 400):**
+**R3 (Sub-AS 10 - Confederation 400):**
 
 ```text
 !
@@ -166,7 +166,7 @@ router bgp 10
 !
 ```
 
-**R3 (Sub-AS 10 - Confederación 400):**
+**R3 (Sub-AS 10 - Confederation 400):**
 
 ```text
 !
@@ -183,7 +183,7 @@ router bgp 10
 ```
 
 
-**R4 (Sub-AS 20 - Confederación 400):**
+**R4 (Sub-AS 20 - Confederation 400):**
 
 ```text
 !
@@ -199,7 +199,7 @@ router bgp 20
 !
 ```
 
-**R5 (Sub-AS 20 - Confederación 400):**
+**R5 (Sub-AS 20 - Confederation 400):**
 
 ```text
 !
