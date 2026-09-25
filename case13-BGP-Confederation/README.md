@@ -220,3 +220,17 @@ router bgp 20
  no auto-summary
 !
 ```
+
+**R6 (AS 300):**
+
+```text
+!
+router bgp 300
+ no synchronization
+ bgp log-neighbor-changes
+ network 6.6.6.6 mask 255.255.255.255
+ neighbor 9.9.2.2 remote-as 400
+ neighbor 9.9.2.2 allowas-in
+ no auto-summary
+!
+```
