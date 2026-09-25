@@ -42,13 +42,13 @@ The topology consists of four routers across different Autonomous Systems (AS 10
 interface Loopback0
  ip address 1.1.1.1 255.255.255.255
 !
-interface Ethernet0/0
- description Link to R2
- ip address 10.1.12.1 255.255.255.252
+interface FastEthernet0/0
+ ip address 9.9.12.1 255.255.255.0
 !
-interface Ethernet0/1
- description Link to R3
- ip address 10.1.13.1 255.255.255.252
+router bgp 200
+ bgp log-neighbor-changes
+ network 1.1.1.1 mask 255.255.255.255
+ neighbor 9.9.12.2 remote-as 100
 !
 ```
 
