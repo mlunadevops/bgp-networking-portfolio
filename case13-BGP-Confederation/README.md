@@ -181,7 +181,6 @@ no auto-summary
 !
 ```
 
-
 **R4 (Sub-AS 20 - Confederation 400):**
 
 ```text
@@ -247,7 +246,7 @@ router bgp 300
 
 **AS_PATH Attribute Handling (sh ip bgp):** Shows the path as 400 300. Evidence of how the confederation removed the parentheses of the internal Sub-ASs before delivering the route to R1.
 
-**R2 EVIDENCE (Sub-AS 10 - Confederation 400):**
+**R6 EVIDENCE (Sub-AS 10 - Confederation 400):**
 
 ![BGP Confederation Evidence R6](images/01R6Evidence.png)
 
