@@ -266,7 +266,7 @@ router bgp 300
 
 **R3 EVIDENCE (Sub-AS 10 - Confederation 400):**
 
-![BGP Confederation Evidence R3](images/01R6Evidence.png)
+![BGP Confederation Evidence R3](images/01R3Evidence.png)
 
 ## The 3 Key Technical Details of the R3 Capture:
 
