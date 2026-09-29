@@ -7,10 +7,6 @@
 
 ## CONTENT:
 
-| Case | Title | Description |
-| :--- | :--- | :--- |
-| **01** | [Claude & n8n AI Agents](./case-01-Google-Auth/) | Agentes Claude . |
-
 
 ## 1. Introduction and Theoretical Framework
 
