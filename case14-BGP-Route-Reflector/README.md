@@ -42,7 +42,7 @@ router bgp 100
 
 ### 1. Extracción y resumen de comandos por Router
 
-#### **Router R1 (Route Reflector Client)**
+#### **Router R1 (Route Reflector Client):**
 
 ```text
 ! 
@@ -50,14 +50,13 @@ router bgp 65000
 bgp router-id 10.0.0.2
 neighbor 10.0.0.1 remote-as 65000
 neighbor 10.0.0.1 update-source Loopback0
-neighbor 10.0.0.1 password BGPKEY
+neighbor 10.0.0.1 password BGPRRSECRET
 address-family ipv4
 neighbor 10.0.0.1 activate
 network 203.0.113.0 mask 255.255.255.0
 exit-address-family
 !
 ```
-
 #### **Router R2 (Route Reflector)**
 
 ```text
@@ -99,73 +98,12 @@ end
 !
 ```
 
-
-configure terminal
-router bgp 65000
- bgp router-id 10.0.0.3
- neighbor 10.0.0.1 remote-as 65000
- neighbor 10.0.0.1 update-source Loopback0
- neighbor 10.0.0.1 password BGPKEY
- address-family ipv4
-  neighbor 10.0.0.1 activate
-  network 198.51.100.0 mask 255.255.255.0
- exit-address-family
-end
-write memory
-```[cite: 1]
-
-
-
-
 * **Finalización y guardado:**
   * `end`
   * `show ip bgp summary`
   * `show ip bgp neighbors 10.0.0.2 advertised-routes`
   * `write memory`
 
----
-
-#### **Router R1 (RR Client)**
-* **Configuración inicial y proceso BGP:**
-  * `enable`
-  * `configure terminal`
-  * `router bgp 65000`
-  * `bgp router-id 10.0.0.2`
-* **Vecino con RR1 (`10.0.0.1`):**
-  * `neighbor 10.0.0.1 remote-as 65000`
-  * `neighbor 10.0.0.1 update-source Loopback0`
-  * `neighbor 10.0.0.1 password BGPKEY`
-* **Activación y red propia:**
-  * `address-family ipv4`
-  * `neighbor 10.0.0.1 activate`
-  * `network 203.0.113.0 mask 255.255.255.0`
-  * `exit-address-family`
-* **Cierre y guardado:**
-  * `end`
-  * `write memory`
-
----
-
-#### **Router R2 (RR Client)**
-* **Configuración inicial y proceso BGP:**
-  * `enable`
-  * `configure terminal`
-  * `router bgp 65000`
-  * `bgp router-id 10.0.0.3`
-* **Vecino con RR1 (`10.0.0.1`):**
-  * `neighbor 10.0.0.1 remote-as 65000`
-  * `neighbor 10.0.0.1 update-source Loopback0`
-  * `neighbor 10.0.0.1 password BGPKEY`
-* **Activación y red propia:**
-  * `address-family ipv4`
-  * `neighbor 10.0.0.1 activate`
-  * `network 198.51.100.0 mask 255.255.255.0`
-  * `exit-address-family`
-* **Cierre y guardado:**
-  * `end`
-  * `write memory`
-
----
 
 ### 2. Pasos para implementarla en GNS3 desde cero
 
