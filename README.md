@@ -56,6 +56,7 @@ To put it into the broader picture:
 | **11** | [MED (Multi-Exit Discriminator)](./case11-Metric-MED-Attributte/) | BGP MED |
 | **12** | [WEIGHT (Weight-Atribute)](./case12-Weight-Atribute/) | BGP Weight Atribute |
 | **13** | [BGP Confederation](./case13-BGP-Confederation/) | BGP Confederation |
+| **14** | [BGP Route Reflector](./case14-BGP-Route-Reflector/) | Route Reflector |
 | ... | ... | ... |
 
 
