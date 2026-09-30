@@ -42,7 +42,23 @@ router bgp 100
 
 ### 1. Extracción y resumen de comandos por Router
 
-#### **Router R3 (Route Reflector)**
+#### **Router R1 (Route Reflector Client)**
+
+```text
+! 
+router bgp 65000
+bgp router-id 10.0.0.2
+neighbor 10.0.0.1 remote-as 65000
+neighbor 10.0.0.1 update-source Loopback0
+neighbor 10.0.0.1 password BGPKEY
+address-family ipv4
+neighbor 10.0.0.1 activate
+network 203.0.113.0 mask 255.255.255.0
+exit-address-family
+!
+```
+
+#### **Router R2 (Route Reflector)**
 
 ```text
 ! 
@@ -66,7 +82,37 @@ end
 !
 ```
 
+#### **Router R3 (Route Reflector Client)**
 
+```text
+! 
+router bgp 65000
+bgp router-id 10.0.0.3
+neighbor 10.0.0.1 remote-as 65000
+neighbor 10.0.0.1 update-source Loopback0
+neighbor 10.0.0.1 password BGPKEY
+address-family ipv4
+neighbor 10.0.0.1 activate
+network 198.51.100.0 mask 255.255.255.0
+exit-address-family
+end
+!
+```
+
+
+configure terminal
+router bgp 65000
+ bgp router-id 10.0.0.3
+ neighbor 10.0.0.1 remote-as 65000
+ neighbor 10.0.0.1 update-source Loopback0
+ neighbor 10.0.0.1 password BGPKEY
+ address-family ipv4
+  neighbor 10.0.0.1 activate
+  network 198.51.100.0 mask 255.255.255.0
+ exit-address-family
+end
+write memory
+```[cite: 1]
 
 
 
